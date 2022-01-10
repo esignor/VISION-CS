@@ -1,7 +1,7 @@
 
 \section*{Project content}
 The goal of our project is to study and compare alternative techniques to Mask R-CNN, for solving instance segmentation tasks.\\
-First we will study Mask R-CNN, to understand its strategies and potentials, and then we will focus on the comparison of two alternative approaches, SOLOv2 and DeepSnake, that both seem to have better performances than Mask R-CNN. Our activity will be divided into 3 steps:
+First we will study Mask R-CNN, to understand its strategies and potentials, and then we will focus on the comparison of two alternative approaches: SOLOv2 and Deep Snake. That both seem to have better performances than Mask R-CNN. Our activity will be divided into 3 steps:
 \begin{enumerate}
 \item Study of the papers (Mask R-CNN, SOLOv2 and DeepSnake), with identification of the differences in approach;
 \item Fine-tuning of the models. We will use the models present in:
@@ -23,6 +23,6 @@ We have chosen to deal with the Urban Street Scenes as a sub-context.
 \\\\
 \noindent
 For phase (3) we plan to carry out a quantitative assessment using at least the \textit{IoU} and \textit{AP} indices. We use all datasets for evalutation (with even MS COCO for test the general behaviour of the models), and fine-tuning only those related to the Urban Street Scenes sub-context. \\
-We will also investigate the possibility of changing the backbone and head architectures in SOLOv2 and Circular convolution in DeepSnake.\\
+We will also investigate the possibility of changing the backbone and head architectures in SOLOv2 and Circular convolution in Deep Snake.\\
 Any consideration we make will always take into account the official results obtained by Mask R-CNN.
 
