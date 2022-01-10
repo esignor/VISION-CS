@@ -1,0 +1,59 @@
+\documentclass[10pt,a4paper, italian]{article}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc} % riconosce gli acenti
+\usepackage[utf8]{inputenc} % riconosce gli acenti
+\usepackage{amssymb}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx} % per le immagini
+\usepackage[strict]{changepage}
+\usepackage{url}
+\usepackage[colorlinks=true,linkcolor=purple,urlcolor=purple]{hyperref}
+
+\pagenumbering{Roman}
+\setcounter{page}{0}
+
+\begin{document}
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.6\linewidth]{./img/logo_dip.png}
+   \label{fig: logo-unip-dipartimento-matematica}
+\end{figure}
+\vspace{1cm}
+\begin{center}\Large{\textbf{University of Padua \\ Department of Mathematics "Tullio Levi-Civita" Master of Science in Computer Science}}\end{center}
+\vspace{5cm}
+\begin{center}\Large{Project of Vision Cognitive and Services: Instance Segmentation - SOLOv2 and DeepSnake\\ }\end{center}
+\begin{flushright} 
+\vspace{1cm}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Eleonora Signor & eleonora.signor@studenti.unipd.it\\
+\hline
+Francesco & \\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\vspace{4cm}
+\textit{Proposal - January 2022}\\
+\end{flushright}
+\pagebreak
+%-----------------------------------------------------------------------------------%
+% INDEX OF PAGES
+%\tableofcontents \newpage
+%-----------------------------------------------------------------------------------%
+
+\setcounter{section}{0}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{./content/contenuto.tex}\newpage
+\end{document}
+
+

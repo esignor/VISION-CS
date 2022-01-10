@@ -1,0 +1,29 @@
+
+\section*{Project content}
+The goal of our project is to study and compare alternative techniques to Mask R-CNN, for solving instance segmentation tasks.\\
+First we will study Mask R-CNN, to understand its strategies and potentials, and then we will focus on the comparison of two alternative approaches, SOLOv2 and DeepSnake, that both seem to have better performances than Mask R-CNN. Our activity will be divided into 3 steps:
+\begin{enumerate}
+\item Study of the papers (Mask R-CNN, SOLOv2 and DeepSnake), with identification of the differences in approach;
+\item Training of the models, we will use the models present in:
+\begin{itemize}
+\item \url{https://github.com/zju3dv/snake/};
+\item \url{https://github.com/aim-uofa/AdelaiDet/}.
+\end{itemize}
+\noindent
+With the use of fine-tuning if necessary.
+\item Evaluation of the models and subsequent report writing.
+\end{enumerate}
+\noindent
+The datasets we will use to carry out phase (2) will be:
+\begin{itemize}
+\item MS COCO, used in the reference papers;
+\item Cityescape, for the evaluation of urban scenes, in order to assess systemicity;
+\item WildDash, contains difficult images and counter-productive camera characteristics, which should allow us to make some considerations about the robustness of the models;
+\item ExDark, contains low light images, to evaluate the response to the illumination challenge.
+\end{itemize}
+\noindent
+For Cityescape and MS COCO we would make use of the benchmarks suites.
+For phase (3) we plan to carry out a quantitative assessment using at least the \textit{IoU} and \textit{AP} indices.\\
+We will also investigate the possibility of changing the backbone and head architectures in SOLOv2 and Circular convolution in DeepSnake.\\
+Any consideration we make will always take into account the official results obtained by Mask R-CNN.
+
