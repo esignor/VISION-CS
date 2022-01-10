@@ -22,7 +22,7 @@ The datasets we will use to carry out phase (2) will be:
 We have chosen to deal with the Urban Street Scenes as a sub-context.
 \\\\
 \noindent
-For phase (3) we plan to carry out a quantitative assessment using at least the \textit{IoU} and \textit{AP} indices. We use all datasets for evalutation (with even MSCOCO), and fine-tuning only those related to the Urban Street Scenes sub-context \\
+For phase (3) we plan to carry out a quantitative assessment using at least the \textit{IoU} and \textit{AP} indices. We use all datasets for evalutation (with even MS COCO for test the general behaviour of the models), and fine-tuning only those related to the Urban Street Scenes sub-context. \\
 We will also investigate the possibility of changing the backbone and head architectures in SOLOv2 and Circular convolution in DeepSnake.\\
 Any consideration we make will always take into account the official results obtained by Mask R-CNN.
 
