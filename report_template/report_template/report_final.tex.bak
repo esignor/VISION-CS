@@ -1,0 +1,309 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+
+% Include other packages here, before hyperref.
+
+% If you comment hyperref and then uncomment it, you should delete
+% egpaper.aux before re-running latex.  (Or just hit 'q' on the first latex
+% run, let it finish, and you should be clear).
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+
+\cvprfinalcopy % *** Uncomment this line for the final submission
+
+\def\cvprPaperID{****} % *** Enter the CVPR Paper ID here
+\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
+
+% Pages are numbered in submission mode, and unnumbered in camera-ready
+%\ifcvprfinal\pagestyle{empty}\fi
+\setcounter{page}{1}
+\begin{document}
+
+%%%%%%%%% TITLE
+\title{Instance Segmentation for Urban Street Scenes}
+
+\author{Francesco Bari\\
+{\tt\small francesco.bari.2@studenti.unipd.it}
+% For a paper whose authors are all at the same institution,
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'',
+% just like the second author.
+% To save space, use either the email address or home page, not both
+\and
+Eleonora Signor\\
+{\tt\small eleonora.signor@studenti.unipd.it}
+}
+
+\maketitle
+%\thispagestyle{empty}
+
+%%%%%%%%% ABSTRACT
+\begin{abstract}
+In questo lavoro abbiamo confrontato differenti tecniche di instance segmentation, gi\`a esistenti, sul task specifico di Urban Street Scenes. Il nostro interesse verso il topic \`e nato dal fatto che la segmentazione delle istanze \`e uno dei compiti fondamentali della visione, tuttavia si presenta ancora complesso e non del tutto esplorato. Esistono differenti approcci di instance segmentation, di seguito ne presentiamo solo una sottoparte, valutandone accuracy e performance su dataset multicategoriali e rivolti a quantificare la robustezza di un algoritmo.
+\end{abstract}
+
+%%%%%%%%% BODY TEXT
+\section{Introduction}
+Mezza colonna
+
+\section{Related Work}
+Mettere le immagini e spiegare le architetture. Al massimo 1 colonna e mezza.\\
+Estendiamo i papers precedenti, cercando di uniformarli, con l'analisi di dataset complessi caratterizzati da molte categorie, differenza di frequenza e immagini complesse che mirano a valutare le tecniche sulla base di illumination challanges.
+\subsection{Mask R-CNN}
+Approccio a due stadi, spiegare che deriva da Faster RCNN, usa RoI e RoAlign. Ci sono 3 rami: classificazione, regressione e predizione della maschera
+\subsection{BlendMask}
+Approccio a  singolo stadio, siegare come funziona il Blender, il modulo inferiore e il livello di attenzione
+\subsection{SOLOv2}
+Estensione di Mask R-CNN, fa uso di SGD, del kernel mask G and mask function F
+\subsection{Deep Snake}
+\section{Dataset}
+Mostrare qualche immagine contenuta all'interno dei datasets. Al massimo due colonne.\\
+Come sono formati (train, val, test se ci sono), le annotazioni, i json.
+\subsection{Cityscapes}
+Ricordarsi che ci sono categorie con frequenza diversa, sarebbe bello mettere un grafico che mostra questa quantificazione
+\subsection{WildDash}
+\section{Method}
+Per riuscire a fare un confronto tra le diverse tecniche di instance segmentation, oggetto di questo documento, abbiamo utlizzato i seguenti approcci:
+\begin{itemize}
+\item proceduto con l'implentazione di modelli e successivamente fatto ricorso al metodo sperimentale per la valutazione;
+\item studiato e analizzato i risultati dei papers.
+\end{itemize}
+\subsection{Stage approach}
+
+\subsubsection{Preparazione dei dataset}
+\subsubsection{Inferenza}
+\subsubsection{Training with fine-tuning}
+\paragraph{Mask R-CNN}
+La loss utilizzata durante il training \`e la seguente
+\begin{center} min(L) $=$ min(L$_{cls}$ + L$_{box}$ + L$_{mask}$) \end{center}
+L$_{cls}$ is the classification loss, L$_{box}$ is the bounding-box loss and  L$_{mask}$ is the average binary cross-entropy loss.
+\paragraph{BlendMask}
+La loss utilizzata durante il training \`e la seguente
+\begin{center} min(L) $=$ min(semantic loss)~\cite{Authors4_semanticloss}\end{center}.
+
+\subsection{Contour-based approach}
+\subsection{Metrics}
+\begin{itemize}
+\item AP
+\item numero di istanze, tempo :: accuracy visiva.confidence-threshold
+\end{itemize}
+\subsection{Failure and possibile improvments}
+
+\section{Experiments and results}
+In questa sezione descriviamo gli esperimenti che abbiamo eseguito per testare  e valutare le tecniche oggetto di questo lavoro. Tali esperimenti gli abbiamo eseguiti al termine delle fasi di studio e codifica.
+\subsection{Stage approach}
+\subsubsection{confidence-threshold}
+La prima serie di esperimenti che abbiamo svolto hanno riguardato l'inferenza. Abbiamo ritenuto opportuno selezionare tre soglie di confidenza: 0.0, 0.35 e 0.75. Soglie intermedie hanno presentato risultati simili al confidence-threshold di riferimento pi\`u vicino.\\
+Abbiamo fatto ricorso a modelli con pesi preadestrati da ImagNet, architettura ResNet 101 e backbone FPN.
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Method & value \\
+\hline\hline
+Mask R-CNN &  \\
+\hline
+SOLOv2 & \\
+\hline
+BlendMask & \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Inference result. Case none confidence-threshold.}
+\label{mytable_inferencenone}
+\end{table} 
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Method & value \\
+\hline\hline
+Mask R-CNN & \\
+\hline
+SOLOv2 & \\
+\hline
+BlendMask & \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Inference result. Case 0.35 confidence-threshold.}
+\label{mytable_inference0.35}
+\end{table}
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+Method & value\\
+\hline\hline
+Mask R-CNN & \\
+\hline
+SOLOv2 & \\
+\hline
+BlendMask & \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Inference result. Case 0.75 confidence-threshold.}
+\label{mytable_inference0.5}
+\end{table}
+Inoltre abbiamo notato che in immagini complesse, come a elevata numerosit\`a di oggetti, con differenze di scala o con oggetti deformati nessuna delle tecniche di instance segmentation in analisi, sembra in grado di dare risultati soddisfacenti. TODO: immagini slot di 3.
+Abbiamo concluso questa prima serie di esperimenti definendo Mask R-CNN, come il modello capace di fornire i migliori risultati di inferenza su modelli standard preaddesstrati.
+
+
+
+\subsubsection{Backbone}
+\label{experiments:second_trial}
+La seconda serie di esperimenti, che abbiamo compiuto, riguarda la definizione della backbone. Tutte le tecniche a stadi, oggetto del confronto, sono dotate del suddetto modulo inferiore, per cui ci \`e risultato semplice uniformare le scelte architetturali in modo da poter compiere una valutazione oggettiva. Le tecniche che abbiamo confrontato sono state Mask R-CNN e BlendMask.\\
+Le configurazioni constanti delle reti sono image size ...,  numero massimo di iterazioni, learning rate ..., step size a ... e fine-tuning esclusivamente agli ultimi 2 livelli.
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
+\hline\hline
+\begin{tabular}[c]{cc}Mask R-CNN $+$ ResNet50 \\ $+$ C4 $+$ Base-RCNN-C4\end{tabular} & & \\
+\hline
+\begin{tabular}[c]{cc}Mask R-CNN $+$ ResNet50 \\ $+$ DC5 $+$ Base-RCNN-DilatedC5\end{tabular} & & \\
+\hline
+\begin{tabular}[c]{cc}Mask R-CNN $+$ ResNet50 \\ $+$ FPN $+$ Base-RCNN-FPN\end{tabular} & &\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Backbone Mask R-CNN result.}
+\label{mytable_backbone_MaskRCNN}
+\end{table}
+\noindent
+Per BlendMask, oltre a settare le configurazioni costanti, avvalendoci dei risultati presentati in ... abbiamo settato R $=$ 56, M $=$ 14, K $=$ 4, sampling method for bottom bases bilinear pooling, interpolation method for top-level attentions bilinear upsampling and semantic loss. Inoltre abbiamo deciso di testare vari tipi di decoder: ProtoNet and DeepLabv3+.
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
+\hline\hline
+\begin{tabular}[c]{cc}BlendMask with decoder ProtoNet \\ $+$ ResNet50 $+$ FPN $+$ Base-550\end{tabular} & &\\
+\hline
+\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet50 $+$ deformable convolution \\ $+$ FPN $+$ Base-550\end{tabular} & &\\
+\hline
+\begin{tabular}[c]{cc}BlendMask with decoder DeepLabv3+ \\ $+$ ResNet50 $+$ FPN $+$ Base-550\end{tabular} & &\\
+\hline
+\begin{tabular}[c]{ccc}BlendMask with decoder DeepLabv3+ \\ $+$ ResNet50 $+$ deformable convolution \\ $+$ FPN  $+$ Base-550\end{tabular} & &\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Backbone BlendMask result.}
+\label{mytable_backbone_BlendMask}
+\end{table}
+
+\subsubsection{Deepness}
+Una terza serie di esperimenti ha riguardato lo studio della profondit\`a delle reti ResNet.\\
+I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S\ref{experiments:second_trial}.
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
+\hline\hline
+\begin{tabular}[c]{cc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ FPN $+$ Base-BlendMask\end{tabular} & &\\
+\hline
+\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ deformable convolution \\$+$ FPN $+$ Base-BlendMask\end{tabular} & &\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Deepness BlendMask result.}
+\label{mytable_deepness_BlendMask}
+\end{table}
+
+\subsection{Freeze levels}
+Per la quarta serie di esperimenti ci siamo voluti concentrare sul numero di layers da "scongelare" di ResNet durante il re-training dei pesi.\\
+I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S \ref{experiments:second_trial}.
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
+\hline\hline
+\begin{tabular}[c]{ccc}Mask R-CNN $+$ ResNet101 $+$ FPN \\ 1 layers freeze\end{tabular} & &\\
+\hline
+\begin{tabular}[c]{ccc}Mask R-CNN $+$ ResNet101 $+$ FPN \\ 3 layers freeze\end{tabular} & &\\
+\hline
+\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ FPN $+$ Base-BlendMask \\ 1 layers freeze\end{tabular} & &\\
+\hline
+\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ FPN $+$ Base-BlendMask \\ 3 layers freeze\end{tabular} & &\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Freeze layers result.}
+\label{mytable_deepness_BlendMask}
+\end{table}
+
+
+\subsubsection{Own best models}
+Come ultima serie di esperimenti abbiamo cercato di individuare i modelli migliori, per ciascuna le due tecniche di instance segmentation in esame in questa sezione; tenedo conto della possibilit\`a di allenare ciascun modello solo su una singolo macchina e 1 GPU.\\
+I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S \ref{experiments:second_trial}.
+
+\subsection{Consideration to SOLOv2}
+SOLOv2 \`e un metodo a due stadi che ha uso dello stocastic gradient descent per settare i pesi. ... Come si pu\`o vedere dal papers di riferimento ottiene risultati migliori rispetto a Mask R-CNN ma che non superano BlandMask (TODO: da a
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Dataset & method and architecture & AP\\
+\hline\hline
+
+\hline
+\end{tabular}
+\end{center}
+\caption{Own best models result.}
+\label{mytable_own_best_model}
+\end{table}
+
+
+
+\subsection{Contour-based approach}
+
+
+
+\section{Conclusion}
+Al massimo mezza colonna.\\
+BlendMask funziona meglio di Mask RCNN, sia a livello di performance GPU che accuratezza. SOLOv2 sembra avere risultati migliori di Mask R-CNN, ma inferiori a BlendMask. Esistono anche altre tecniche che 'escono' dall'approccio a stadi, per esempio Deep Snake che pu\`o presentarsi una valida alternativa a Blender tuttavia da miglirare in futuro. Magari sarebbe possibile un'integrazione tra queste due tecniche.
+
+\begin{thebibliography}{1}
+\bibitem{Authors1_maskrcnn}
+Kaiming He and Georgia Gkioxari and Piotr Dollár and Ross Girshick.
+Mask R-CNN. CoRR, 2018.
+\bibitem{Authors2_SOLOv2}
+Xinlong Wang,Rufeng Zhang,Tao Kong, Lei Li and Chunhua Shen.
+SOLOv2: Dynamic, Faster and Stronger. CoRR, 2020.
+\bibitem{Authors3_BlendMask}
+Hao Chen, Kunyang Sun, Zhi Tian, Chunhua Shen, Yongming Huang and Youliang Yan.
+BlendMask: Top-Down Meets Bottom-Up for Instance Segmentation. CoRR, 2020.
+\bibitem{Authors4_semanticloss}
+Xu, Jingyi and Zhang, Zilu and Friedman, Tal and Liang, Yitao and Van den Broeck, Guy.
+A Semantic Loss Function for Deep Learning with Symbolic Knowledge. Proceedings of the 35th International Conference on Machine Learning, 2018.
+\bibitem{Authors5_deepsnake}
+Sida Peng, Wen Jiang, Huaijin Pi, Hujun Bao and Xiaowei Zhou.
+Deep Snake for Real-Time Instance Segmentation. CoRR, 2020.
+
+\end{thebibliography}
+
+
+
+\end{document}
