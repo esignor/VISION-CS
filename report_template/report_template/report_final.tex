@@ -45,23 +45,44 @@ Eleonora Signor\\
 
 %%%%%%%%% ABSTRACT
 \begin{abstract}
-In questo lavoro abbiamo confrontato differenti tecniche di instance segmentation, gi\`a esistenti, sul task specifico di Urban Street Scenes. Il nostro interesse verso il topic \`e nato dal fatto che la segmentazione delle istanze \`e uno dei compiti fondamentali della visione, tuttavia si presenta ancora complesso e non del tutto esplorato. Esistono differenti approcci di instance segmentation, di seguito ne presentiamo solo una sottoparte, valutandone accuracy e performance su dataset multicategoriali e rivolti a quantificare la robustezza di un algoritmo.
+In questo lavoro abbiamo confrontato differenti tecniche di instance segmentation, gi\`a esistenti, sul task specifico di \textit{Urban Street Scenes}. Il nostro interesse verso il topic \`e nato dal fatto che la segmentazione delle istanze \`e uno dei compiti fondamentali della visione, tuttavia si presenta ancora complesso e non del tutto esplorato. 
+%Esistono differenti approcci di instance segmentation, di seguito ne presentiamo una sottoparte, valutandone accuracy e performance su dataset multicategoriali e rivolti a quantificare la robustezza di un algoritmo.
 \end{abstract}
 
 %%%%%%%%% BODY TEXT
 \section{Introduction}
-Mezza colonna
+La segmentazione dell'immagine \`e il processo di separazione di questa in pi\`u segmenti, in cui ciascun pixel viene associato a un tipo di oggetto. Esistono due tipologie di segmentazione dell'immagine: la segmentazione semantica e la segmentazione d'istanza. La prima contrassegna oggetti dello stesso tipo con la medesima etichetta di classe; la seconda, d'interesse del nostro lavoro, contrassegna oggetti dello stesso tipo e appartenenti a entit\`a distinte con etichette di classe differenti. L'idea che abbiamo cercato di sviluppare ha riguardato il confronto di diverse metodoligie di instance segmentation. La prima tecnica che abbiamo studiato \`e stato Mask R-CNN~\cite{Authors1_maskrcnn}, approccio a due stadi. Questa l'abbiamo scelta alla luce del riscontro positivo che ha ricevuto dal mondo della vision research, grazie al suo framework concettualmente semplice e generale, caratterizzato da un rilevamento di oggetti d'immagine efficiente, e dalla generazione in contentemporanea di una maschera di segmentazione di alta qualit\`a per ogni istanza. La tecnica che abbiamo deciso di contraporre a Mask R-CNN \`e stata BlendMask~\cite{Authors2_BlendMask}. Questa \`e invece una tecnica a uno stadio che si \`e presentata capace di superare le prestazioni di Mask R-CNN sia a livello di previsione della maschera che per tempo di formazione, su dataset MSCOCO 2017~\cite{Authors3_MSCOCO} e LVIS~\cite{Authors4_LVIS}. Ci siamo interessati a verificare se questo rimanesse valido anche su datasets, come \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash} ~\cite{wildDash}, appartenenti allo specifico topic di \textit{Urban Street Scenes}, con immagini provenienti dalle strade di tutto il mondo, con molti scenari difficili. Alcuni aspetti che abbiamo testato hanno riguardato cambiamenti di backbone, profondit\`a della rete ResNet~\cite{Authors5_ResNet} e numero di layers congelati. I risultati ottenuti ci hanno confermato quanto gi\`a annunciato dai lavori precedenti, generalizzando BlendMask come l'approccio a stadi pi\`u promettente. Al termine del nostro lavoro e per non limitare la nostra analisi abbiamo fatto qualche considerazione anche su altre tecniche di instance segmentation quali SOLOv2~\cite{Authors6_SOLOv2} e Deep Snake~\cite{Authors7_deepsnake}.
 
 \section{Related Work}
-Mettere le immagini e spiegare le architetture. Al massimo 1 colonna e mezza.\\
-Estendiamo i papers precedenti, cercando di uniformarli, con l'analisi di dataset complessi caratterizzati da molte categorie, differenza di frequenza e immagini complesse che mirano a valutare le tecniche sulla base di illumination challanges.
-\subsection{Mask R-CNN}
-Approccio a due stadi, spiegare che deriva da Faster RCNN, usa RoI e RoAlign. Ci sono 3 rami: classificazione, regressione e predizione della maschera
-\subsection{BlendMask}
-Approccio a  singolo stadio, siegare come funziona il Blender, il modulo inferiore e il livello di attenzione
-\subsection{SOLOv2}
-Estensione di Mask R-CNN, fa uso di SGD, del kernel mask G and mask function F
-\subsection{Deep Snake}
+%Le linee guida del nostro lavoro ci sono state date da differenti papers riguardanti l'instance segmentaiton task. 
+%Inoltre gli abbiamo estesi con i datasets \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash} ~\cite{wildDash}.
+\subsection{Stage approch} 
+\textbf{Mask R-CNN}~\cite{Authors1_maskrcnn} \`e una Rete Neurale Convoluzionale che si presenta all'avanguardia in termini di segmentazione dell'immagine. \`E la variante di una Rete Neurale Profonda che rileva gli oggetti in un'immagine e vi genera una maschera di segmentazione per ciascuna istanza.
+Mask R-CNN~\cite{Authors1_maskrcnn} \`e l'evoluzione successiva di Faster R-CNN~\cite{fasterRCNN}, rete neurale convoluzionale basata sulla regione, che produce per ogni oggetto candidato 3 output: l'etichetta di classe, l'offset del riquadro di delimitazione e la maschera dell'oggetto.
+L'architettura della rete, Figure \ref{fig:mask_rcnn}, si compone di una CNN (backbone), che processa l'immagine e estrae la feature map. Dopodich\`e grazie alla Region Proposal Network vengono presentate le proposte o RoI, sul quale andare a fare riconosciemento del riquadro di delimitazione e previsione delle maschera (head). Inoltre prima di generare l'ouput a ciascuna RoI viene applicato RoIAlign, questo permette di ottenere una maschera dove il layout dell'oggetto viene mantenuto.
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.7\linewidth]{./image/maskrcnn.png}
+  \caption{Mask R-CNN architecture. \textit{Source: ~\cite{fig1}}}
+  \label{fig:mask_rcnn}
+\noindent
+\end{figure}
+\noindent
+\indent\textbf{BlendMask}~\cite{Authors2_BlendMask} deriva dai limiti di Mask R-CNN~\cite{Authors1_maskrcnn}. Gli autori del paper definiscono come Mask R-CNN~\cite{Authors1_maskrcnn} vincoli fortemente la velocit\`a e la qualit\`a di generazione delle maschere alle heads, facendo cos\`i fatica a trattare scenari complicati e ponendo un limite alla risoluzione delle maschere. Inoltre Mask R-CNN~\cite{Authors1_maskrcnn} si presenta come un framework poco flessibile per reti multi-task. Hanno cos\`i cercato di cobinare strategie di ricerca dall'alto verso il basso e dal basso verso l'alto in FCOS~\cite{fcos}, one stage approch, che sembra in grado di superare le controparti a due stadi in termini di precisione. L'architettura di BlendMask~\cite{Authors2_BlendMask}, Figure \ref{fig:blendmask}, si compone da detector network e da una mask branch. Quest'ultima \`e partizionata in 3 parti: il modulo inferiore che si occupa di prevedere le scores map, chiamate basi; the top layer composto da un singolo strato di convoluzione e da torri, tante quante sono le input features, con il compito di predirre attention instance e un modulo blender che unisce scores con attenzioni.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\linewidth]{./image/blendmask.png}
+  \caption{BlendMask architecture. \textit{Source: ~\cite{Authors2_BlendMask}}}
+  \label{fig:blendmask}
+\noindent
+\end{figure}
+\noindent
+
+\indent\textbf{SOLOv2}
+\subsection{Contour-based approach}
+\textbf{Deep Snake}
+
 \section{Dataset}
 Mostrare qualche immagine contenuta all'interno dei datasets. Al massimo due colonne.\\
 Come sono formati (train, val, test se ci sono), le annotazioni, i json.
@@ -74,11 +95,10 @@ Per riuscire a fare un confronto tra le diverse tecniche di instance segmentatio
 \item proceduto con l'implentazione di modelli e successivamente fatto ricorso al metodo sperimentale per la valutazione;
 \item studiato e analizzato i risultati dei papers.
 \end{itemize}
-\subsection{Stage approach}
 
-\subsubsection{Preparazione dei dataset}
-\subsubsection{Inferenza}
-\subsubsection{Training with fine-tuning}
+
+\subsection{Datasets preparation}
+\subsection{Training with fine-tuning}
 \paragraph{Mask R-CNN}
 La loss utilizzata durante il training \`e la seguente
 \begin{center} min(L) $=$ min(L$_{cls}$ + L$_{box}$ + L$_{mask}$) \end{center}
@@ -87,82 +107,19 @@ L$_{cls}$ is the classification loss, L$_{box}$ is the bounding-box loss and  L$
 La loss utilizzata durante il training \`e la seguente
 \begin{center} min(L) $=$ min(semantic loss)~\cite{Authors4_semanticloss}\end{center}.
 
-\subsection{Contour-based approach}
 \subsection{Metrics}
 \begin{itemize}
 \item AP
 \item numero di istanze, tempo :: accuracy visiva.confidence-threshold
 \end{itemize}
-\subsection{Failure and possibile improvments}
+
+\subsection{Evalutation and inference}
+
 
 \section{Experiments and results}
 In questa sezione descriviamo gli esperimenti che abbiamo eseguito per testare  e valutare le tecniche oggetto di questo lavoro. Tali esperimenti gli abbiamo eseguiti al termine delle fasi di studio e codifica.
-\subsection{Stage approach}
-\subsubsection{confidence-threshold}
-La prima serie di esperimenti che abbiamo svolto hanno riguardato l'inferenza. Abbiamo ritenuto opportuno selezionare tre soglie di confidenza: 0.0, 0.35 e 0.75. Soglie intermedie hanno presentato risultati simili al confidence-threshold di riferimento pi\`u vicino.\\
-Abbiamo fatto ricorso a modelli con pesi preadestrati da ImagNet, architettura ResNet 101 e backbone FPN.
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Method & value \\
-\hline\hline
-Mask R-CNN &  \\
-\hline
-SOLOv2 & \\
-\hline
-BlendMask & \\
-\hline
-\end{tabular}
-\end{center}
-\caption{Inference result. Case none confidence-threshold.}
-\label{mytable_inferencenone}
-\end{table} 
 
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Method & value \\
-\hline\hline
-Mask R-CNN & \\
-\hline
-SOLOv2 & \\
-\hline
-BlendMask & \\
-\hline
-\end{tabular}
-\end{center}
-\caption{Inference result. Case 0.35 confidence-threshold.}
-\label{mytable_inference0.35}
-\end{table}
-
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-Method & value\\
-\hline\hline
-Mask R-CNN & \\
-\hline
-SOLOv2 & \\
-\hline
-BlendMask & \\
-\hline
-\end{tabular}
-\end{center}
-\caption{Inference result. Case 0.75 confidence-threshold.}
-\label{mytable_inference0.5}
-\end{table}
-Inoltre abbiamo notato che in immagini complesse, come a elevata numerosit\`a di oggetti, con differenze di scala o con oggetti deformati nessuna delle tecniche di instance segmentation in analisi, sembra in grado di dare risultati soddisfacenti. TODO: immagini slot di 3.
-Abbiamo concluso questa prima serie di esperimenti definendo Mask R-CNN, come il modello capace di fornire i migliori risultati di inferenza su modelli standard preaddesstrati.
-
-
-
-\subsubsection{Backbone}
+\subsection{Backbone}
 \label{experiments:second_trial}
 La seconda serie di esperimenti, che abbiamo compiuto, riguarda la definizione della backbone. Tutte le tecniche a stadi, oggetto del confronto, sono dotate del suddetto modulo inferiore, per cui ci \`e risultato semplice uniformare le scelte architetturali in modo da poter compiere una valutazione oggettiva. Le tecniche che abbiamo confrontato sono state Mask R-CNN e BlendMask.\\
 Le configurazioni constanti delle reti sono image size ...,  numero massimo di iterazioni, learning rate ..., step size a ... e fine-tuning esclusivamente agli ultimi 2 livelli.
@@ -208,7 +165,7 @@ Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
 \label{mytable_backbone_BlendMask}
 \end{table}
 
-\subsubsection{Deepness}
+\subsection{Deepness}
 Una terza serie di esperimenti ha riguardato lo studio della profondit\`a delle reti ResNet.\\
 I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S\ref{experiments:second_trial}.
 \begin{table}[H]
@@ -253,7 +210,7 @@ Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
 \end{table}
 
 
-\subsubsection{Own best models}
+\subsection{Own best models}
 Come ultima serie di esperimenti abbiamo cercato di individuare i modelli migliori, per ciascuna le due tecniche di instance segmentation in esame in questa sezione; tenedo conto della possibilit\`a di allenare ciascun modello solo su una singolo macchina e 1 GPU.\\
 I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S \ref{experiments:second_trial}.
 
@@ -272,13 +229,6 @@ Dataset & method and architecture & AP\\
 \label{mytable_own_best_model}
 \end{table}
 
-\subsection{Consideration to SOLOv2}
-SOLOv2 \`e un metodo a due stadi che ha uso dello stocastic gradient descent per settare i pesi. ... Come si pu\`o vedere dal papers di riferimento ottiene risultati migliori rispetto a Mask R-CNN ma che non superano BlandMask (TODO: da approfondire)
-
-
-
-\subsection{Contour-based approach}
-
 
 
 \section{Conclusion}
@@ -289,18 +239,41 @@ BlendMask funziona meglio di Mask RCNN, sia a livello di performance GPU che acc
 \bibitem{Authors1_maskrcnn}
 Kaiming He and Georgia Gkioxari and Piotr Dollár and Ross Girshick.
 Mask R-CNN. CoRR, 2018.
-\bibitem{Authors2_SOLOv2}
-Xinlong Wang,Rufeng Zhang,Tao Kong, Lei Li and Chunhua Shen.
-SOLOv2: Dynamic, Faster and Stronger. CoRR, 2020.
-\bibitem{Authors3_BlendMask}
+\bibitem{Authors2_BlendMask}
 Hao Chen, Kunyang Sun, Zhi Tian, Chunhua Shen, Yongming Huang and Youliang Yan.
 BlendMask: Top-Down Meets Bottom-Up for Instance Segmentation. CoRR, 2020.
-\bibitem{Authors4_semanticloss}
-Xu, Jingyi and Zhang, Zilu and Friedman, Tal and Liang, Yitao and Van den Broeck, Guy.
-A Semantic Loss Function for Deep Learning with Symbolic Knowledge. Proceedings of the 35th International Conference on Machine Learning, 2018.
-\bibitem{Authors5_deepsnake}
+\bibitem{Authors3_MSCOCO}
+Tsung-Yi Lin, Michael Maire, Serge J. Belongie, Lubomir D. Bourdev, Ross B. Girshick, James Hays, Pietro Perona, Deva Ramanan, Piotr Doll\'ar and C. Lawrence Zitnick.
+Microsoft COCO: Common Objects in Context. CoRR, 2014.
+\bibitem{Authors4_LVIS}
+Agrim Gupta, Piotr Doll\'ar and Ross B. Girshick.
+LVIS: A Dataset for Large Vocabulary Instance Segmentation. CoRR, 2019.
+\bibitem{cityscapes}
+Marius Cordts, Mohamed Omran, Sebastian Ramos, Timo Rehfeld, Markus Enzweiler, Rodrigo Benenson, Uwe Franke, Stefan Roth and Bernt Schiele.
+The Cityscapes Dataset for Semantic Urban Scene Understanding. CoRR, 2016.
+\bibitem{wildDash}
+Zendel, Oliver and Honauer, Katrin and Murschitz, Markus and Steininger, Daniel and Dominguez, Gustavo Fernandez.
+WildDash - Creating Hazard-Aware Benchmarks. Proceedings of the European Conference on Computer Vision, (ECCV), 2018.
+\bibitem{Authors5_ResNet}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren and Jian Sun.
+Deep Residual Learning for Image Recognition. CoRR, 2015.
+\bibitem{Authors6_SOLOv2}
+Xinlong Wang,Rufeng Zhang,Tao Kong, Lei Li and Chunhua Shen.
+SOLOv2: Dynamic, Faster and Stronger. CoRR, 2020.
+\bibitem{Authors7_deepsnake}
 Sida Peng, Wen Jiang, Huaijin Pi, Hujun Bao and Xiaowei Zhou.
 Deep Snake for Real-Time Instance Segmentation. CoRR, 2020.
+\bibitem{fasterRCNN}
+Shaoqing Ren, Kaiming He, Ross B. Girshick, Jian Sun.
+Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks. CoRR, 2015.
+\bibitem{fig1}
+Bienias, Lukasz \& n, Juanjo \& Nielsen, Line \& Alstrøm, Tommy. Insights Into The Behaviour Of Multi-Task Deep Neural Networks For Medical Image Segmentation. 2019.
+\bibitem{fcos}
+Zhi Tian, Chunhua Shen, Hao Chen and Tong He.
+FCOS: Fully Convolutional One-Stage Object Detection. CoRR, 2019.
+\bibitem{Authors8_semanticloss}
+Xu, Jingyi and Zhang, Zilu and Friedman, Tal and Liang, Yitao and Van den Broeck, Guy.
+A Semantic Loss Function for Deep Learning with Symbolic Knowledge. Proceedings of the 35th International Conference on Machine Learning, 2018.
 
 \end{thebibliography}
 
