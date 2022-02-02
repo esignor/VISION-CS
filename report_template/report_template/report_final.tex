@@ -51,44 +51,75 @@ In questo lavoro abbiamo confrontato differenti tecniche di instance segmentatio
 
 %%%%%%%%% BODY TEXT
 \section{Introduction}
-La segmentazione dell'immagine \`e il processo di separazione di questa in pi\`u segmenti, in cui ciascun pixel viene associato a un tipo di oggetto. Esistono due tipologie di segmentazione dell'immagine: la segmentazione semantica e la segmentazione d'istanza. La prima contrassegna oggetti dello stesso tipo con la medesima etichetta di classe; la seconda, d'interesse del nostro lavoro, contrassegna oggetti dello stesso tipo e appartenenti a entit\`a distinte con etichette di classe differenti. L'idea che abbiamo cercato di sviluppare ha riguardato il confronto di diverse metodoligie di instance segmentation. La prima tecnica che abbiamo studiato \`e stato Mask R-CNN~\cite{Authors1_maskrcnn}, approccio a due stadi. Questa l'abbiamo scelta alla luce del riscontro positivo che ha ricevuto dal mondo della vision research, grazie al suo framework concettualmente semplice e generale, caratterizzato da un rilevamento di oggetti d'immagine efficiente, e dalla generazione in contentemporanea di una maschera di segmentazione di alta qualit\`a per ogni istanza. La tecnica che abbiamo deciso di contraporre a Mask R-CNN \`e stata BlendMask~\cite{Authors2_BlendMask}. Questa \`e invece una tecnica a uno stadio che si \`e presentata capace di superare le prestazioni di Mask R-CNN sia a livello di previsione della maschera che per tempo di formazione, su dataset MSCOCO 2017~\cite{Authors3_MSCOCO} e LVIS~\cite{Authors4_LVIS}. Ci siamo interessati a verificare se questo rimanesse valido anche su datasets, come \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash} ~\cite{wildDash}, appartenenti allo specifico topic di \textit{Urban Street Scenes}, con immagini provenienti dalle strade di tutto il mondo, con molti scenari difficili. Alcuni aspetti che abbiamo testato hanno riguardato cambiamenti di backbone, profondit\`a della rete ResNet~\cite{Authors5_ResNet} e numero di layers congelati. I risultati ottenuti ci hanno confermato quanto gi\`a annunciato dai lavori precedenti, generalizzando BlendMask come l'approccio a stadi pi\`u promettente. Al termine del nostro lavoro e per non limitare la nostra analisi abbiamo fatto qualche considerazione anche su altre tecniche di instance segmentation quali SOLOv2~\cite{Authors6_SOLOv2} e Deep Snake~\cite{Authors7_deepsnake}.
+La segmentazione dell'immagine \`e il processo di separazione di questa in pi\`u segmenti, in cui ciascun pixel viene associato a un tipo di oggetto. Esistono due tipologie di segmentazione dell'immagine: la segmentazione semantica e la segmentazione d'instanza. La prima contrassegna oggetti dello stesso tipo con la medesima etichetta di classe; la seconda contrassegna oggetti dello stesso tipo e appartenenti a entit\`a distinte con etichette di classe differenti. L'idea che abbiamo cercato di sviluppare ha riguardato il confronto di diverse metodoligie di instance segmentation. La prima tecnica che abbiamo studiato \`e stato Mask R-CNN~\cite{Authors1_maskrcnn}, approccio a due stadi. Questa l'abbiamo scelta alla luce del riscontro positivo che ha ricevuto dal mondo della vision research, grazie al suo framework concettualmente semplice e generale, caratterizzato da un rilevamento di oggetti d'immagine efficiente, e dalla generazione in contentemporanea di una maschera di segmentazione di alta qualit\`a per ogni istanza. La tecnica che abbiamo deciso di contraporre a Mask R-CNN~\cite{Authors1_maskrcnn} \`e stata BlendMask~\cite{Authors2_BlendMask}. Questa \`e invece una tecnica a uno stadio che si \`e presentata capace di superare le prestazioni di Mask R-CNN~\cite{Authors1_maskrcnn} sia a livello di previsione della maschera che per tempo di formazione, sui datasets MSCOCO 2017~\cite{Authors3_MSCOCO} e LVIS~\cite{Authors4_LVIS}. Ci siamo interessati a verificare se questo rimanesse valido anche su datasets, come \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash}~\cite{wildDash}, appartenenti allo specifico topic di \textit{Urban Street Scenes}, caraterizzati da immagini provenienti dalle strade di tutto il mondo, con molti scenari difficili. Alcuni aspetti che abbiamo testato hanno riguardato cambiamenti di backbone, profondit\`a della rete ResNet~\cite{Authors5_ResNet} e numero di layers congelati. I risultati ottenuti ci hanno confermato quanto gi\`a annunciato dai lavori precedenti, generalizzando BlendMask~\cite{Authors2_BlendMask} come uno degli approccio a stadi pi\`u promettenti. Al termine del nostro lavoro e per non limitare la nostra analisi abbiamo fatto qualche considerazione anche su altre tecniche di instance segmentation quali SOLOv2~\cite{Authors6_SOLOv2} e Deep Snake~\cite{Authors7_deepsnake}.
 
 \section{Related Work}
-%Le linee guida del nostro lavoro ci sono state date da differenti papers riguardanti l'instance segmentaiton task. 
-%Inoltre gli abbiamo estesi con i datasets \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash} ~\cite{wildDash}.
+\label{sec:related-work}
+L'approccio che abbiamo usato nel nostro lavoro \`e stato utilizzare come linee giuda i papers ~\cite{Authors1_maskrcnn},~\cite{Authors2_BlendMask},~\cite{Authors6_SOLOv2} e~\cite{Authors7_deepsnake} estendendo le analisi anche su dataset di \textit{Urban Street Scenes}.
 \subsection{Stage approch} 
-\textbf{Mask R-CNN}~\cite{Authors1_maskrcnn} \`e una Rete Neurale Convoluzionale che si presenta all'avanguardia in termini di segmentazione dell'immagine. \`E la variante di una Rete Neurale Profonda che rileva gli oggetti in un'immagine e vi genera una maschera di segmentazione per ciascuna istanza.
-Mask R-CNN~\cite{Authors1_maskrcnn} \`e l'evoluzione successiva di Faster R-CNN~\cite{fasterRCNN}, rete neurale convoluzionale basata sulla regione, che produce per ogni oggetto candidato 3 output: l'etichetta di classe, l'offset del riquadro di delimitazione e la maschera dell'oggetto.
-L'architettura della rete, Figure \ref{fig:mask_rcnn}, si compone di una CNN (backbone), che processa l'immagine e estrae la feature map. Dopodich\`e grazie alla Region Proposal Network vengono presentate le proposte o RoI, sul quale andare a fare riconosciemento del riquadro di delimitazione e previsione delle maschera (head). Inoltre prima di generare l'ouput a ciascuna RoI viene applicato RoIAlign, questo permette di ottenere una maschera dove il layout dell'oggetto viene mantenuto.
-
+\textbf{Mask R-CNN}~\cite{Authors1_maskrcnn} \`e una Rete Neurale Convoluzionale che si presenta all'avanguardia in termini di segmentazione dell'immagine. \`E la variante di una Rete Neurale Profonda che rileva gli oggetti di un'immagine e vi genera una maschera di segmentazione per ciascuna istanza.
+Mask R-CNN~\cite{Authors1_maskrcnn} \`e l'evoluzione successiva di Faster R-CNN~\cite{fasterRCNN}, Rete Neurale Convoluzionale Region-based, che produce per ogni oggetto candidato 3 output: l'etichetta di classe, l'offset del riquadro di delimitazione e la maschera dell'oggetto.
+L'architettura della rete, Figure \ref{fig:mask_rcnn}, si compone di una CNN (backbone), che processa l'immagine e estrae la feature map. Dopodich\`e grazie alla Region Proposal Network vengono presentate le proposte o RoI, sul quale andare a fare riconosciemento del riquadro di delimitazione e previsione delle maschera (head). Inoltre prima di generare l'ouput a ciascuna RoI viene applicato RoIAlign, che permette di ottenere una maschera dove il layout dell'oggetto viene mantenuto.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.7\linewidth]{./image/maskrcnn.png}
-  \caption{Mask R-CNN architecture. \textit{Source: ~\cite{fig1}}}
+  \includegraphics[width=0.6\linewidth]{./image/maskrcnn.png}
+  \caption{Mask R-CNN architecture. \textit{Source:~\cite{fig1}, pag. 3.}}
   \label{fig:mask_rcnn}
 \noindent
 \end{figure}
-\noindent
-\indent\textbf{BlendMask}~\cite{Authors2_BlendMask} deriva dai limiti di Mask R-CNN~\cite{Authors1_maskrcnn}. Gli autori del paper definiscono come Mask R-CNN~\cite{Authors1_maskrcnn} vincoli fortemente la velocit\`a e la qualit\`a di generazione delle maschere alle heads, facendo cos\`i fatica a trattare scenari complicati e ponendo un limite alla risoluzione delle maschere. Inoltre Mask R-CNN~\cite{Authors1_maskrcnn} si presenta come un framework poco flessibile per reti multi-task. Hanno cos\`i cercato di cobinare strategie di ricerca dall'alto verso il basso e dal basso verso l'alto in FCOS~\cite{fcos}, one stage approch, che sembra in grado di superare le controparti a due stadi in termini di precisione. L'architettura di BlendMask~\cite{Authors2_BlendMask}, Figure \ref{fig:blendmask}, si compone da detector network e da una mask branch. Quest'ultima \`e partizionata in 3 parti: il modulo inferiore che si occupa di prevedere le scores map, chiamate basi; the top layer composto da un singolo strato di convoluzione e da torri, tante quante sono le input features, con il compito di predirre attention instance e un modulo blender che unisce scores con attenzioni.
+\indent\textbf{BlendMask}~\cite{Authors2_BlendMask} deriva dai limiti di Mask R-CNN~\cite{Authors1_maskrcnn}. Gli autori del paper definiscono come Mask R-CNN~\cite{Authors1_maskrcnn} vincoli fortemente la velocit\`a e la qualit\`a di generazione delle maschere alle heads, facendo cos\`i fatica a trattare scenari complicati e ponendo un limite alla risoluzione delle maschere. Inoltre Mask R-CNN~\cite{Authors1_maskrcnn} si presenta come un framework poco flessibile per reti multi-task. Hanno cos\`i cercato di cobinare strategie di ricerca dall'alto verso il basso e dal basso verso l'alto in FCOS~\cite{fcos}, one stage approch, che sembra in grado di superare le controparti a due stadi in termini di precisione. L'architettura di BlendMask~\cite{Authors2_BlendMask}, Figure \ref{fig:blendmask}, si compone di un detector network e di una mask branch. Quest'ultima \`e partizionata in 3 parti: il modulo inferiore che si occupa di prevedere le scores map, chiamate basi; the top layer composto da un singolo strato di convoluzione e da torri, tante quante sono le input features, con il compito di predirre attention instance, e un modulo blender che unisce scores con attenzioni.
 \begin{figure}[H]
 \centering
   \includegraphics[width=1\linewidth]{./image/blendmask.png}
-  \caption{BlendMask architecture. \textit{Source: ~\cite{Authors2_BlendMask}}}
+  \caption{BlendMask architecture. \textit{Source:~\cite{Authors2_BlendMask}, pag. 3.}}
   \label{fig:blendmask}
 \noindent
 \end{figure}
 \noindent
 
-\indent\textbf{SOLOv2}
+\indent\textbf{SOLOv2}~\cite{Authors6_SOLOv2} \`e un altro approccio a singolo stage, sucessore di SOLO~\cite{solo}. In questo caso ogni istanza di un'immagine viene segmentata dinamicamente, senza rilevamento del riquadro di delimitazione.
+La generazione della maschera, a differenza di Mask R-CNN~\cite{Authors1_maskrcnn}, \`e disaccoppiata in mask kernel prediction e in mask feature learning. Questi due elementi sono responsabili della generazione dei convolution kernels e delle feature maps. SOLOv2~\cite{Authors6_SOLOv2} riesce a ottenere risultati promettenti anche grazie all'uso della matrix non-maximum suppression (NMS) technique, che riduce le previsioni duplicate guadagnandone in minor overhead d'inferenza.
 \subsection{Contour-based approach}
-\textbf{Deep Snake}
+\textbf{Deep Snake}~\cite{Authors7_deepsnake} \`e un approccio basato su contorni, che implementa l'idea degli algoritmi snake con learning-based approach. Deep Snake~\cite{Authors7_deepsnake} si compone di una pipeline a due stadi: in un prima istanza vi \`e  una proposta di controno iniziale sull'oggetto di un'immagine; fatta successivamente seguire dall'uso di una Rete Neurale, che deforma iterativamente questa proposta, fino a farla combacire esattamente con i confini propri dell'oggetto. Per l'apprendimento della struttura delle features del contorno, gli autori del paper propongono l'uso della Circular Convolution.
 
-\section{Dataset}
-Mostrare qualche immagine contenuta all'interno dei datasets. Al massimo due colonne.\\
-Come sono formati (train, val, test se ci sono), le annotazioni, i json.
+\section{Datasets}
+I datasets di \textit{Urban Street Scenes}, che abbiamo usato, appartengono a \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash}~\cite{wildDash}.
 \subsection{Cityscapes}
-Ricordarsi che ci sono categorie con frequenza diversa, sarebbe bello mettere un grafico che mostra questa quantificazione
+\textit{Cityscapes}~\cite{cityscapes} \`e una suite di benchmark e un dataset su larga scala per semantic urban scene understanding. \`E adatto per apprendere e testare metodi pixel-level e instance-level semantic labeling. Le immagini di \textit{Cityscapes}~\cite{cityscapes} sono state create da un'insieme vasto e diversificato di sequenze video, registrate in 50 citt\`a diverse. Queste possono essere comprensive di annotazioni di alta qualit\`a, ma anche di tipo grossolane; quest'ultime consentono di testare metodi che impiegano grandi volumi di dati debolmente etichettati. Le annotazioni contenute, fondamentali per la valutazione di un modello, sono di tipo poligonale.\\ In Figura\ref{fig:class_definitions}, sono indicati i gruppi, con le relative classi con cui possono venire etichettate le istanze di un'immagine.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.7\linewidth]{./image/classes_cityscapes} 
+  \caption{\textit{Cityscapes} class definitions.\\
+  \textit{$\ast$ single istance annotations are available, $+$ label not included. Source: https://www.cityscapes-dataset.com/dataset-overview/.}}
+  \label{fig:class_definitions}
+\noindent
+\end{figure}
+I datasets che abbiamo usato, apparteneti a \textit{Cityscapes}~\cite{cityscapes}, sono stati \textit{gtFine} e \textit{leftImg8}. Il primo \`e composto da annotazioni fini per 3 475 immagini di train e val, e 1 525 immagini per test set. Per non limitarci esclusivamente a lavorare con immagini  annotate abbiamo deciso di utilizzare anche \textit{leftImg8}, dataset composto da immagini di traffico urbano "standard", con train set, test set e val set; per un totale di 5 000 immagini.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.45\linewidth]{./image/gtFine.png} \quad \includegraphics[width=0.45\linewidth]{./image/leftImg8.png}
+  \caption{\textit{Cityscapes}~\cite{cityscapes} images: \textit{gtFine} to left and \textit{leftImg8} dataset to right.}
+  \label{fig:image_gtfine}
+\noindent
+\end{figure}
+Tuttavia i datasets di \textit{Cityscapes}~\cite{cityscapes} anche se includono diversi mesi e stagioni, sono sempre immagini scattate in buone condizioni metereologiche. Questo aspetto ci ha spinto ad analizzare il comportamento delle nostre tecniche di instance segmentation anche sul dataset \textit{WildDash}~\cite{wildDash}.
+
 \subsection{WildDash}
+WildDah~\cite{wildDash} \`e una suite di benchmark e un dataset per la segmentazione semantica e d'instanza per il dominio automobilistico. Le immagini, contenute nei datasets, provengono da diverse fonti da tutto il mondo. Inoltre presentano scenari, quali pioggia, oscurit\`a, copertura stradale che sono delle vere e proprie challenge per il riconoscimento delle immagini. Questo consente di mettere in luce le carenze di una qualsiasi tecnica di instance segmentation.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.45\linewidth]{./image/wd_rain.jpg} \quad \includegraphics[width=0.45\linewidth]{./image/wd_desert.jpg}
+  \caption{\textit{WildDash}~\cite{wildDash} images:  \textit{rain scenario} to left and \textit{road in the desert} to right.}
+  \label{fig:image_gtfine}
+\noindent
+\end{figure}
+Il dataset che abbiamo usato \`e \textit{public gt package}, composto da 4 256 immagini rivolto appositamente a risolvere tasks di instance segmentation; non era tuttavia suddiviso in train, val e test set. Abbiamo di conseguenza deciso di suddividerlo manualmente, riservando 3 405 immagini come train set e 851 immagini come test set. Non abbiamo ritenuto necessario fare un'ulteriore partizione in val set, in modo da mantenere pi\`u immagini possibili nel addestramento; e assumendo che i nostri modelli, usando pesi gi\`a preadestrati su ImageNet~\cite{imagenet}, fossero sufficientemente accurati da non richiedere model selection.
+
+
+
+
+
+
 \section{Method}
 Per riuscire a fare un confronto tra le diverse tecniche di instance segmentation, oggetto di questo documento, abbiamo utlizzato i seguenti approcci:
 \begin{itemize}
@@ -97,7 +128,7 @@ Per riuscire a fare un confronto tra le diverse tecniche di instance segmentatio
 \end{itemize}
 
 
-\subsection{Datasets preparation}
+\subsection{Dataset preparation}
 \subsection{Training with fine-tuning}
 \paragraph{Mask R-CNN}
 La loss utilizzata durante il training \`e la seguente
@@ -232,8 +263,24 @@ Dataset & method and architecture & AP\\
 
 
 \section{Conclusion}
-Al massimo mezza colonna.\\
-BlendMask funziona meglio di Mask RCNN, sia a livello di performance GPU che accuratezza. SOLOv2 sembra avere risultati migliori di Mask R-CNN, ma inferiori a BlendMask. Esistono anche altre tecniche che 'escono' dall'approccio a stadi, per esempio Deep Snake che pu\`o presentarsi una valida alternativa a Blender tuttavia da miglirare in futuro. Magari sarebbe possibile un'integrazione tra queste due tecniche.
+Dai nostri esperimenti siamo in grado di dire che le tecniche a uno stadio e box based, opportunamente modificate, funzionano meglio rispetto a metodi ha due stadi (di cui re \`e Mask R-CNN~\cite{Authors1_maskrcnn}),  sia in termini di AP precision che di tempo GPU. Tali effetti positivi sono probabilmente causati dall'ibridazione di metodi top down e bottom up, e dall'rilevamento degli oggetti senza ancoraggio (come accade per BlendMask~\cite{Authors2_BlendMask}).
+In aggiunta, recenti studi riportati in~\cite{Authors6_SOLOv2} e in parte mostrati in Figure \ref{fig:conclusionSOLOv2}, provano che uno stage approch box-free combinato a matrix NMS, come lo \`e SOLOv2~\cite{Authors6_SOLOv2}, si dimostra molto competitivo nei confronti di BlendMask~\cite{Authors2_BlendMask}.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.7\linewidth]{./image/conclusion_SOLOv2.png}
+  \caption{Comparison between SOLOv2 and other stage approches. \textit{Source:~\cite{Authors6_SOLOv2}, pag. 2.}}
+  \label{fig:conclusionSOLOv2}
+\noindent
+\end{figure}
+Inoltre gli stage approch non sono gli unici metodi possibili per risolvere tasks di istance segmentation. Per esempio esiste Deep Snake~\cite{Authors7_deepsnake}, counter based approch che supera Mask R-CNN~\cite{Authors1_maskrcnn} sia in termini di velocit\`a di inferenza che AP precision, come mostrato dalla nella tablella in Figure \ref{fig:conclusiondeepsnake}, e ha il potenziale per essere un buon competitor di SOLOv2~\cite{Authors6_SOLOv2}. Una possibile estensione futura, in questa direzione, pu\`o essere utilizzare l'approccio basato su contorni per il rilevamento dei riquadri di delimitazione in BlendMask~\cite{Authors2_BlendMask}.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\linewidth]{./image/conclusion_deepsnake.png}
+  \caption{Results on \textit{Cityscapes} val (AP [val] column) and test (remaining columns) sets. \textit{Source:~\cite{Authors7_deepsnake}, pag. 7.}}
+  \label{fig:conclusiondeepsnake}
+\noindent
+\end{figure}
+
 
 \begin{thebibliography}{1}
 \bibitem{Authors1_maskrcnn}
@@ -271,6 +318,11 @@ Bienias, Lukasz \& n, Juanjo \& Nielsen, Line \& Alstrøm, Tommy. Insights Into 
 \bibitem{fcos}
 Zhi Tian, Chunhua Shen, Hao Chen and Tong He.
 FCOS: Fully Convolutional One-Stage Object Detection. CoRR, 2019.
+\bibitem{solo}
+Xinlong Wang, Tao Kong, Chunhua Shen, Yuning Jiang and Lei Li
+SOLO: Segmenting Objects by Locations. CoRR, 2019.
+\bibitem{imagenet}
+J. Deng, W. Dong, R. Socher, L. -J. Li, Kai Li and Li Fei-Fei, "ImageNet: A large-scale hierarchical image database," 2009 IEEE Conference on Computer Vision and Pattern Recognition, 2009, pp. 248-255, doi: 10.1109/CVPR.2009.5206848.
 \bibitem{Authors8_semanticloss}
 Xu, Jingyi and Zhang, Zilu and Friedman, Tal and Liang, Yitao and Van den Broeck, Guy.
 A Semantic Loss Function for Deep Learning with Symbolic Knowledge. Proceedings of the 35th International Conference on Machine Learning, 2018.
