@@ -94,7 +94,7 @@ I datasets di \textit{Urban Street Scenes}, che abbiamo usato, appartengono a \t
   \label{fig:class_definitions}
 \noindent
 \end{figure}
-I datasets che abbiamo usato, apparteneti a \textit{Cityscapes}~\cite{cityscapes}, sono stati \textit{gtFine} e \textit{leftImg8}. Il primo \`e composto da annotazioni fini per 3 475 immagini di train e val, e 1 525 immagini per test set. Per non limitarci esclusivamente a lavorare con immagini  annotate abbiamo deciso di utilizzare anche \textit{leftImg8}, dataset composto da immagini di traffico urbano "standard", con train set, test set e val set; per un totale di 5 000 immagini.
+I datasets che abbiamo usato, apparteneti a \textit{Cityscapes}~\cite{cityscapes}, sono stati \textit{gtFine} e \textit{leftImg8} (Figure\ref{fig:image_gtfine}). Il primo \`e composto da annotazioni fini per 3 475 immagini di train e val, e 1 525 immagini per test set. Per non limitarci esclusivamente a lavorare con immagini  annotate abbiamo deciso di utilizzare anche \textit{leftImg8}, dataset composto da immagini di traffico urbano "standard", con train set, test set e val set; per un totale di 5 000 immagini.
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.45\linewidth]{./image/gtFine.png} \quad \includegraphics[width=0.45\linewidth]{./image/leftImg8.png}
@@ -105,15 +105,15 @@ I datasets che abbiamo usato, apparteneti a \textit{Cityscapes}~\cite{cityscapes
 Tuttavia i datasets di \textit{Cityscapes}~\cite{cityscapes} anche se includono diversi mesi e stagioni, sono sempre immagini scattate in buone condizioni metereologiche. Questo aspetto ci ha spinto ad analizzare il comportamento delle nostre tecniche di instance segmentation anche sul dataset \textit{WildDash}~\cite{wildDash}.
 
 \subsection{WildDash}
-WildDah~\cite{wildDash} \`e una suite di benchmark e un dataset per la segmentazione semantica e d'instanza per il dominio automobilistico. Le immagini, contenute nei datasets, provengono da diverse fonti da tutto il mondo. Inoltre presentano scenari, quali pioggia, oscurit\`a, copertura stradale che sono delle vere e proprie challenge per il riconoscimento delle immagini. Questo consente di mettere in luce le carenze di una qualsiasi tecnica di instance segmentation.
+\textit{WildDah}~\cite{wildDash} \`e una suite di benchmark e un dataset per la segmentazione semantica e d'instanza per il dominio automobilistico. Le immagini, contenute nei datasets, provengono da diverse fonti da tutto il mondo. Inoltre presentano scenari, quali pioggia, oscurit\`a, copertura stradale che sono delle vere e proprie challenge per il riconoscimento delle immagini. Questo consente di mettere in luce le carenze di una qualsiasi tecnica di instance segmentation.\\
+Il dataset che abbiamo usato \`e \textit{public gt package} (Figure \ref{fig:image_wd}), composto da 4 256 immagini rivolto appositamente a risolvere tasks di instance segmentation; non era tuttavia suddiviso in train, val e test set. Abbiamo di conseguenza deciso di suddividerlo manualmente, riservando 3 405 immagini come train set e 851 immagini come test set. Non abbiamo ritenuto necessario fare un'ulteriore partizione in val set, in modo da mantenere pi\`u immagini possibili nel addestramento; e assumendo che i nostri modelli, usando pesi gi\`a preadestrati su ImageNet~\cite{imagenet}, fossero sufficientemente accurati da non richiedere model selection.
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.45\linewidth]{./image/wd_rain.jpg} \quad \includegraphics[width=0.45\linewidth]{./image/wd_desert.jpg}
   \caption{\textit{WildDash}~\cite{wildDash} images:  \textit{rain scenario} to left and \textit{road in the desert} to right.}
-  \label{fig:image_gtfine}
+  \label{fig:image_wd}
 \noindent
 \end{figure}
-Il dataset che abbiamo usato \`e \textit{public gt package}, composto da 4 256 immagini rivolto appositamente a risolvere tasks di instance segmentation; non era tuttavia suddiviso in train, val e test set. Abbiamo di conseguenza deciso di suddividerlo manualmente, riservando 3 405 immagini come train set e 851 immagini come test set. Non abbiamo ritenuto necessario fare un'ulteriore partizione in val set, in modo da mantenere pi\`u immagini possibili nel addestramento; e assumendo che i nostri modelli, usando pesi gi\`a preadestrati su ImageNet~\cite{imagenet}, fossero sufficientemente accurati da non richiedere model selection.
 
 
 
