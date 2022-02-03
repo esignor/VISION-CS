@@ -57,7 +57,7 @@ La segmentazione dell'immagine \`e il processo di separazione di questa in pi\`u
 \label{sec:related-work}
 L'approccio che abbiamo usato nel nostro lavoro \`e stato utilizzare come linee giuda i papers ~\cite{Authors1_maskrcnn},~\cite{Authors2_BlendMask},~\cite{Authors6_SOLOv2} e~\cite{Authors7_deepsnake} estendendo le analisi anche su dataset di \textit{Urban Street Scenes}.
 \subsection{Stage approch} 
-\textbf{Mask R-CNN}~\cite{Authors1_maskrcnn} \`e una Rete Neurale Convoluzionale che si presenta all'avanguardia in termini di segmentazione dell'immagine. \`E la variante di una Rete Neurale Profonda che rileva gli oggetti di un'immagine e vi genera una maschera di segmentazione per ciascuna istanza.
+Mask R-CNN~\cite{Authors1_maskrcnn} \`e una Rete Neurale Convoluzionale che si presenta all'avanguardia in termini di segmentazione dell'immagine. \`E la variante di una Rete Neurale Profonda che rileva gli oggetti di un'immagine e vi genera una maschera di segmentazione per ciascuna istanza.
 Mask R-CNN~\cite{Authors1_maskrcnn} \`e l'evoluzione successiva di Faster R-CNN~\cite{fasterRCNN}, Rete Neurale Convoluzionale Region-based, che produce per ogni oggetto candidato 3 output: l'etichetta di classe, l'offset del riquadro di delimitazione e la maschera dell'oggetto.
 L'architettura della rete, Figure \ref{fig:mask_rcnn}, si compone di una CNN (backbone), che processa l'immagine e estrae la feature map. Dopodich\`e grazie alla Region Proposal Network vengono presentate le proposte o RoI, sul quale andare a fare riconosciemento del riquadro di delimitazione e previsione delle maschera (head). Inoltre prima di generare l'ouput a ciascuna RoI viene applicato RoIAlign, che permette di ottenere una maschera dove il layout dell'oggetto viene mantenuto.
 \begin{figure}[H]
@@ -67,7 +67,7 @@ L'architettura della rete, Figure \ref{fig:mask_rcnn}, si compone di una CNN (ba
   \label{fig:mask_rcnn}
 \noindent
 \end{figure}
-\indent\textbf{BlendMask}~\cite{Authors2_BlendMask} deriva dai limiti di Mask R-CNN~\cite{Authors1_maskrcnn}. Gli autori del paper definiscono come Mask R-CNN~\cite{Authors1_maskrcnn} vincoli fortemente la velocit\`a e la qualit\`a di generazione delle maschere alle heads, facendo cos\`i fatica a trattare scenari complicati e ponendo un limite alla risoluzione delle maschere. Inoltre Mask R-CNN~\cite{Authors1_maskrcnn} si presenta come un framework poco flessibile per reti multi-task. Hanno cos\`i cercato di cobinare strategie di ricerca dall'alto verso il basso e dal basso verso l'alto in FCOS~\cite{fcos}, one stage approch, che sembra in grado di superare le controparti a due stadi in termini di precisione. L'architettura di BlendMask~\cite{Authors2_BlendMask}, Figure \ref{fig:blendmask}, si compone di un detector network e di una mask branch. Quest'ultima \`e partizionata in 3 parti: il modulo inferiore che si occupa di prevedere le scores map, chiamate basi; the top layer composto da un singolo strato di convoluzione e da torri, tante quante sono le input features, con il compito di predirre attention instance, e un modulo blender che unisce scores con attenzioni.
+\indent BlendMask~\cite{Authors2_BlendMask} deriva dai limiti di Mask R-CNN~\cite{Authors1_maskrcnn}. Gli autori del paper definiscono come Mask R-CNN~\cite{Authors1_maskrcnn} vincoli fortemente la velocit\`a e la qualit\`a di generazione delle maschere alle heads, facendo cos\`i fatica a trattare scenari complicati e ponendo un limite alla risoluzione delle maschere. Inoltre Mask R-CNN~\cite{Authors1_maskrcnn} si presenta come un framework poco flessibile per reti multi-task. Hanno cos\`i cercato di cobinare strategie di ricerca dall'alto verso il basso e dal basso verso l'alto in FCOS~\cite{fcos}, one stage approch, che sembra in grado di superare le controparti a due stadi in termini di precisione. L'architettura di BlendMask~\cite{Authors2_BlendMask}, Figure \ref{fig:blendmask}, si compone di un detector network e di una mask branch. Quest'ultima \`e partizionata in 3 parti: il modulo inferiore che si occupa di prevedere le scores map, chiamate basi; the top layer composto da un singolo strato di convoluzione e da torri, tante quante sono le input features, con il compito di predirre attention instance, e un modulo blender che unisce scores con attenzioni.
 \begin{figure}[H]
 \centering
   \includegraphics[width=1\linewidth]{./image/blendmask.png}
@@ -77,41 +77,50 @@ L'architettura della rete, Figure \ref{fig:mask_rcnn}, si compone di una CNN (ba
 \end{figure}
 \noindent
 
-\indent\textbf{SOLOv2}~\cite{Authors6_SOLOv2} \`e un altro approccio a singolo stage, sucessore di SOLO~\cite{solo}. In questo caso ogni istanza di un'immagine viene segmentata dinamicamente, senza rilevamento del riquadro di delimitazione.
+\indent SOLOv2~\cite{Authors6_SOLOv2} \`e un altro approccio a singolo stage, sucessore di SOLO~\cite{solo}. In questo caso ogni istanza di un'immagine viene segmentata dinamicamente, senza rilevamento del riquadro di delimitazione.
 La generazione della maschera, a differenza di Mask R-CNN~\cite{Authors1_maskrcnn}, \`e disaccoppiata in mask kernel prediction e in mask feature learning. Questi due elementi sono responsabili della generazione dei convolution kernels e delle feature maps. SOLOv2~\cite{Authors6_SOLOv2} riesce a ottenere risultati promettenti anche grazie all'uso della matrix non-maximum suppression (NMS) technique, che riduce le previsioni duplicate guadagnandone in minor overhead d'inferenza.
 \subsection{Contour-based approach}
-\textbf{Deep Snake}~\cite{Authors7_deepsnake} \`e un approccio basato su contorni, che implementa l'idea degli algoritmi snake con learning-based approach. Deep Snake~\cite{Authors7_deepsnake} si compone di una pipeline a due stadi: in un prima istanza vi \`e  una proposta di controno iniziale sull'oggetto di un'immagine; fatta successivamente seguire dall'uso di una Rete Neurale, che deforma iterativamente questa proposta, fino a farla combacire esattamente con i confini propri dell'oggetto. Per l'apprendimento della struttura delle features del contorno, gli autori del paper propongono l'uso della Circular Convolution.
+Deep Snake~\cite{Authors7_deepsnake} \`e un approccio basato su contorni, che implementa l'idea degli algoritmi snake con learning-based approach. Deep Snake~\cite{Authors7_deepsnake} si compone di una pipeline a due stadi: in un prima istanza vi \`e  una proposta di controno iniziale sull'oggetto di un'immagine; fatta successivamente seguire dall'uso di una Rete Neurale, che deforma iterativamente questa proposta, fino a farla combacire esattamente con i confini propri dell'oggetto. Per l'apprendimento della struttura delle features del contorno, gli autori del paper propongono l'uso della Circular Convolution.
 
 \section{Datasets}
 I datasets di \textit{Urban Street Scenes}, che abbiamo usato, appartengono a \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash}~\cite{wildDash}.
 \subsection{Cityscapes}
-\textit{Cityscapes}~\cite{cityscapes} \`e una suite di benchmark e un dataset su larga scala per semantic urban scene understanding. \`E adatto per apprendere e testare metodi pixel-level e instance-level semantic labeling. Le immagini di \textit{Cityscapes}~\cite{cityscapes} sono state create da un'insieme vasto e diversificato di sequenze video, registrate in 50 citt\`a diverse. Queste possono essere comprensive di annotazioni di alta qualit\`a, ma anche di tipo grossolane; quest'ultime consentono di testare metodi che impiegano grandi volumi di dati debolmente etichettati. Le annotazioni contenute, fondamentali per la valutazione di un modello, sono di tipo poligonale.\\ In Figura\ref{fig:class_definitions}, sono indicati i gruppi, con le relative classi con cui possono venire etichettate le istanze di un'immagine.
-\begin{figure}[H]
-\centering
-  \includegraphics[width=0.7\linewidth]{./image/classes_cityscapes} 
-  \caption{\textit{Cityscapes} class definitions.\\
-  \textit{$\ast$ single istance annotations are available, $+$ label not included. Source: https://www.cityscapes-dataset.com/dataset-overview/.}}
-  \label{fig:class_definitions}
-\noindent
-\end{figure}
-I datasets che abbiamo usato, apparteneti a \textit{Cityscapes}~\cite{cityscapes}, sono stati \textit{gtFine} e \textit{leftImg8} (Figure\ref{fig:image_gtfine}). Il primo \`e composto da annotazioni fini per 3 475 immagini di train e val, e 1 525 immagini per test set. Per non limitarci esclusivamente a lavorare con immagini  annotate abbiamo deciso di utilizzare anche \textit{leftImg8}, dataset composto da immagini di traffico urbano "standard", con train set, test set e val set; per un totale di 5 000 immagini.
+\textit{Cityscapes}~\cite{cityscapes} \`e una suite di benchmark e un dataset su larga scala per semantic urban scene understanding. \`E adatto per apprendere e testare metodi pixel-level e instance-level semantic labeling. Le immagini di \textit{Cityscapes}~\cite{cityscapes} sono state create da un'insieme vasto e diversificato di sequenze video, registrate in 50 citt\`a diverse. Queste possono essere comprensive di annotazioni di alta qualit\`a, o/e di tipo grossolane; quest'ultime consentono di testare metodi che impiegano grandi volumi di dati debolmente etichettati. Le annotazioni contenute, fondamentali per la valutazione di un modello, sono di tipo poligonale.\\ 
+Il dataset che abbiamo usato, appartenete a \textit{Cityscapes}~\cite{cityscapes}, si partiziona in due unit\`a: \textit{gtFine} e \textit{leftImg8} (Figure \ref{fig:image_gtfine}), che abbiamo utilizzato in coppia. \textit{gtFine} si compone di annotazioni fini per 3 475 immagini di train e val, e 1 525 immagini per test set. \textit{leftImg8} da immagini "row" di traffico urbano, con train set, test set e val set; per un totale di 5 000 immagini.
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.45\linewidth]{./image/gtFine.png} \quad \includegraphics[width=0.45\linewidth]{./image/leftImg8.png}
-  \caption{\textit{Cityscapes}~\cite{cityscapes} images: \textit{gtFine} to left and \textit{leftImg8} dataset to right.}
+  \caption{\textit{Cityscapes}~\cite{cityscapes} images: \textit{gtFine} to left and \textit{leftImg8} to right.}
   \label{fig:image_gtfine}
+\noindent
+\end{figure}
+
+In Figura \ref{fig:class_definitions_city}, riportiamo le classi e il numero di occorrenze in \textit{gtFine train} e \textit{leftImg8 train}. Il numero di classi complessive sono 8.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\linewidth]{./image/city_class} 
+  \caption{\textit{Cityscapes} dataset class definitions.}
+  \label{fig:class_definitions_city}
 \noindent
 \end{figure}
 Tuttavia i datasets di \textit{Cityscapes}~\cite{cityscapes} anche se includono diversi mesi e stagioni, sono sempre immagini scattate in buone condizioni metereologiche. Questo aspetto ci ha spinto ad analizzare il comportamento delle nostre tecniche di instance segmentation anche sul dataset \textit{WildDash}~\cite{wildDash}.
 
 \subsection{WildDash}
-\textit{WildDah}~\cite{wildDash} \`e una suite di benchmark e un dataset per la segmentazione semantica e d'instanza per il dominio automobilistico. Le immagini, contenute nei datasets, provengono da diverse fonti da tutto il mondo. Inoltre presentano scenari, quali pioggia, oscurit\`a, copertura stradale che sono delle vere e proprie challenge per il riconoscimento delle immagini. Questo consente di mettere in luce le carenze di una qualsiasi tecnica di instance segmentation.\\
-Il dataset che abbiamo usato \`e \textit{public gt package} (Figure \ref{fig:image_wd}), composto da 4 256 immagini rivolto appositamente a risolvere tasks di instance segmentation; non era tuttavia suddiviso in train, val e test set. Abbiamo di conseguenza deciso di suddividerlo manualmente, riservando 3 405 immagini come train set e 851 immagini come test set. Non abbiamo ritenuto necessario fare un'ulteriore partizione in val set, in modo da mantenere pi\`u immagini possibili nel addestramento; e assumendo che i nostri modelli, usando pesi gi\`a preadestrati su ImageNet~\cite{imagenet}, fossero sufficientemente accurati da non richiedere model selection.
+\textit{WildDash}~\cite{wildDash} \`e una suite di benchmark e un dataset per la segmentazione semantica e d'instanza per il dominio automobilistico. Le immagini, contenute nei datasets, provengono da diverse fonti da tutto il mondo. Inoltre presentano scenari, quali pioggia, oscurit\`a, copertura stradale che sono delle vere e proprie challenge per il riconoscimento delle immagini. Questo consente di mettere in luce le carenze di una qualsiasi tecnica di instance segmentation.\\
+Il dataset che abbiamo usato \`e \textit{public gt package} (Figure \ref{fig:image_wd}), composto da 4 256 immagini, rivolto appositamente a risolvere tasks di instance segmentation; non era tuttavia suddiviso in train, val e test set. Abbiamo di conseguenza deciso di suddividerlo manualmente, riservando 3 405 immagini come train set e 851 immagini come test set. Non abbiamo ritenuto necessario fare un'ulteriore partizione in val set, in modo da mantenere pi\`u immagini possibili nel addestramento; e assumendo che i nostri modelli, usando pesi gi\`a preadestrati su ImageNet~\cite{imagenet}, fossero sufficientemente accurati da non richiedere model selection.
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.45\linewidth]{./image/wd_rain.jpg} \quad \includegraphics[width=0.45\linewidth]{./image/wd_desert.jpg}
   \caption{\textit{WildDash}~\cite{wildDash} images:  \textit{rain scenario} to left and \textit{road in the desert} to right.}
   \label{fig:image_wd}
+\noindent
+\end{figure}
+In Figura \ref{fig:class_definitions_wd}, riportiamo le classi e il numero di occorrenze in \textit{public gt package train}. Il numero di classi complessive sono 13.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=1\linewidth]{./image/wd_class} 
+  \caption{\textit{WildDash} dataset class definitions.}
+  \label{fig:class_definitions_wd}
 \noindent
 \end{figure}
 
@@ -121,14 +130,11 @@ Il dataset che abbiamo usato \`e \textit{public gt package} (Figure \ref{fig:ima
 
 
 \section{Method}
-Per riuscire a fare un confronto tra le diverse tecniche di instance segmentation, oggetto di questo documento, abbiamo utlizzato i seguenti approcci:
-\begin{itemize}
-\item proceduto con l'implentazione di modelli e successivamente fatto ricorso al metodo sperimentale per la valutazione;
-\item studiato e analizzato i risultati dei papers.
-\end{itemize}
 
+\subsection{Architecture}
 
-\subsection{Dataset preparation}
+\subsection{Hyperparameters of configuration}
+
 \subsection{Training with fine-tuning}
 \paragraph{Mask R-CNN}
 La loss utilizzata durante il training \`e la seguente
@@ -137,6 +143,7 @@ L$_{cls}$ is the classification loss, L$_{box}$ is the bounding-box loss and  L$
 \paragraph{BlendMask}
 La loss utilizzata durante il training \`e la seguente
 \begin{center} min(L) $=$ min(semantic loss)~\cite{Authors4_semanticloss}\end{center}.
+\subsection{Evalutation and inference}
 
 \subsection{Metrics}
 \begin{itemize}
@@ -144,10 +151,9 @@ La loss utilizzata durante il training \`e la seguente
 \item numero di istanze, tempo :: accuracy visiva.confidence-threshold
 \end{itemize}
 
-\subsection{Evalutation and inference}
 
 
-\section{Experiments and results}
+\section{Experiments}
 In questa sezione descriviamo gli esperimenti che abbiamo eseguito per testare  e valutare le tecniche oggetto di questo lavoro. Tali esperimenti gli abbiamo eseguiti al termine delle fasi di studio e codifica.
 
 \subsection{Backbone}
