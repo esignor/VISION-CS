@@ -57,7 +57,7 @@ Image segmentation is the process of separating an image into several segments, 
 
 \section{Related Work}
 \label{sec:related-work}
-The approach we used in our work was to use the following papers as guidelines ~\cite{Authors1_maskrcnn},~\cite{Authors2_BlendMask},~\cite{Authors6_SOLOv2} and~\cite{Authors7_deepsnake}, extending the analysis also to datasets of \textit{Urban Street Scenes}.
+The approach we used in our work was to use the following papers as guidelines~\cite{Authors1_maskrcnn, Authors2_BlendMask, Authors6_SOLOv2, Authors7_deepsnake}, extending the analysis also to datasets of \textit{Urban Street Scenes}.
 %L'approccio che abbiamo usato nel nostro lavoro \`e stato utilizzare come linee giuda i papers ~\cite{Authors1_maskrcnn},~\cite{Authors2_BlendMask},~\cite{Authors6_SOLOv2} e~\cite{Authors7_deepsnake} estendendo le analisi anche su dataset di \textit{Urban Street Scenes}.
 \subsection{Stage approch} 
 Mask R-CNN~\cite{Authors1_maskrcnn} is a box-based two-stage approch with a Convolutional Neural Network, that is at the avant-garde of image segmentation. It is a variant of a Deep Neural Network that detects objects in an image and generates a segmentation mask for each instance. Mask R-CNN~\cite{Authors1_maskrcnn} is the next evolution of Faster R-CNN~\cite{fasterRCNN}, a Region-based Convolutional Neural Network, which produces for each candidate object 3 outputs: the class label, the bounding box offset and the object mask.
@@ -102,7 +102,7 @@ The dataset we used, belonging to \textit{Cityscapes}~\cite{cityscapes}, is part
 %Il dataset che abbiamo usato, appartenete a \textit{Cityscapes}~\cite{cityscapes}, si partiziona in due unit\`a: \textit{gtFine} e \textit{leftImg8} (Figure \ref{fig:image_gtfine}), che abbiamo utilizzato in coppia. \textit{gtFine} si compone di annotazioni fini per 3 475 immagini di train e val, e 1 525 immagini per test set. \textit{leftImg8} da immagini "row" di traffico urbano, con train set, test set e val set; per un totale di 5 000 immagini.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.45\linewidth]{./image/gtFine.png} \quad \includegraphics[width=0.45\linewidth]{./image/leftImg8.png}
+  \includegraphics[width=0.41\linewidth]{./image/gtFine.png} \quad \includegraphics[width=0.41\linewidth]{./image/leftImg8.png}
   \caption{\textit{Cityscapes}~\cite{cityscapes} images: \textit{gtFine} to left and \textit{leftImg8} to right.}
   \label{fig:image_gtfine}
 \noindent
@@ -112,8 +112,8 @@ In Figure \ref{fig:class_definitions_city}, we report the classes and the number
 %In Figura \ref{fig:class_definitions_city}, riportiamo le classi e il numero di occorrenze in \textit{gtFine train} e \textit{leftImg8 train}. Il numero di classi complessive sono 8.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=1\linewidth]{./image/city_class} 
-  \caption{\textit{Cityscapes}: definitions of train dataset classes. \\ The class considered "dangerous" for a good generalisation of a model is \textit{train}, due to the small number of instances (168).}
+  \includegraphics[width=0.9\linewidth]{./image/city_class} 
+  \caption{\textit{Cityscapes}: definitions of train dataset classes.} %\\ The class considered "dangerous" for a good generalisation of a model is \textit{train}, due to the small number of instances (168).}
   \label{fig:class_definitions_city}
 \noindent
 \end{figure}
@@ -127,7 +127,7 @@ The dataset we used is \textit{public gt package} (Figure \ref{fig:image_wd}), c
 %Il dataset che abbiamo usato \`e \textit{public gt package} (Figure \ref{fig:image_wd}), composto da 4 256 immagini, rivolto appositamente a risolvere tasks di instance segmentation; non era tuttavia suddiviso in train, val e test set. Abbiamo di conseguenza deciso di suddividerlo manualmente, riservando 3 405 immagini come train set e 851 immagini come test set. Non abbiamo ritenuto necessario fare un'ulteriore partizione in val set, in modo da mantenere pi\`u immagini possibili nel addestramento; e assumendo che i nostri modelli, usando pesi gi\`a preadestrati su ImageNet~\cite{imagenet}, fossero sufficientemente accurati da non richiedere model selection.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.45\linewidth]{./image/wd_rain.jpg} \quad \includegraphics[width=0.45\linewidth]{./image/wd_desert.jpg}
+  \includegraphics[width=0.4\linewidth]{./image/wd_rain.jpg} \quad \includegraphics[width=0.4\linewidth]{./image/wd_desert.jpg}
   \caption{\textit{WildDash}~\cite{wildDash} images:  \textit{rain scenario} to left and \textit{road in the desert} to right.}
   \label{fig:image_wd}
 \noindent
@@ -136,23 +136,57 @@ In Figure \ref{fig:class_definitions_wd}, we report the classes and the number o
 %In Figura \ref{fig:class_definitions_wd}, riportiamo le classi e il numero di occorrenze in \textit{public gt package train}. Il numero di classi complessive sono 13.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=1\linewidth]{./image/wd_class} 
-  \caption{\textit{WildDash}: definitions of train dataset classes. \\ The classes considered "dangerous" for a good generalisation of a model are \textit{caravan} (46), \textit{trailer} (65) and \textit{train} (74).}
+  \includegraphics[width=0.9\linewidth]{./image/wd_class.png} 
+  \caption{\textit{WildDash}: definitions of train dataset classes.} %\\ The classes considered "dangerous" for a good generalisation of a model are \textit{caravan} (46), \textit{trailer} (65) and \textit{train} (74).}
   \label{fig:class_definitions_wd}
 \noindent
 \end{figure}
 
 
-
-
-
-
 \section{Method}
+In order to be able to operationally compare the instance segmentation techniques, that are the subject of our work, we have referred to already existing libraries, developed by the researchers of~\cite{Authors1_maskrcnn, Authors2_BlendMask}.  These are \textit{Detectron2} for Mask R-CNN~\cite{Authors1_maskrcnn} and \textit{AdelaiDet} for BlendMask~\cite{Authors2_BlendMask}.
+These libraries have allowed us to define sub-optimal ideal models, in order to improve their accuracy during experiments. Furthermore, making explicit the evaluation set and the metrics needed to estimate performance, allowed us to concretise the concept of comparison.
+%Per poter operativamente confrontare le tecniche di instance segmentation oggetto del nostro lavoro, abbiamo fatto riferimento a librerie gi\`a esistenti, sviluppate dai ricercatori di ~\cite{Authors1_maskrcnn} e \cite{Authors2_BlendMask}. Queste sono \textit{Detectron2} per Mask R-CNN~\cite{Authors1_maskrcnn} e \textit{AdelaiDet} per BlendMask~\cite{Authors2_BlendMask}.
+%Tali librerie ci hanno consentito di definire modelli ideali subottimi, con il fine di migliorarne la precisione durante gli esperimenti. Inoltre anche esplicitare il set valutazione e le metriche necessarie per stima di performance, ci hanno consentito di concretizzare il concetto di confronto.
 
 \subsection{Architecture}
+We decided to use ResNet-101-FPN as the backbone in both Mask R-CNN~\cite{Authors1_maskrcnn} and BlendMask~\cite{Authors2_BlendMask}. In addition, as the bottom module of BlendMask~\cite{Authors2_BlendMask} we have instantiated ProtoNet~\cite{protonet}. 
+%Abbiamo deciso di utilizzare ResNet-101-FPN come backbone sia in Mask R-CNN~\cite{Authors1_maskrcnn} che in BlendMask~\cite{Authors2_BlendMask}. Inoltre come bottom module di BlendMask~\cite{Authors2_BlendMask} abbiamo istanziato ProtoNet~\cite{protonet}. 
+\subsubsection{ResNet 101}
+Both \textit{Detectron2} and \textit{AdelaiDet} offer ResNet~\cite{Authors5_ResNet} as a backbone network, in which it is possible to choose between 50 and 101 layers.  In addition, \textit{Detectron2} also includes ResNeXt~\cite{resxt} 101, a cardinal variant of ResNet 101; which, however, we have excluded from any possible comparison because of the excessive training time, for the means at our disposal, which cannot be justified by the increase in accuracy of the mask alone.
+We considered ResNet 101, Figure \ref{fig:resnet101}, sufficient for our purposes, defined as a network that also converges very well from the reference paper~\cite{Authors5_ResNet}.
+%Sia \textit{Detectron2} che \textit{AdelaiDet} offrono come rete backbone ResNet~\cite{Authors5_ResNet}, in cui \`e possibile scegliere tra 50 e 101 layers. Inoltre \textit{Detectron2} include anche ResNeXt~\cite{resxt} 101, variante con cardinalit\`a di ResNet 101; che tuttavia abbiamo escluso da ogni possibile confronto a causa dell' eccessivo tempo di training, per i mezzi  a nostra disposizione, non giustificabile dal solo aumento di accuracy della maschera.
+%Abbiamo ritenuto ResNet 101, Figure \ref{fig:resnet101} sufficiente ai nostri scopi, definita come una rete che converge molto bene anche dal paper di riferimento~\cite{Authors5_ResNet}.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.92\linewidth]{./image/resnet101.png} 
+  \caption{The structure of the ResNet 101. \textit{Source: ~\cite{resnet101_img}, pag. 6.}\\
+  The figure shows Resnet 101, a Residual Neural Network with 101 layers. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation.}%In figura viene prsentata Resnet 101, una Residual Neural Network (CNN$+$deepness) with 101 layers. Essa usa le skip connections, ovvero gli archi sopra ciascun blocco, per risolvere i prolemi legati alla computazione del gradiente.}
+  \label{fig:resnet101}
+\noindent
+\end{figure}
+\subsubsection{Feature Pyramid Network}
+For complete the backbone, ResNet~\cite{Authors5_ResNet} it is not enough. Is necessary a second architecture that extract the features in Mask R-CNN~\cite{Authors1_maskrcnn} or the basis for BlendMask~\cite{Authors2_BlendMask}. In this case \textit{Detectron2} includes several already configured approaches, e.g. C4 where features are extracted from the 4-th convolutional stage of ResNet~\cite{Authors5_ResNet}; or FPN~\cite{FPN} with lateral connections that allow to build a pyramid of functionalities within the network from single-scale input. \textit{AdelaiDet}, on the other hand, exclusively implements FPN~\cite{FPN}. Our choice fell on FPN~\cite{FPN}, in order to maintain consistency between the two models under analysis, and to be once again in line with what was defined by the papers~\cite{Authors1_maskrcnn, Authors2_BlendMask}.  In fact, the researchers declare as FPN~\cite{FPN} is performant in both feature/base extraction and execution time.  In Figure \ref{fig:FPN} we show how FPN~\cite{FPN} solves the feature extraction task, when it is used as backbone in an instance segmentation task.
+%Per completare la backbone ResNet~\cite{Authors5_ResNet} non basta, \`e necessaria anche una seconda architettura che si occupi di estrarre le caratteristiche in Mask R-CNN~\cite{Authors1_maskrcnn} o le basi per BlendMask~\cite{Authors2_BlendMask}. In questo caso \textit{Detectron2} include diversi approcci gi\`a configurati, ad esempio C4 dove vengono estratte le caratteristiche dal quarto stadio convoluzionale di ResNet~\cite{Authors5_ResNet}; o FPN~\cite{FPN} con connessioni laterali che consentono di costruire una piramide di funzionalit\`a all'interno della rete from single-scale input. \textit{AdelaiDet}, di contro, vede implementato esclusivamente FPN~\cite{FPN}. La nostra scelta \`e ricaduta su FPN~\cite{FPN}, in modo da mantenere coerenza tra i due modelli in analisi, e essere ancora una volta in linea con quanto definito dai papers~\cite{Authors1_maskrcnn},~\cite{Authors2_BlendMask}. I riceratori difatti dichiarano FPN~\cite{FPN} performante  sia per l'estrazione delle features/basi che nel tempo di esecuzione. In Figure \ref{fig:FPN} mostriamo come FPN~\cite{FPN} risolve il compito di estrazione delle features, quando viene utilizzata come backbone in un task di instance segmentation.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.8\linewidth]{./image/FPN.png} 
+  \caption{FPN for object segment proposals. \textit{Source:~\cite{FPN}, pag. 8.}\\
+  The feature pyramid is constructed with identical structure as for object detection.  Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask.}%Ogni livello della piramide cerca di rilevare tutte le istanze presenti in un'immagine. Per ognuno di questi livelli viene prodotta una features map/basi, e ciascuna produrr\`a una maschera. Quest'ultime verranno combinate in un unica maschera finale.}
+  \label{fig:FPN}
+\noindent
+\end{figure}
+
+
+\subsubsection{ProtoNet decoder}
+In \textit{AdelaiDet} there are two types of bottom modules, which receive input from the backbone: ProtoNet~\cite{protonet} and DeepLabv3$+$~\cite{deeplab}. ProtoNet~\cite{protonet} is a prototype generation branch, i.e. it predicts a set of k prototypes masks for the whole image. It is implemented as a Fully Connected Network, where the last layer of which has as many channels as there are prototypes. DeepLabv3$+$~\cite{deeplab} is an encoder-decoder structure, that is able to control the resolution of feature extracts thanks to the \textit{atrous convolution}, which has the effect of increasing the kernel's field of view. In the default configuration of \textit{AdelaiDet}, ProtoNet is defined as a module. We have decided to remain in line with this choice for our sub-optimal model.
+% The latter should bring advantages in the balance between accuracy and execution time of the decoder.
+%In \textit{AdelaiDet} sono presenti due tipologie di bottom module, che ricevono in input la backbone: ProtoNet~\cite{protonet} and DeepLabv3$+$~\cite{deeplab}. ProtoNet~\cite{protonet} \`e un ramo di generazione di prototipi, ovvero predice un insieme di k maschere prototipo per l'intera immagine. Viene implementata come Fully Connected Network, il cui ultimo strato ha tanti canali quanti sono i prototipi. DeepLabv3$+$~\cite{deeplab} \`e una encoder-decoder structure, che  i\`e in grado di controllare la risoluzione delle features extract grazie alla \textit{atrous convolution}, che ha l'effetto di aumentare il campo visivo del kernel. Quest'ultimo aspetto dovrebbe portare vantaggi nel bilanciamento tra precisione e tempo di esecuzione del decoder.
+%Nelle configurazioni di default di AdelaiDet \`e definito ProtoNet come modulo. Abbiamo deciso di rimanere anche noi, per il nostro modello subottimo, in linea con tale scelta.
+
 
 \subsection{Hyperparameters of configuration}
-
+Hyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configuration
 \subsection{Training with fine-tuning}
 \paragraph{Mask R-CNN}
 La loss utilizzata durante il training \`e la seguente
@@ -163,7 +197,7 @@ La loss utilizzata durante il training \`e la seguente
 \begin{center} min(L) $=$ min(semantic loss)~\cite{Authors4_semanticloss}\end{center}.
 \subsection{Evalutation and inference}
 
-\subsection{Metrics}
+\subsubsection{Metrics}
 \begin{itemize}
 \item AP
 \item numero di istanze, tempo :: accuracy visiva.confidence-threshold
@@ -353,7 +387,20 @@ FCOS: Fully Convolutional One-Stage Object Detection. CoRR, 2019.
 Xinlong Wang, Tao Kong, Chunhua Shen, Yuning Jiang and Lei Li
 SOLO: Segmenting Objects by Locations. CoRR, 2019.
 \bibitem{imagenet}
-J. Deng, W. Dong, R. Socher, L. -J. Li, Kai Li and Li Fei-Fei, "ImageNet: A large-scale hierarchical image database," 2009 IEEE Conference on Computer Vision and Pattern Recognition, 2009, pp. 248-255, doi: 10.1109/CVPR.2009.5206848.
+J. Deng, W. Dong, R. Socher, L. -J. Li, Kai Li and Li Fei-Fei.
+"ImageNet: A large-scale hierarchical image database," 2009 IEEE Conference on Computer Vision and Pattern Recognition, 2009, pp. 248-255, doi: 10.1109/CVPR.2009.5206848.
+\bibitem{resnet101_img}
+Chen, Jiayao \& Zhou, Mingliang \& Zhang, Dongming \& Huang, H. \& Zhang, Fengshou. (2021).
+Quantification of water inflow in rock tunnel faces via convolutional neural network approach. Automation in Construction. 123. 103526. 10.1016/j.autcon.2020.103526. 
+\bibitem{resxt}
+Saining Xie, Ross B. Girshick, Piotr Doll\'ar, Zhuowen Tu and Kaiming He.
+Aggregated Residual Transformations for Deep Neural Networks. CoRR, 2016.
+\bibitem{deeplab}
+Liang-Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroff and Hartwig Adam.
+Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation. CoRR, 2018.
+\bibitem{protonet}
+Daniel Bolya, Chong Zhou, Fanyi Xiao and Yong Jae Lee.
+YOLACT: Real-time Instance Segmentation. CoRR, 2019.
 \bibitem{Authors8_semanticloss}
 Xu, Jingyi and Zhang, Zilu and Friedman, Tal and Liang, Yitao and Van den Broeck, Guy.
 A Semantic Loss Function for Deep Learning with Symbolic Knowledge. Proceedings of the 35th International Conference on Machine Learning, 2018.
