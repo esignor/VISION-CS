@@ -235,7 +235,32 @@ Per le nostre valutazioni abbiamo deciso di considerare l'AP cos\`i come definit
 
 
 
-\subsection{Sub-optimal ideal models result}
+\subsection{Sub-optimal ideal models results}
+\begin{figure}[H]
+\centering
+ \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} 
+   \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}  	\includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}   
+  \caption{\textit{Models ideal results}: real image (to left), mask image (to center) and blend image (to right). First row is \textit{Cityscapes} dataset and second row is \textit{WildDash} dataset.}
+  \label{fig:result_model_ideal}
+\noindent
+\end{figure}
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method & \textit{Cityscapes} & \textit{WildDash}\\
+\hline\hline
+Mask R-CNN & \begin{tabular}[c]{ccc}box AP: 28.278 \\ mask AP: 23.793 \\ training time:0:26:43\end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.815 \\ mask AP: 17.738 \\ training time: 1:14:57\end{tabular} \\
+\hline
+BlendMask & &\\
+\hline
+\end{tabular}
+\end{center}
+\caption{AP and training time ideal models.}
+\label{mytable_deepness_BlendMask}
+\end{table}
 
 
 \section{Experiments}

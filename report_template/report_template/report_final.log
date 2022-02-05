@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  5 FEB 2022 13:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  5 FEB 2022 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -292,6 +292,9 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 
 LaTeX Warning: Label `mytable_deepness_BlendMask' multiply defined.
 
+
+LaTeX Warning: Label `mytable_deepness_BlendMask' multiply defined.
+
 )
 \openout1 = `report_final.aux'.
 
@@ -481,74 +484,93 @@ Underfull \hbox (badness 10000) in paragraph at lines 231--232
 []\OT1/ptm/m/n/10 Precision l'accuratezza delle pre-vi-sioni,
  []
 
-[4]
-Overfull \hbox (1.99022pt too wide) in paragraph at lines 273--286
+<./image/ideal_model_mask_city.png, id=141, 1025.8325pt x 514.92375pt>
+File: ./image/ideal_model_mask_city.png Graphic file (type png)
+<use ./image/ideal_model_mask_city.png>
+Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
+241.
+(pdftex.def)             Requested size: 106.71045pt x 53.5618pt.
+File: ./image/ideal_model_mask_city.png Graphic file (type png)
+<use ./image/ideal_model_mask_city.png>
+Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
+241.
+(pdftex.def)             Requested size: 106.71045pt x 53.5618pt.
+<./image/ideal_model_mask_wd.png, id=142, 958.58125pt x 542.025pt>
+File: ./image/ideal_model_mask_wd.png Graphic file (type png)
+<use ./image/ideal_model_mask_wd.png>
+Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 24
+2.
+(pdftex.def)             Requested size: 106.71045pt x 60.3342pt.
+File: ./image/ideal_model_mask_wd.png Graphic file (type png)
+<use ./image/ideal_model_mask_wd.png>
+Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 24
+2.
+(pdftex.def)             Requested size: 106.71045pt x 60.3342pt.
+[4 <./image/ideal_model_mask_city.png> <./image/ideal_model_mask_wd.png>]
+Overfull \hbox (1.99022pt too wide) in paragraph at lines 298--311
  [] 
  []
 
 
-Overfull \hbox (9.52895pt too wide) in paragraph at lines 297--306
+Overfull \hbox (9.52895pt too wide) in paragraph at lines 322--331
  [] 
  []
 
 
-Overfull \hbox (9.52895pt too wide) in paragraph at lines 317--330
+Underfull \vbox (badness 1552) has occurred while \output is active []
+
+
+Overfull \hbox (9.52895pt too wide) in paragraph at lines 342--355
  [] 
  []
 
-
-Underfull \vbox (badness 2582) has occurred while \output is active []
-
-<./image/conclusion_SOLOv2.png, id=172, 669.50125pt x 524.96124pt>
+<./image/conclusion_SOLOv2.png, id=175, 669.50125pt x 524.96124pt>
 File: ./image/conclusion_SOLOv2.png Graphic file (type png)
 <use ./image/conclusion_SOLOv2.png>
-Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 363.
+Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 388.
 
 (pdftex.def)             Requested size: 165.99443pt x 130.1586pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5]
-<./image/conclusion_deepsnake.png, id=207, 891.33pt x 283.0575pt>
+[5]
+<./image/conclusion_deepsnake.png, id=212, 891.33pt x 283.0575pt>
 File: ./image/conclusion_deepsnake.png Graphic file (type png)
 <use ./image/conclusion_deepsnake.png>
 Package pdftex.def Info: ./image/conclusion_deepsnake.png  used on input line 3
-73.
+98.
 (pdftex.def)             Requested size: 237.13594pt x 75.30789pt.
 
-Underfull \hbox (badness 1596) in paragraph at lines 389--391
+Underfull \hbox (badness 1596) in paragraph at lines 414--416
 []\OT1/ptm/m/n/10 Tsung-Yi Lin, Michael Maire, Serge J. Be-longie,
  []
 
 
-Underfull \hbox (badness 3965) in paragraph at lines 404--406
+Underfull \hbox (badness 3965) in paragraph at lines 429--431
 \OT1/ptm/m/n/10 Chun-hua Shen. SOLOv2: Dy-namic, Faster and
  []
 
 [6 <./image/conclusion_SOLOv2.png> <./image/conclusion_deepsnake.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 455.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 480.
  [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 455.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 480.
 
 (./report_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 455.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 455.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 480.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 480.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 455.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 480.
  ) 
 Here is how much of TeX's memory you used:
- 6873 strings out of 482552
- 100915 string characters out of 5948615
- 369911 words of memory out of 5000000
- 21701 multiletter control sequences out of 15000+600000
+ 6888 strings out of 482552
+ 101360 string characters out of 5948615
+ 372103 words of memory out of 5000000
+ 21712 multiletter control sequences out of 15000+600000
  559316 words of font info for 79 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 38i,16n,31p,2381b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,16n,31p,2381b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -561,10 +583,10 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on report_final.pdf (7 pages, 636869 bytes).
+Output written on report_final.pdf (7 pages, 2739207 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 231 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 293 PDF objects out of 1000 (max. 8388607)
+ 235 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
