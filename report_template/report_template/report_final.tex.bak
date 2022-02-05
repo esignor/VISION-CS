@@ -185,8 +185,8 @@ In \textit{AdelaiDet} there are two types of bottom modules, which receive input
 %Nelle configurazioni di default di AdelaiDet \`e definito ProtoNet come modulo. Abbiamo deciso di rimanere anche noi, per il nostro modello subottimo, in linea con tale scelta.
 
 
-\subsection{Configuration hyperparameters}
-Hyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configuration
+\subsection{Hyperparameters configuration}
+Per quanto riguarda il training abbiamo settato i seguenti parametri: .. iterazioni per il modello di Mask R-CNN e di .. per BlendMask, learning rate di che decade alla... e... alla iterazione. Inoltre utiliziamo la tecnica di fine-tuning~\cite{fine-tuning}, i layers sul quale viene fatto il training sono gli ultimi due.
 \subsection{Loss function}
 The loss we used during the training of Mask R-CNN, defined in \cite{Authors1_maskrcnn}, is as follows:
 %La loss che abbiamo utilizzato durante il training di Mask R-CNN, definita in \cite{Authors1_maskrcnn}, \`e la seguente:
@@ -483,6 +483,8 @@ YOLACT: Real-time Instance Segmentation. CoRR, 2019.
 \bibitem{Authors8_semanticloss}
 Xu, Jingyi and Zhang, Zilu and Friedman, Tal and Liang, Yitao and Van den Broeck, Guy.
 A Semantic Loss Function for Deep Learning with Symbolic Knowledge. Proceedings of the 35th International Conference on Machine Learning, 2018.
+\bibitem{fine-tuning}
+X. Yin, W. Chen, X. Wu and H. Yue, "Fine-tuning and visualization of convolutional neural networks," 2017 12th IEEE Conference on Industrial Electronics and Applications (ICIEA), 2017, pp. 1310-1315, doi: 10.1109/ICIEA.2017.8283041.
 \bibitem{tensormask}
 Xinlei Chen, Ross B. Girshick, Kaiming He and Piotr Doll\'ar.
 TensorMask: A Foundation for Dense Object Segmentation. CoRR, 2019.
