@@ -185,53 +185,73 @@ In \textit{AdelaiDet} there are two types of bottom modules, which receive input
 %Nelle configurazioni di default di AdelaiDet \`e definito ProtoNet come modulo. Abbiamo deciso di rimanere anche noi, per il nostro modello subottimo, in linea con tale scelta.
 
 
-\subsection{configuration hyperparameters}
+\subsection{Configuration hyperparameters}
 Hyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configurationHyperparameters of configuration
 \subsection{Loss function}
-La loss che abbiamo utilizzato durante il training di Mask R-CNN, definita in \cite{Authors1_maskrcnn}, \`e la seguente:
+The loss we used during the training of Mask R-CNN, defined in \cite{Authors1_maskrcnn}, is as follows:
+%La loss che abbiamo utilizzato durante il training di Mask R-CNN, definita in \cite{Authors1_maskrcnn}, \`e la seguente:
 \begin{equation}
 L = L_{cls} + L_{box} + L_{mask} 
 \label{loss_mask}
 \end{equation}
-dove:
+where:
 \begin{itemize}
 \item L$_{cls}$ is the classification loss;
 \item L$_{box}$ is the bounding-box loss;
 \item  L$_{mask}$ is the average binary cross-entropy loss.
 \end{itemize}
 \noindent
-Per quanto riguarda \textit{BlendMask}, abbiamo deciso di fare riferimento alla \textit{semantic loss}~\cite{Authors8_semanticloss}, come fatto anche in parte degli esperimenti in~\cite{Authors2_BlendMask}: 
+With regard to \textit{BlendMask}, we decided to refer to the semantic loss~\cite{Authors8_semanticloss}, as also done in part of the experiments in~\cite{Authors2_BlendMask}:
+%Per quanto riguarda \textit{BlendMask}, abbiamo deciso di fare riferimento alla \textit{semantic loss}~\cite{Authors8_semanticloss}, come fatto anche in parte degli esperimenti in~\cite{Authors2_BlendMask}: 
 \begin{equation}
 L^s(\alpha, p) \propto - log \sum_{x \models \alpha} \prod_{i:x \models X_i} p_i \prod_{i:x \models \neg X_i} (1-p_i)
 \label{Loss_semantic}
 \end{equation}
-dove:
+where:
 \begin{itemize}
-\item $\alpha$ \`e una sentenza in logica proposizionale, definita su variabili $X_1,..X_n$;
-\item p \`e un vettore di probabilit\`a per ciascuna variabile $X_i$;
-\item $L^s(\alpha, p)$ \`e la perdita semantica tra $\alpha$ e p.
+\item $\alpha$ is a sentence in propositional logic, defined on variables $X_1,..X_n$;
+%\item $\alpha$ \`e una sentenza in logica proposizionale, definita su variabili $X_1,..X_n$;
+\item p is a probability vector for each variable $X_i$;
+%\item p \`e un vettore di probabilit\`a per ciascuna variabile $X_i$;
+\item $L^s(\alpha, p)$ is the semantic loss between $\alpha$ and p.
+%\item $L^s(\alpha, p)$ \`e la perdita semantica tra $\alpha$ e p.
 \end{itemize}
 \noindent
-Intuitivamente  la perdita semantica  \`e proporzionale al logaritmo di generare uno stato che soddisfi il vincolo, quando vengono campionati i valori secondo p. Questa funzione di perdita cattura quanto è vicina la rete neurale al soddisfacimento dei vincoli sul suo output. Abbiamo deciso di aggiungere la \textit{semantic loss} alla loss definita in \ref{loss_mask},  spinti dai risultati prommententi del paper~\cite{Authors2_BlendMask} e perch\`e definita dai suoi stessi autori, come utile per raggiungere risultati all'avanguardia sulla classificazione multi-classe semi-supervisionata. \\
-L'obiettivo che abbiamo cercato di perseguire sia durante la definizione dei modelli ideali che durante gli esperimenti \`e stato l'individuazione di un trade-off tra la minimizzazione della funzione di loss, il tempo di training e AP box/mask.
+Intuitively, the semantic loss is proportional to the logarithm of generating a state that satisfies the constraint, when values according to p are sampled. This loss function captures how close the Neural Network is to satisfying the constraints on its output. We decided to add the semantic loss to the loss defined in \ref{loss_mask}, driven by the promising results of the paper~\cite{Authors2_BlendMask} and because it was defined by its authors as useful to achieve state-of-the-art results on semi-supervised multi-class classification. \\
+The objective we tried to pursue, both during the definition of the ideal models and during the experiments, was the identification of a trade-off between the minimisation of the loss function, the training time and the accuracy box/mask.
+%Intuitivamente  la perdita semantica  \`e proporzionale al logaritmo di generare uno stato che soddisfi il vincolo, quando vengono campionati i valori secondo p. Questa funzione di perdita cattura quanto è vicina la rete neurale al soddisfacimento dei vincoli sul suo output. Abbiamo deciso di aggiungere la \textit{semantic loss} alla loss definita in \ref{loss_mask},  spinti dai risultati prommententi del paper~\cite{Authors2_BlendMask} e perch\`e definita dai suoi stessi autori, come utile per raggiungere risultati all'avanguardia sulla classificazione multi-classe semi-supervisionata. \\
+%L'obiettivo che abbiamo cercato di perseguire sia durante la definizione dei modelli ideali che durante gli esperimenti \`e stato l'individuazione di un trade-off tra la minimizzazione della funzione di loss, il tempo di training e AP box/mask.
 \subsection{Evalutation}
-Per quanto riguarda la valutazione abbiamo dovuto accontentarci per  il dataset di \textit{Cityscapes} del val test. Questo perch\`e una delle scelte degli ideatori di \textit{Cityscapes} \`e di non rendere pubbliche le annotazioni per il test set, e questo fa si che non sia possibile svolgere alcun calcolo di precisione su maschere e box. Invece, come gi\`a riportato nella sezione \S\ref{dataset_wd} per il dataset di \textit{WildDash} abbiamo fatto ricorso al test set, da noi partizionato dal train set risettivamente in quota 80\% - 20\%.
+As far as the evaluation is concerned, we had to settle for the val test dataset of \textit{Cityscapes}. 
+This is because one of the choices made by the creators of \textit{Cityscapes}~\cite{cityscapes} not to make the annotations for the test set public, and this makes it impossible to perform any calculations and evaluation on masks and boxes. Instead, as already reported in the section  \S\ref{dataset_wd}, for the \textit{WildDash} dataset, we used the test set, which we partitioned from the train set at 80\%-20\%.
+%Per quanto riguarda la valutazione abbiamo dovuto accontentarci per  il dataset di \textit{Cityscapes} del val test. Questo perch\`e una delle scelte degli ideatori di \textit{Cityscapes} \`e di non rendere pubbliche le annotazioni per il test set, e questo fa si che non sia possibile svolgere alcun calcolo di precisione su maschere e box. Invece, come gi\`a riportato nella sezione \S\ref{dataset_wd} per il dataset di \textit{WildDash} abbiamo fatto ricorso al test set, da noi partizionato dal train set risettivamente in quota 80\% - 20\%.
 
 \subsubsection{Metrics}
-Come metrica per la valutazione dei risultati ottenuti dai nostri modelli abbiamo deciso di utilizzare l'Average Precision (AP).
-L'AP  calcola il valore di precisione medio per il valore di richiamo da 0 a 1. In formula significa:
+As a metric for evaluating the results obtained from our models, we decided to use \textit{Average Precision} (AP). The AP calculates the average accuracy value for the recall value from 0 to 1. In formula means:
+%Come metrica per la valutazione dei risultati ottenuti dai nostri modelli abbiamo deciso di utilizzare l'Average Precision (AP).
+%L'AP  calcola il valore di precisione medio per il valore di richiamo da 0 a 1. In formula significa:
 \begin{equation}
 \int_0^1 p(r) dr 
 \label{AP}
 \end{equation}
 \noindent
-where p(r) \`e l'area sotto la curva di intersezione massima tra \textit{Precision} and \textit{Recall}:
+where p(r) is the area under the curve of maximum intersection between \textit{Precision} and \textit{Recall}:
+%where p(r) \`e l'area sotto la curva di intersezione massima tra \textit{Precision} and \textit{Recall}:
 \begin{itemize}
-\item \textit{Recall} misura "quanto bene" vengono trovati tutti gli positivi, $\frac{\text{true positive}}{\text{true positive + false negative}}$;
-\item Precision l'accuratezza delle previsioni, $\frac{\text{true positive}}{\text{true positive + false positive}}$.
+\item \textit{Recall} measures "how well" all positives are found
+\begin{equation}
+\frac{\text{true positive}}{\text{true positive + false negative}}
+\end{equation}
+%\item \textit{Recall} misura "quanto bene" vengono trovati tutti gli positivi, $\frac{\text{true positive}}{\text{true positive + false negative}}$;
+\item \textit{Precision} measures the accuracy of predictions
+\begin{equation}
+\frac{\text{true positive}}{\text{true positive + false positive}}
+\end{equation}
+%\item Precision l'accuratezza delle previsioni, $\frac{\text{true positive}}{\text{true positive + false positive}}$.
 \end{itemize}
 \noindent
-Per le nostre valutazioni abbiamo deciso di considerare l'AP cos\`i come definita metrica da COCO, ovvero l'AP viene mediata su più valori di Intersection over Union (IoU). Nello specifico vengono utilizzate 10 soglie IoU dall'intervallo .50:.05:.95; e da questi vengono estratti i 100 rilevamenti con il punteggio pi\`u alto.
+For our evaluations we decided to consider the AP as is defined metric by COCO, i.e. the AP is averaged over several Intersection over Union (IoU) values.  Specifically, 10 IoU thresholds from the range .50:.05:.95 are used; and from these are extracted the 100 detections with the highest score.
+%Per le nostre valutazioni abbiamo deciso di considerare l'AP cos\`i come definita metrica da COCO, ovvero l'AP viene mediata su più valori di Intersection over Union (IoU). Nello specifico vengono utilizzate 10 soglie IoU dall'intervallo .50:.05:.95; e da questi vengono estratti i 100 rilevamenti con il punteggio pi\`u alto.
 
 
 
@@ -240,7 +260,7 @@ Per le nostre valutazioni abbiamo deciso di considerare l'AP cos\`i come definit
 \centering
  \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} 
    \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}  	\includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}   
-  \caption{\textit{Models ideal results}: real image (to left), mask image (to center) and blend image (to right). First row is \textit{Cityscapes} dataset and second row is \textit{WildDash} dataset.}
+  \caption{\textit{Models ideal results}: mask image (to left) and blend image (to right). First row is \textit{Cityscapes} dataset and second row is \textit{WildDash} dataset.}
   \label{fig:result_model_ideal}
 \noindent
 \end{figure}
@@ -250,15 +270,15 @@ Per le nostre valutazioni abbiamo deciso di considerare l'AP cos\`i come definit
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Method & \textit{Cityscapes} AP & \textit{WildDash} AP\\
+Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-Mask R-CNN & \begin{tabular}[c]{ccc}box: 28.278 \\ mask: 23.793 \\ training time:26:43\end{tabular} & \begin{tabular}[c]{ccc}box: 18.815 \\ mask: 17.738 \\ training time: 1:14:57\end{tabular} \\
+Mask R-CNN & \begin{tabular}[c]{ccc}box AP: 28.278 \\ mask AP: 23.793 \\ training time:0:26:43\end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.815 \\ mask AP: 17.738 \\ training time: 1:14:57\end{tabular} \\
 \hline
 BlendMask & &\\
 \hline
 \end{tabular}
 \end{center}
-\caption{AP ideal models.}
+\caption{AP and training time ideal models.}
 \label{mytable_deepness_BlendMask}
 \end{table}
 
