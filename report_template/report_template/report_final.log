@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  6 FEB 2022 13:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  6 FEB 2022 19:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -290,7 +290,7 @@ File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
 )
 (./report_final.aux
 
-LaTeX Warning: Label `mytable_deepness_BlendMask' multiply defined.
+LaTeX Warning: Label `mytable_backbone_Blendmask' multiply defined.
 
 )
 \openout1 = `report_final.aux'.
@@ -397,23 +397,44 @@ Package pdftex.def Info: ./image/blendmask.png  used on input line 78.
 
 
  <./image/maskrcnn.png>]
-<./image/city_class.png, id=68, 718.685pt x 104.39pt>
+<./image/gtFine.png, id=68, 2055.68pt x 1027.84pt>
+File: ./image/gtFine.png Graphic file (type png)
+<use ./image/gtFine.png>
+Package pdftex.def Info: ./image/gtFine.png  used on input line 105.
+(pdftex.def)             Requested size: 97.2266pt x 48.60333pt.
+<./image/leftImg8.png, id=70, 2055.68pt x 1027.84pt>
+File: ./image/leftImg8.png Graphic file (type png)
+<use ./image/leftImg8.png>
+Package pdftex.def Info: ./image/leftImg8.png  used on input line 105.
+(pdftex.def)             Requested size: 97.2266pt x 48.60333pt.
+<./image/city_class.png, id=74, 718.685pt x 104.39pt>
 File: ./image/city_class.png Graphic file (type png)
 <use ./image/city_class.png>
 Package pdftex.def Info: ./image/city_class.png  used on input line 114.
-(pdftex.def)             Requested size: 213.4209pt x 30.99866pt.
-<./image/wd_class.png, id=74, 738.76pt x 138.5175pt>
+(pdftex.def)             Requested size: 225.27841pt x 32.72214pt.
+<./image/wd_rain.jpg, id=79, 1927.2pt x 1084.05pt>
+File: ./image/wd_rain.jpg Graphic file (type jpg)
+<use ./image/wd_rain.jpg>
+Package pdftex.def Info: ./image/wd_rain.jpg  used on input line 130.
+(pdftex.def)             Requested size: 94.85292pt x 53.34552pt.
+<./image/wd_desert.jpg, id=80, 1927.2pt x 1084.05pt>
+File: ./image/wd_desert.jpg Graphic file (type jpg)
+<use ./image/wd_desert.jpg>
+Package pdftex.def Info: ./image/wd_desert.jpg  used on input line 130.
+(pdftex.def)             Requested size: 94.85292pt x 53.34552pt.
+ [2 <./image/blendmask.png (PNG copy)> <./image/gtFine.png> <./image/leftImg8.p
+ng> <./image/city_class.png>]
+<./image/wd_class.png, id=99, 738.76pt x 138.5175pt>
 File: ./image/wd_class.png Graphic file (type png)
 <use ./image/wd_class.png>
 Package pdftex.def Info: ./image/wd_class.png  used on input line 139.
-(pdftex.def)             Requested size: 213.4209pt x 40.01474pt.
- [2 <./image/blendmask.png (PNG copy)> <./image/city_class.png>]
-<./image/resnet101.png, id=99, 853.1875pt x 279.0425pt>
+(pdftex.def)             Requested size: 225.27841pt x 42.23825pt.
+<./image/resnet101.png, id=111, 853.1875pt x 279.0425pt>
 File: ./image/resnet101.png Graphic file (type png)
 <use ./image/resnet101.png>
 Package pdftex.def Info: ./image/resnet101.png  used on input line 162.
-(pdftex.def)             Requested size: 213.4209pt x 69.79877pt.
-<./image/FPN.png, id=109, 1298.8525pt x 461.725pt>
+(pdftex.def)             Requested size: 225.27841pt x 73.67766pt.
+<./image/FPN.png, id=121, 1298.8525pt x 461.725pt>
 File: ./image/FPN.png Graphic file (type png)
 <use ./image/FPN.png>
 Package pdftex.def Info: ./image/FPN.png  used on input line 173.
@@ -424,100 +445,86 @@ Underfull \hbox (badness 1112) in paragraph at lines 182--186
 pes of bot-tom mod-ules,
  []
 
-[3 <./image/wd_class.png> <./image/resnet101.png> <./image/FPN.png (PNG copy)>]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-99.
+[3 <./image/wd_rain.jpg> <./image/wd_desert.jpg> <./image/wd_class.png> <./imag
+e/resnet101.png> <./image/FPN.png (PNG copy)>]
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
+00.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-<./image/ideal_model_mask_city.png, id=143, 1027.84pt x 513.92pt>
+) [4]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<./image/ideal_model_mask_city.png, id=179, 1027.84pt x 513.92pt>
 File: ./image/ideal_model_mask_city.png Graphic file (type png)
 <use ./image/ideal_model_mask_city.png>
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
-262.
+378.
 (pdftex.def)             Requested size: 106.71045pt x 53.34761pt.
 File: ./image/ideal_model_mask_city.png Graphic file (type png)
 <use ./image/ideal_model_mask_city.png>
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
-262.
+378.
 (pdftex.def)             Requested size: 106.71045pt x 53.34761pt.
-<./image/ideal_model_mask_wd.png, id=144, 963.6pt x 542.025pt>
+<./image/ideal_model_mask_wd.png, id=180, 963.6pt x 542.025pt>
 File: ./image/ideal_model_mask_wd.png Graphic file (type png)
 <use ./image/ideal_model_mask_wd.png>
-Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 26
-3.
+Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 37
+9.
 (pdftex.def)             Requested size: 106.71045pt x 60.01991pt.
 File: ./image/ideal_model_mask_wd.png Graphic file (type png)
 <use ./image/ideal_model_mask_wd.png>
-Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 26
-3.
+Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 37
+9.
 (pdftex.def)             Requested size: 106.71045pt x 60.01991pt.
-
-Underfull \vbox (badness 4366) has occurred while \output is active []
-
- [4]
-Overfull \hbox (1.99022pt too wide) in paragraph at lines 317--330
- [] 
- []
-
-
-Overfull \hbox (9.52895pt too wide) in paragraph at lines 340--349
- [] 
- []
-
-
-Overfull \hbox (9.52895pt too wide) in paragraph at lines 359--372
- [] 
- []
-
-<./image/conclusion_SOLOv2.png, id=177, 669.50125pt x 524.96124pt>
+<./image/conclusion_SOLOv2.png, id=189, 669.50125pt x 524.96124pt>
 File: ./image/conclusion_SOLOv2.png Graphic file (type png)
 <use ./image/conclusion_SOLOv2.png>
-Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 403.
+Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 394.
 
 (pdftex.def)             Requested size: 165.99443pt x 130.1586pt.
-[5 <./image/ideal_model_mask_city.png (PNG copy)> <./image/ideal_model_mask_wd.
-png (PNG copy)>]
-<./image/conclusion_deepsnake.png, id=215, 891.33pt x 283.0575pt>
+ [5 <./image/ideal_model_mask_city.png (PNG copy)> <./image/ideal_model_mask_wd
+.png (PNG copy)>]
+<./image/conclusion_deepsnake.png, id=226, 891.33pt x 283.0575pt>
 File: ./image/conclusion_deepsnake.png Graphic file (type png)
 <use ./image/conclusion_deepsnake.png>
 Package pdftex.def Info: ./image/conclusion_deepsnake.png  used on input line 4
-13.
+04.
 (pdftex.def)             Requested size: 237.13594pt x 75.30789pt.
 
-Underfull \hbox (badness 1596) in paragraph at lines 429--431
+Underfull \hbox (badness 1596) in paragraph at lines 420--422
 []\OT1/ptm/m/n/10 Tsung-Yi Lin, Michael Maire, Serge J. Be-longie,
  []
 
 
-Underfull \hbox (badness 3965) in paragraph at lines 444--446
+Underfull \hbox (badness 3965) in paragraph at lines 435--437
 \OT1/ptm/m/n/10 Chun-hua Shen. SOLOv2: Dy-namic, Faster and
  []
 
 [6 <./image/conclusion_SOLOv2.png> <./image/conclusion_deepsnake.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 497.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 488.
  [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 497.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 488.
 
 (./report_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 497.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 497.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 488.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 488.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 497.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 488.
  ) 
 Here is how much of TeX's memory you used:
- 6893 strings out of 482552
- 101463 string characters out of 5948615
- 373081 words of memory out of 5000000
- 21712 multiletter control sequences out of 15000+600000
+ 6919 strings out of 482552
+ 101966 string characters out of 5948615
+ 380294 words of memory out of 5000000
+ 21734 multiletter control sequences out of 15000+600000
  560942 words of font info for 81 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 38i,15n,31p,2381b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,15n,31p,2381b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -530,10 +537,10 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on report_final.pdf (7 pages, 2067994 bytes).
+Output written on report_final.pdf (7 pages, 6563917 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
- 240 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 308 PDF objects out of 1000 (max. 8388607)
+ 245 compressed objects within 3 object streams
+ 76 named destinations out of 1000 (max. 500000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

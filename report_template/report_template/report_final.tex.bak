@@ -96,17 +96,17 @@ The datasets of \textit{Urban Street Scenes}, which we used, belong to \textit{C
 %I datasets di \textit{Urban Street Scenes}, che abbiamo usato, appartengono a \textit{Cityscapes}~\cite{cityscapes} e \textit{WildDash}~\cite{wildDash}.
 \subsection{Cityscapes}
 \textit{Cityscapes}~\cite{cityscapes} is a suite of benchmark and a large-scale dataset for semantic urban scene understanding. It is suitable for learning and testing pixel-level and instance-level semantic labelling methods.  The images of \textit{Cityscapes} were created from a large and diverse set of video sequences, recorded in 50 different cities. These may be inclusive of high quality annotations, or/and coarse annotations; the latter allow the testing of methods employing large volumes of weakly labelled data. The annotations contained, which are fundamental for the evaluation of a model, are of a polygonal type.
-The dataset we used, belonging to \textit{Cityscapes}, is partitioned into two units: \textit{gtFine} and \textit{leftImg8}, which we used in pairs. \textit{gtFine} consists of fine annotations for 3 475 train and val images, and 1 525 test set images.
+The dataset we used, belonging to \textit{Cityscapes}, is partitioned into two units: \textit{gtFine} and \textit{leftImg8}, Figure \ref{fig:image_gtfine}, which we used in pairs. \textit{gtFine} consists of fine annotations for 3 475 train and val images, and 1 525 test set images.
 \textit{leftImg8} from "row" images of urban traffic, with train set, test set and val set; a total of 5 000 images.
 %\textit{Cityscapes}~\cite{cityscapes} \`e una suite di benchmark e un dataset su larga scala per semantic urban scene understanding. \`E adatto per apprendere e testare metodi pixel-level e instance-level semantic labeling. Le immagini di \textit{Cityscapes}~\cite{cityscapes} sono state create da un'insieme vasto e diversificato di sequenze video, registrate in 50 citt\`a diverse. Queste possono essere comprensive di annotazioni di alta qualit\`a, o/e di tipo grossolane; quest'ultime consentono di testare metodi che impiegano grandi volumi di dati debolmente etichettati. Le annotazioni contenute, fondamentali per la valutazione di un modello, sono di tipo poligonale.\\ 
 %Il dataset che abbiamo usato, appartenete a \textit{Cityscapes}~\cite{cityscapes}, si partiziona in due unit\`a: \textit{gtFine} e \textit{leftImg8} (Figure \ref{fig:image_gtfine}), che abbiamo utilizzato in coppia. \textit{gtFine} si compone di annotazioni fini per 3 475 immagini di train e val, e 1 525 immagini per test set. \textit{leftImg8} da immagini "row" di traffico urbano, con train set, test set e val set; per un totale di 5 000 immagini.
-%\begin{figure}[H]
-%\centering
-%  \includegraphics[width=0.41\linewidth]{./image/gtFine.png} \quad \includegraphics[width=0.41\linewidth]{./image/leftImg8.png}
- % \caption{\textit{Cityscapes}~\cite{cityscapes} images: \textit{gtFine} to left and \textit{leftImg8} to right.}
-%  \label{fig:image_gtfine}
-%\noindent
-%\end{figure}
+\begin{figure}[H]
+\centering
+ \includegraphics[width=0.41\linewidth]{./image/gtFine.png} \quad \includegraphics[width=0.41\linewidth]{./image/leftImg8.png}
+  \caption{\textit{Cityscapes}~\cite{cityscapes} images: \textit{gtFine} to left and \textit{leftImg8} to right.}
+ \label{fig:image_gtfine}
+\noindent
+\end{figure}
 In Figure \ref{fig:class_definitions_city}, we report the classes and the number of occurrences in \textit{gtFine train} and \textit{leftImg8 train}. The total number of classes is 8.
 %In Figura \ref{fig:class_definitions_city}, riportiamo le classi e il numero di occorrenze in \textit{gtFine train} e \textit{leftImg8 train}. Il numero di classi complessive sono 8.
 \begin{figure}[H]
@@ -122,16 +122,16 @@ However of \textit{Cityscapes} although the datasets include several months and 
 \subsection{WildDash}
 \label{dataset_wd}
 \textit{WildDash}~\cite{wildDash} is a benchmark suite and dataset for semantic and instance segmentation for the automotive domain. The images, contained in the datasets, come from different sources from all over the world. In addition, they present scenarios, such as rain, darkness and road cover, which are real challenges for image recognition. This highlights the shortcomings of any instance segmentation technique.
-The dataset we used is \textit{public gt package} consisting of 4 256 images, aimed specifically at solving instance segmentation tasks; however, was not divided into train, val and test set. Consequently, we decided to divide it up manually, reserving 3 405 images as train set and 851 images as test set. We did not consider it necessary to make a further partition in val set, in order to keep as many images as possible in the training; and assuming that our models, using weights already pretrained on \textit{ImageNet}~\cite{imagenet}, were accurate enough not to require \textit{Model Selection}.
+The dataset we used is \textit{public gt package}, Figure \ref{fig:image_wd}, consisting of 4 256 images, aimed specifically at solving instance segmentation tasks; however, was not divided into train, val and test set. Consequently, we decided to divide it up manually, reserving 3 405 images as train set and 851 images as test set. We did not consider it necessary to make a further partition in val set, in order to keep as many images as possible in the training; and assuming that our models, using weights already pretrained on \textit{ImageNet}~\cite{imagenet}, were accurate enough not to require \textit{Model Selection}.
 %\textit{WildDash}~\cite{wildDash} \`e una suite di benchmark e un dataset per la segmentazione semantica e d'instanza per il dominio automobilistico. Le immagini, contenute nei datasets, provengono da diverse fonti da tutto il mondo. Inoltre presentano scenari, quali pioggia, oscurit\`a, copertura stradale che sono delle vere e proprie challenge per il riconoscimento delle immagini. Questo consente di mettere in luce le carenze di una qualsiasi tecnica di instance segmentation.\\
 %Il dataset che abbiamo usato \`e \textit{public gt package} (Figure \ref{fig:image_wd}), composto da 4 256 immagini, rivolto appositamente a risolvere tasks di instance segmentation; non era tuttavia suddiviso in train, val e test set. Abbiamo di conseguenza deciso di suddividerlo manualmente, riservando 3 405 immagini come train set e 851 immagini come test set. Non abbiamo ritenuto necessario fare un'ulteriore partizione in val set, in modo da mantenere pi\`u immagini possibili nel addestramento; e assumendo che i nostri modelli, usando pesi gi\`a preadestrati su ImageNet~\cite{imagenet}, fossero sufficientemente accurati da non richiedere model selection.
-%\begin{figure}[H]
-%\centering
-%  \includegraphics[width=0.4\linewidth]{./image/wd_rain.jpg} \quad \includegraphics[width=0.4\linewidth]{./image/wd_desert.jpg}
-%  \caption{\textit{WildDash}~\cite{wildDash} images:  \textit{rain scenario} to left and \textit{road in the desert} to right.}
-%  \label{fig:image_wd}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\linewidth]{./image/wd_rain.jpg} \quad \includegraphics[width=0.4\linewidth]{./image/wd_desert.jpg}
+\caption{\textit{WildDash}~\cite{wildDash} images:  \textit{rain scenario} to left and \textit{road in the desert} to right.}
+ \label{fig:image_wd}
 \noindent
-%\end{figure}
+\end{figure}
 In Figure \ref{fig:class_definitions_wd}, we report the classes and the number of occurrences in \textit{public gt package train}. The total number of classes is 13.
 %In Figura \ref{fig:class_definitions_wd}, riportiamo le classi e il numero di occorrenze in \textit{public gt package train}. Il numero di classi complessive sono 13.
 \begin{figure}[H]
@@ -145,12 +145,12 @@ In Figure \ref{fig:class_definitions_wd}, we report the classes and the number o
 
 \section{Method}
 In order to be able to operationally compare the instance segmentation techniques, that are the subject of our work, we have referred to already existing libraries, developed by the researchers of~\cite{Authors1_maskrcnn, Authors2_BlendMask}.  These are \textit{Detectron2} for Mask R-CNN~\cite{Authors1_maskrcnn} and \textit{AdelaiDet} for BlendMask~\cite{Authors2_BlendMask}.
-These libraries have allowed us to define sub-optimal ideal models, in order to improve their accuracy during experiments. Furthermore, making explicit the evaluation set and the metrics needed to estimate performance, allowed us to concretise the concept of comparison.
+These libraries have allowed us to define \textit{ideal models}, found during the experiments. Furthermore, making explicit the evaluation set and the metrics needed to estimate performance, allowed us to concretise the concept of comparison.
 %Per poter operativamente confrontare le tecniche di instance segmentation oggetto del nostro lavoro, abbiamo fatto riferimento a librerie gi\`a esistenti, sviluppate dai ricercatori di ~\cite{Authors1_maskrcnn} e \cite{Authors2_BlendMask}. Queste sono \textit{Detectron2} per Mask R-CNN~\cite{Authors1_maskrcnn} e \textit{AdelaiDet} per BlendMask~\cite{Authors2_BlendMask}.
 %Tali librerie ci hanno consentito di definire modelli ideali subottimi, con il fine di migliorarne la precisione durante gli esperimenti. Inoltre anche esplicitare il set valutazione e le metriche necessarie per stima di performance, ci hanno consentito di concretizzare il concetto di confronto.
 
 \subsection{Architecture}
-We decided to use ResNet-101-FPN as the backbone in both Mask R-CNN~\cite{Authors1_maskrcnn} and BlendMask~\cite{Authors2_BlendMask}. In addition, as the bottom module of BlendMask we have instantiated ProtoNet~\cite{protonet}. 
+We decided to use ResNet-101-FPN as the backbone in both Mask R-CNN~\cite{Authors1_maskrcnn} and BlendMask~\cite{Authors2_BlendMask}. In addition, as the bottom module of BlendMask we have instantiated ProtoNet~\cite{protonet}. During the experiments, however, we felt that we should also consider other levels of depth, backbone and decoder. In order to have a more complete view of the architectures under examination.
 %Abbiamo deciso di utilizzare ResNet-101-FPN come backbone sia in Mask R-CNN~\cite{Authors1_maskrcnn} che in BlendMask~\cite{Authors2_BlendMask}. Inoltre come bottom module di BlendMask~\cite{Authors2_BlendMask} abbiamo istanziato ProtoNet~\cite{protonet}. 
 \subsubsection{ResNet 101}
 Both \textit{Detectron2} and \textit{AdelaiDet} offer ResNet~\cite{Authors5_ResNet} as a backbone network, in which it is possible to choose between 50 and 101 layers.  In addition, \textit{Detectron2} also includes ResNeXt~\cite{resxt} 101, a cardinal variant of ResNet 101; which, however, we have excluded from any possible comparison because of the excessive training time, for the means at our disposal.
@@ -159,7 +159,7 @@ We considered ResNet 101, Figure \ref{fig:resnet101}, sufficient for our purpose
 %Abbiamo ritenuto ResNet 101, Figure \ref{fig:resnet101} sufficiente ai nostri scopi, definita come una rete che converge molto bene anche dal paper di riferimento~\cite{Authors5_ResNet}.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.90\linewidth]{./image/resnet101.png} 
+  \includegraphics[width=0.95\linewidth]{./image/resnet101.png} 
   \caption{The structure of the ResNet 101. \textit{Source: ~\cite{resnet101_img}, pag. 6.}\\
   The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation.}%In figura viene prsentata Resnet 101, una Residual Neural Network (CNN$+$deepness) with 101 layers. Essa usa le skip connections, ovvero gli archi sopra ciascun blocco, per risolvere i prolemi legati alla computazione del gradiente.}
   \label{fig:resnet101}
@@ -186,7 +186,8 @@ In \textit{AdelaiDet} there are two types of bottom modules, which receive input
 
 
 \subsection{Hyperparameters configuration}
-Per il training abbiamo settato i seguenti parametri: per Mask R-CNN 4000 iterazioni, learning rate di 0.001 che descrese di 0.1 dopo 3000 iterazioni, numero di batch size per image (loss) 128, numero di immagini per batch di allenamento a ogni iteraione 1, fine-tuning settato al 2 layer. Per BlendMask 4000 iterazioni, learning rate di 0.001 che descrese di 0.1 dopo 3000 iterazioni, numero di batch size per image (loss) 128, numero di immagini per batch di allenamento a ogni iteraione 1, fine-tuning settato al 2 layer.
+For the choice of models hyperparameters, we tried to keep the default ones as defined in the libraries \textit{Detectron2} and \textit{AdelaiDet}, which are the same as those defined in the papers \cite{Authors1_maskrcnn, Authors2_BlendMask}. We only modified those that did not allow us to run on Coolab, namely the number of iterations to 4 000 for Mask R-CNN and 2 000 for BlendMask, and the number of batch sizes per image to 128.
+%Per la scelta degli iperparametri dei modelli, abbiamo cercato di mantenere quelli di default cos\`i come definiti nelle librerie \textit{Detectron2} and \textit{AdelaiDet}, che sono i medesimi definiti all'interno dei papers \cite{Authors1_maskrcnn, Authors2_BlendMask}. Abbiamo esclusivamente modificato quelli che non ci permettevano l'esecuzione su  Coolab, ovvero il numero di iterazioni a 4 000 per Mask R-CNN e 2 000 per BlendMask e il numero di batch size per immagine a 128.
 \subsection{Loss function}
 The loss we used during the training of Mask R-CNN, defined in \cite{Authors1_maskrcnn}, is as follows:
 %La loss che abbiamo utilizzato durante il training di Mask R-CNN, definita in \cite{Authors1_maskrcnn}, \`e la seguente:
@@ -254,40 +255,11 @@ For our evaluations we decided to consider the AP as is defined metric by COCO, 
 %Per le nostre valutazioni abbiamo deciso di considerare l'AP cos\`i come definita metrica da COCO, ovvero l'AP viene mediata su più valori di Intersection over Union (IoU). Nello specifico vengono utilizzate 10 soglie IoU dall'intervallo .50:.05:.95; e da questi vengono estratti i 100 rilevamenti con il punteggio pi\`u alto.
 
 \section{Experiments}
- 
-\subsection{Sub-optimal ideal model}
-In Figure \ref{fig:result_model_ideal} riportiamo alcune prove di inferenza che abbiamo svolto sui sub-optimal ideal model di Mask R-CNN e BlendMask, una volta completato il training.
-\begin{figure}[H]
-\centering
- \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} 
-   \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}  	\includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}   
-  \caption{\textit{Models ideal results}: mask image (to left) and blend image (to right). First row is \textit{Cityscapes} dataset and second row is \textit{WildDash} dataset.}
-  \label{fig:result_model_ideal}
-\noindent
-\end{figure}
-
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Method & \textit{Cityscapes} & \textit{WildDash}\\
-\hline\hline
-\begin{tabular}[c]{ccc}\textbf{Mask R-CNN:} \\ ResNet-101-FPN $+$ \\ 4000 iter  $+$ \\ lr 0.001 $+$ freeze 2 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.563 \\ mask AP: 24.676 \\ train time: 1:08:28\end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.024 \\ mask AP: 17.994 \\ train time: 0:28:50\end{tabular} \\
-\hline
-\textbf{BlendMask:} & &\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Results sub-optimal ideal models.}
-\label{mytable_ideal_models}
-\end{table}
-Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si presenta pi\`u accurato rispetto a Mask R-CNN sia nel rilevamento della maschera che del box. Tuttavia il tempo di formazione di BlendMask supera quello di Mask R-CNN. Questo ultimo aspetto non rispecchia quanto definito in \cite{Authors2_BlendMask}, che dichiara BlendMask pi\`u preciso e un 20\% pi\`u veloce rispetto a Mask R-CNN. Imputiamo tale condizione esclusivamente al fatto che per le nostre ablazioni abbiamo utilizzato 1 singola GPU (e non 8 come nel paper).
+\label{sec:experiments}
+Di seguito presentiamo gli eseperimenti pi\`u significativi che ci hanno portato a definire gli \textit{ideal models}.
 
 
-\subsection{Improvements}
-Una volta valutato i risultati dei sub-optimal model, abbiamo svolto degli esperimenti per cercarne di migliorne ulteriormente  la performance, prendendo in considerazione backbone, deepness and freeze layers. Al termine abbiamo anche individuato dei modelli ottimi che riassumono i risultati dei nostri esperimenti.
-\subsubsection{Backbone}
+\subsection{Backbone}
 \label{experiments:second_trial}
 
 
@@ -298,99 +270,118 @@ Una volta valutato i risultati dei sub-optimal model, abbiamo svolto degli esper
 \hline
 Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-50-C4 $+$ \\  4000 iter $+$ \\ lr 0.001 $+$ freeze 2\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.730\\ mask AP: 17.589 \\ train time: 0:23:40\end{tabular} \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 25.935\\ mask AP: 20.005 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.730\\ mask AP: 17.589\end{tabular} \\
 \hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ $+$ ResNet-50-DC5 $+$ \\  4000 iter $+$ \\ lr 0.001 $+$ freeze 2\end{tabular}& \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP: 25.591\\ mask AP: 20.285 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 17.871\\ mask AP: 16.543\end{tabular} \\
 \hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-50-FPN $+$ \\  4000 iter $+$ \\ lr 0.001 $+$ freeze 2\end{tabular}& \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular}  \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 24.437\\ mask AP: 20.327\end{tabular} & \begin{tabular}[c]{ccc}box AP: 16.865 \\ mask AP: 16.017 \end{tabular}  \\
+\hline
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\hline
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP:\\ mask AP:\\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} \\
+\hline
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
 \hline
 \end{tabular}
 \end{center}
-\caption{Backbone Mask R-CNN result.}
-\label{mytable_backbone_MaskRCNN}
+\label{mytable_backbone_Mask-RCNN}
+\caption{Experiments on \textit{backbone} Mask R-CNN}
 \end{table}
+
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method & \textit{Cityscapes} & \textit{WildDash}\\
+\hline\hline
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\hline
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ train time: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\hline
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ train time: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\hline
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ train time: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\hline
+\end{tabular}
+\end{center}
+\label{mytable_backbone_Blendmask}
+\caption{Experiments on \textit{backbone} BlendMask.}
+\end{table}
+
+
+\subsection{Freeze layers}
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method & \textit{Cityscapes} AP & \textit{WildDash} AP\\
+\hline\hline
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ 1 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} \\
+\hline
+\begin{tabular}[c]{ccc}BlendMask: \\ ResNet-101-FPN $+$ \\ 1 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\hline
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ 4 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \end{tabular} \\
+\hline
+\begin{tabular}[c]{ccc}BlendMask: \\ ResNet-101-FPN $+$ \\ 4 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Experiments on \textit{freeze layers}.}
+\label{mytable_freeze_BlendMask}
+\end{table}
+
+\subsection{Decoder}
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method & \textit{Cityscapes} & \textit{WildDash}\\
+\hline\hline
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ ProtoNet  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\hline
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ DeepLabv3  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\hline
+\end{tabular}
+\end{center}
+\label{mytable_backbone_Blendmask}
+\caption{Experiments on \textit{decoder} of BlendMask.}
+\end{table}
+
+
+\subsection{Ideal models}
+In conclusione ai nostri esperimenti abbiamo selezionato i seguenti \textit{ideal models} di Mask R-CNN e BlendMask per il task di \textit{Urban Street View} oggetto del nostro lavoro:
+
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Method & \textit{Cityscapes} & \textit{WildDash}\\
+\hline\hline
+\textbf{Mask R-CNN:} & \begin{tabular}[c]{cccc}box AP: 28.563 \\ mask AP: 24.676 \\ train time: 1:08:28 \\inference time:\end{tabular} & \begin{tabular}[c]{cccc}box AP: 19.024 \\ mask AP: 17.994 \\ train time: 0:28:50 \\ inference time:\end{tabular} \\
+\hline
+\textbf{BlendMask:} & &\\
+\hline
+\end{tabular}
+\end{center}
+\caption{Results \textit{ideal models}.}
+\label{mytable_ideal_models}
+\end{table}
+In Figure \ref{fig:result_model_ideal} riportiamo alcune prove di inferenza che abbiamo ottenuto dai nostri \textit{ideal models}.
+\begin{figure}[H]
+\centering
+ \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} 
+   \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}  	\includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}   
+  \caption{\textit{Models ideal results}: mask image (to left) and blend image (to right). First row is \textit{Cityscapes} dataset and second row is \textit{WildDash} dataset.}
+  \label{fig:result_model_ideal}
 \noindent
-
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
-\hline\hline
-\begin{tabular}[c]{cc}BlendMask with decoder ProtoNet \\ $+$ ResNet50 $+$ FPN $+$ Base-550\end{tabular} & &\\
-\hline
-\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet50 $+$ deformable convolution \\ $+$ FPN $+$ Base-550\end{tabular} & &\\
-\hline
-\begin{tabular}[c]{cc}BlendMask with decoder DeepLabv3+ \\ $+$ ResNet50 $+$ FPN $+$ Base-550\end{tabular} & &\\
-\hline
-\begin{tabular}[c]{ccc}BlendMask with decoder DeepLabv3+ \\ $+$ ResNet50 $+$ deformable convolution \\ $+$ FPN  $+$ Base-550\end{tabular} & &\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Backbone BlendMask result.}
-\label{mytable_backbone_BlendMask}
-\end{table}
-
-\subsubsection{Deepness}
-
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
-\hline\hline
-\begin{tabular}[c]{cc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ FPN $+$ Base-BlendMask\end{tabular} & &\\
-\hline
-\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ deformable convolution \\$+$ FPN $+$ Base-BlendMask\end{tabular} & &\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Deepness BlendMask result.}
-\label{mytable_deepness_BlendMask}
-\end{table}
-
-\subsubsection{Freeze layers}
-
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
-\hline\hline
-\begin{tabular}[c]{ccc}Mask R-CNN $+$ ResNet101 $+$ FPN \\ 1 layers freeze\end{tabular} & &\\
-\hline
-\begin{tabular}[c]{ccc}Mask R-CNN $+$ ResNet101 $+$ FPN \\ 3 layers freeze\end{tabular} & &\\
-\hline
-\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ FPN $+$ Base-BlendMask \\ 1 layers freeze\end{tabular} & &\\
-\hline
-\begin{tabular}[c]{ccc}BlendMask with decoder ProtoNet \\ $+$ ResNet101 $+$ FPN $+$ Base-BlendMask \\ 3 layers freeze\end{tabular} & &\\
-\hline
-\end{tabular}
-\end{center}
-\caption{Freeze layers result.}
-\label{mytable_deepness_BlendMask}
-\end{table}
-
-
-\subsubsection{Own best models}
-
-\begin{table}[H]
-\scriptsize
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Dataset & method and architecture & AP\\
-\hline\hline
-
-\hline
-\end{tabular}
-\end{center}
-\caption{Own best models result.}
-\label{mytable_own_best_model}
-\end{table}
+\end{figure}
+Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si presenta pi\`u accurato rispetto a Mask R-CNN sia nel rilevamento della maschera che del box. Tuttavia il tempo di formazione di BlendMask supera quello di Mask R-CNN. Questo ultimo aspetto non rispecchia quanto definito in \cite{Authors2_BlendMask}, che dichiara BlendMask pi\`u preciso e un 20\% pi\`u veloce rispetto a Mask R-CNN. Imputiamo tale condizione esclusivamente al fatto che per le nostre ablazioni abbiamo utilizzato 1 singola GPU (e non 8 come nel paper).
 
 
 

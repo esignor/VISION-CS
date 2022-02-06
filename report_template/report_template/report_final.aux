@@ -55,16 +55,22 @@
 \citation{cityscapes}
 \citation{wildDash}
 \citation{cityscapes}
+\citation{cityscapes}
+\citation{cityscapes}
 \citation{wildDash}
 \citation{wildDash}
 \citation{imagenet}
+\citation{wildDash}
+\citation{wildDash}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces BlendMask architecture. \textit  {Source:\nobreakspace  {}\cite  {Authors2_BlendMask}, pag. 3.} \\ The \textit  {bottom module} (to left) uses C4/C5 or FPN\nobreakspace  {}\cite  {FPN} and produces the bases. In the \textit  {top layer} (to right) a single convolution layer is added above the towers and this allows attention masks to be produced. The \textit  {blender module} (lower part of the figure), for each instance combining bases linearly with the learned attention maps.}}{2}{figure.2}\protected@file@percent }
 \newlabel{fig:blendmask}{{2}{2}{BlendMask architecture. \textit {Source:~\cite {Authors2_BlendMask}, pag. 3.} \\ The \textit {bottom module} (to left) uses C4/C5 or FPN~\cite {FPN} and produces the bases. In the \textit {top layer} (to right) a single convolution layer is added above the towers and this allows attention masks to be produced. The \textit {blender module} (lower part of the figure), for each instance combining bases linearly with the learned attention maps}{figure.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}\hskip -1em.\nobreakspace  {}Contour-based approach}{2}{subsection.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}\hskip -1em.\nobreakspace  {}Datasets}{2}{section.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}\hskip -1em.\nobreakspace  {}Cityscapes}{2}{subsection.3.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textit  {Cityscapes}: definitions of train dataset classes.}}{2}{figure.3}\protected@file@percent }
-\newlabel{fig:class_definitions_city}{{3}{2}{\textit {Cityscapes}: definitions of train dataset classes}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textit  {Cityscapes}\nobreakspace  {}\cite  {cityscapes} images: \textit  {gtFine} to left and \textit  {leftImg8} to right.}}{2}{figure.3}\protected@file@percent }
+\newlabel{fig:image_gtfine}{{3}{2}{\textit {Cityscapes}~\cite {cityscapes} images: \textit {gtFine} to left and \textit {leftImg8} to right}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textit  {Cityscapes}: definitions of train dataset classes.}}{2}{figure.4}\protected@file@percent }
+\newlabel{fig:class_definitions_city}{{4}{2}{\textit {Cityscapes}: definitions of train dataset classes}{figure.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}\hskip -1em.\nobreakspace  {}WildDash}{2}{subsection.3.2}\protected@file@percent }
 \newlabel{dataset_wd}{{3.2}{2}{\hskip -1em.~WildDash}{subsection.3.2}{}}
 \citation{Authors1_maskrcnn}
@@ -89,31 +95,33 @@
 \citation{FPN}
 \citation{protonet}
 \citation{deeplab}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textit  {WildDash}: definitions of train dataset classes.}}{3}{figure.4}\protected@file@percent }
-\newlabel{fig:class_definitions_wd}{{4}{3}{\textit {WildDash}: definitions of train dataset classes}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textit  {WildDash}\nobreakspace  {}\cite  {wildDash} images: \textit  {rain scenario} to left and \textit  {road in the desert} to right.}}{3}{figure.5}\protected@file@percent }
+\newlabel{fig:image_wd}{{5}{3}{\textit {WildDash}~\cite {wildDash} images: \textit {rain scenario} to left and \textit {road in the desert} to right}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \textit  {WildDash}: definitions of train dataset classes.}}{3}{figure.6}\protected@file@percent }
+\newlabel{fig:class_definitions_wd}{{6}{3}{\textit {WildDash}: definitions of train dataset classes}{figure.6}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}\hskip -1em.\nobreakspace  {}Method}{3}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}\hskip -1em.\nobreakspace  {}Architecture}{3}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.1}ResNet 101}{3}{subsubsection.4.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The structure of the ResNet 101. \textit  {Source: \nobreakspace  {}\cite  {resnet101_img}, pag. 6.}\\ The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation.}}{3}{figure.5}\protected@file@percent }
-\newlabel{fig:resnet101}{{5}{3}{The structure of the ResNet 101. \textit {Source: ~\cite {resnet101_img}, pag. 6.}\\ The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The structure of the ResNet 101. \textit  {Source: \nobreakspace  {}\cite  {resnet101_img}, pag. 6.}\\ The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation.}}{3}{figure.7}\protected@file@percent }
+\newlabel{fig:resnet101}{{7}{3}{The structure of the ResNet 101. \textit {Source: ~\cite {resnet101_img}, pag. 6.}\\ The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation}{figure.7}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.2}Feature Pyramid Network}{3}{subsubsection.4.1.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces FPN for object segment proposals. \textit  {Source:\nobreakspace  {}\cite  {FPN}, pag. 8.}\\ Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask.}}{3}{figure.6}\protected@file@percent }
-\newlabel{fig:FPN}{{6}{3}{FPN for object segment proposals. \textit {Source:~\cite {FPN}, pag. 8.}\\ Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask}{figure.6}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}ProtoNet decoder}{3}{subsubsection.4.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace  {}Hyperparameters configuration}{3}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces FPN for object segment proposals. \textit  {Source:\nobreakspace  {}\cite  {FPN}, pag. 8.}\\ Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask.}}{3}{figure.8}\protected@file@percent }
+\newlabel{fig:FPN}{{8}{3}{FPN for object segment proposals. \textit {Source:~\cite {FPN}, pag. 8.}\\ Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask}{figure.8}{}}
+\citation{Authors1_maskrcnn}
+\citation{Authors2_BlendMask}
 \citation{Authors1_maskrcnn}
 \citation{Authors8_semanticloss}
 \citation{Authors2_BlendMask}
 \citation{Authors2_BlendMask}
 \citation{cityscapes}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.1.3}ProtoNet decoder}{4}{subsubsection.4.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}\hskip -1em.\nobreakspace  {}Hyperparameters configuration}{4}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}\hskip -1em.\nobreakspace  {}Loss function}{4}{subsection.4.3}\protected@file@percent }
 \newlabel{loss_mask}{{1}{4}{\hskip -1em.~Loss function}{equation.4.1}{}}
 \newlabel{Loss_semantic}{{2}{4}{\hskip -1em.~Loss function}{equation.4.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}\hskip -1em.\nobreakspace  {}Evalutation}{4}{subsection.4.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {4.4.1}Metrics}{4}{subsubsection.4.4.1}\protected@file@percent }
 \newlabel{AP}{{3}{4}{Metrics}{equation.4.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace  {}Experiments}{4}{section.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace  {}Sub-optimal ideal model}{4}{subsection.5.1}\protected@file@percent }
 \citation{Authors2_BlendMask}
 \citation{Authors1_maskrcnn}
 \citation{Authors2_BlendMask}
@@ -136,26 +144,25 @@
 \citation{Authors2_BlendMask}
 \citation{polarmask}
 \citation{Authors2_BlendMask}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \textit  {Models ideal results}: mask image (to left) and blend image (to right). First row is \textit  {Cityscapes} dataset and second row is \textit  {WildDash} dataset.}}{5}{figure.7}\protected@file@percent }
-\newlabel{fig:result_model_ideal}{{7}{5}{\textit {Models ideal results}: mask image (to left) and blend image (to right). First row is \textit {Cityscapes} dataset and second row is \textit {WildDash} dataset}{figure.7}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Results sub-optimal ideal models.}}{5}{table.1}\protected@file@percent }
-\newlabel{mytable_ideal_models}{{1}{5}{Results sub-optimal ideal models}{table.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace  {}Improvements}{5}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.1}Backbone}{5}{subsubsection.5.2.1}\protected@file@percent }
-\newlabel{experiments:second_trial}{{5.2.1}{5}{Backbone}{subsubsection.5.2.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Backbone Mask R-CNN result.}}{5}{table.2}\protected@file@percent }
-\newlabel{mytable_backbone_MaskRCNN}{{2}{5}{Backbone Mask R-CNN result}{table.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Backbone BlendMask result.}}{5}{table.3}\protected@file@percent }
-\newlabel{mytable_backbone_BlendMask}{{3}{5}{Backbone BlendMask result}{table.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.2}Deepness}{5}{subsubsection.5.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Deepness BlendMask result.}}{5}{table.4}\protected@file@percent }
-\newlabel{mytable_deepness_BlendMask}{{4}{5}{Deepness BlendMask result}{table.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.3}Freeze layers}{5}{subsubsection.5.2.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Freeze layers result.}}{5}{table.5}\protected@file@percent }
-\newlabel{mytable_deepness_BlendMask}{{5}{5}{Freeze layers result}{table.5}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.2.4}Own best models}{5}{subsubsection.5.2.4}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Own best models result.}}{5}{table.6}\protected@file@percent }
-\newlabel{mytable_own_best_model}{{6}{5}{Own best models result}{table.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}\hskip -1em.\nobreakspace  {}Experiments}{5}{section.5}\protected@file@percent }
+\newlabel{sec:experiments}{{5}{5}{\hskip -1em.~Experiments}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}\hskip -1em.\nobreakspace  {}Backbone}{5}{subsection.5.1}\protected@file@percent }
+\newlabel{experiments:second_trial}{{5.1}{5}{\hskip -1em.~Backbone}{subsection.5.1}{}}
+\newlabel{mytable_backbone_Mask-RCNN}{{5.1}{5}{\hskip -1em.~Backbone}{subsection.5.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Experiments on \textit  {backbone} Mask R-CNN}}{5}{table.1}\protected@file@percent }
+\newlabel{mytable_backbone_Blendmask}{{5.1}{5}{\hskip -1em.~Backbone}{table.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Experiments on \textit  {backbone} BlendMask.}}{5}{table.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}\hskip -1em.\nobreakspace  {}Freeze layers}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Experiments on \textit  {freeze layers}.}}{5}{table.3}\protected@file@percent }
+\newlabel{mytable_freeze_BlendMask}{{3}{5}{Experiments on \textit {freeze layers}}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}\hskip -1em.\nobreakspace  {}Decoder}{5}{subsection.5.3}\protected@file@percent }
+\newlabel{mytable_backbone_Blendmask}{{5.3}{5}{\hskip -1em.~Decoder}{subsection.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Experiments on \textit  {decoder} of BlendMask.}}{5}{table.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}\hskip -1em.\nobreakspace  {}Ideal models}{5}{subsection.5.4}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Results \textit  {ideal models}.}}{5}{table.5}\protected@file@percent }
+\newlabel{mytable_ideal_models}{{5}{5}{Results \textit {ideal models}}{table.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \textit  {Models ideal results}: mask image (to left) and blend image (to right). First row is \textit  {Cityscapes} dataset and second row is \textit  {WildDash} dataset.}}{5}{figure.9}\protected@file@percent }
+\newlabel{fig:result_model_ideal}{{9}{5}{\textit {Models ideal results}: mask image (to left) and blend image (to right). First row is \textit {Cityscapes} dataset and second row is \textit {WildDash} dataset}{figure.9}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}\hskip -1em.\nobreakspace  {}Conclusion}{5}{section.6}\protected@file@percent }
 \citation{Authors7_deepsnake}
 \citation{Authors1_maskrcnn}
@@ -177,12 +184,12 @@
 \bibcite{fig1}{11}
 \bibcite{FPN}{12}
 \bibcite{fcos}{13}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Comparison between SOLOv2 and other stage approches. \textit  {Source:\nobreakspace  {}\cite  {Authors6_SOLOv2}, pag. 2.}\\ From top to bottom: SOLOv2\cite  {Authors6_SOLOv2} and SOLO\cite  {solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask\nobreakspace  {}\cite  {tensormask} is dense sliding-window one-stage approch; YOLACT\nobreakspace  {}\cite  {yolact} is one-stage approch predecessor of \textit  {BlendMask}\nobreakspace  {}\cite  {Authors2_BlendMask}; PolarMask\nobreakspace  {}\cite  {polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask\nobreakspace  {}\cite  {Authors2_BlendMask} anchor box-free one-stage approch.}}{6}{figure.10}\protected@file@percent }
+\newlabel{fig:conclusionSOLOv2}{{10}{6}{Comparison between SOLOv2 and other stage approches. \textit {Source:~\cite {Authors6_SOLOv2}, pag. 2.}\\ From top to bottom: SOLOv2\cite {Authors6_SOLOv2} and SOLO\cite {solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask~\cite {tensormask} is dense sliding-window one-stage approch; YOLACT~\cite {yolact} is one-stage approch predecessor of \textit {BlendMask}~\cite {Authors2_BlendMask}; PolarMask~\cite {polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask~\cite {Authors2_BlendMask} anchor box-free one-stage approch}{figure.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Results on \textit  {Cityscapes} val (AP [val] column) and test (remaining columns) sets. \textit  {Source:\nobreakspace  {}\cite  {Authors7_deepsnake}, pag. 7.}}}{6}{figure.11}\protected@file@percent }
+\newlabel{fig:conclusiondeepsnake}{{11}{6}{Results on \textit {Cityscapes} val (AP [val] column) and test (remaining columns) sets. \textit {Source:~\cite {Authors7_deepsnake}, pag. 7.}}{figure.11}{}}
 \bibcite{solo}{14}
 \bibcite{imagenet}{15}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Comparison between SOLOv2 and other stage approches. \textit  {Source:\nobreakspace  {}\cite  {Authors6_SOLOv2}, pag. 2.}\\ From top to bottom: SOLOv2\cite  {Authors6_SOLOv2} and SOLO\cite  {solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask\nobreakspace  {}\cite  {tensormask} is dense sliding-window one-stage approch; YOLACT\nobreakspace  {}\cite  {yolact} is one-stage approch predecessor of \textit  {BlendMask}\nobreakspace  {}\cite  {Authors2_BlendMask}; PolarMask\nobreakspace  {}\cite  {polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask\nobreakspace  {}\cite  {Authors2_BlendMask} anchor box-free one-stage approch.}}{6}{figure.8}\protected@file@percent }
-\newlabel{fig:conclusionSOLOv2}{{8}{6}{Comparison between SOLOv2 and other stage approches. \textit {Source:~\cite {Authors6_SOLOv2}, pag. 2.}\\ From top to bottom: SOLOv2\cite {Authors6_SOLOv2} and SOLO\cite {solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask~\cite {tensormask} is dense sliding-window one-stage approch; YOLACT~\cite {yolact} is one-stage approch predecessor of \textit {BlendMask}~\cite {Authors2_BlendMask}; PolarMask~\cite {polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask~\cite {Authors2_BlendMask} anchor box-free one-stage approch}{figure.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Results on \textit  {Cityscapes} val (AP [val] column) and test (remaining columns) sets. \textit  {Source:\nobreakspace  {}\cite  {Authors7_deepsnake}, pag. 7.}}}{6}{figure.9}\protected@file@percent }
-\newlabel{fig:conclusiondeepsnake}{{9}{6}{Results on \textit {Cityscapes} val (AP [val] column) and test (remaining columns) sets. \textit {Source:~\cite {Authors7_deepsnake}, pag. 7.}}{figure.9}{}}
 \bibcite{resnet101_img}{16}
 \bibcite{resxt}{17}
 \bibcite{deeplab}{18}
