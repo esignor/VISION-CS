@@ -172,7 +172,7 @@ For complete the backbone, ResNet~\cite{Authors5_ResNet} it is not enough. Is ne
 \centering
   \includegraphics[width=0.8\linewidth]{./image/FPN.png} 
   \caption{FPN for object segment proposals. \textit{Source:~\cite{FPN}, pag. 8.}\\
-  The feature pyramid is constructed with identical structure as for object detection.  Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask.}%Ogni livello della piramide cerca di rilevare tutte le istanze presenti in un'immagine. Per ognuno di questi livelli viene prodotta una features map/basi, e ciascuna produrr\`a una maschera. Quest'ultime verranno combinate in un unica maschera finale.}
+Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask.}%Ogni livello della piramide cerca di rilevare tutte le istanze presenti in un'immagine. Per ognuno di questi livelli viene prodotta una features map/basi, e ciascuna produrr\`a una maschera. Quest'ultime verranno combinate in un unica maschera finale.}
   \label{fig:FPN}
 \noindent
 \end{figure}
@@ -186,7 +186,7 @@ In \textit{AdelaiDet} there are two types of bottom modules, which receive input
 
 
 \subsection{Hyperparameters configuration}
-Per quanto riguarda il training abbiamo settato i seguenti parametri: .. iterazioni per il modello di Mask R-CNN e di .. per BlendMask, learning rate di che decade alla... e... alla iterazione. Inoltre utiliziamo la tecnica di fine-tuning~\cite{fine-tuning}, i layers sul quale viene fatto il training sono gli ultimi due.
+Per il training abbiamo settato i seguenti parametri: per Mask R-CNN 4000 iterazioni, learning rate di 0.001 che descrese di 0.1 dopo 3000 iterazioni, numero di batch size per image (loss) 128, numero di immagini per batch di allenamento a ogni iteraione 1, fine-tuning settato al 2 layer. Per BlendMask 4000 iterazioni, learning rate di 0.001 che descrese di 0.1 dopo 3000 iterazioni, numero di batch size per image (loss) 128, numero di immagini per batch di allenamento a ogni iteraione 1, fine-tuning settato al 2 layer.
 \subsection{Loss function}
 The loss we used during the training of Mask R-CNN, defined in \cite{Authors1_maskrcnn}, is as follows:
 %La loss che abbiamo utilizzato durante il training di Mask R-CNN, definita in \cite{Authors1_maskrcnn}, \`e la seguente:
@@ -253,9 +253,10 @@ Where p(r) is the area under the curve of maximum intersection between \textit{P
 For our evaluations we decided to consider the AP as is defined metric by COCO, i.e. the AP is averaged over several \textit{Intersection over Union} (IoU) values.  Specifically, 10 IoU thresholds from the range .50:.05:.95 are used; and from these are extracted the 100 detections with the highest score.
 %Per le nostre valutazioni abbiamo deciso di considerare l'AP cos\`i come definita metrica da COCO, ovvero l'AP viene mediata su più valori di Intersection over Union (IoU). Nello specifico vengono utilizzate 10 soglie IoU dall'intervallo .50:.05:.95; e da questi vengono estratti i 100 rilevamenti con il punteggio pi\`u alto.
 
-
-
-\subsubsection{Sub-optimal ideal models results}
+\section{Experiments}
+ 
+\subsection{Sub-optimal ideal model}
+In Figure \ref{fig:result_model_ideal} riportiamo alcune prove di inferenza che abbiamo svolto sui sub-optimal ideal model di Mask R-CNN e BlendMask, una volta completato il training.
 \begin{figure}[H]
 \centering
  \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} 
@@ -272,25 +273,23 @@ For our evaluations we decided to consider the AP as is defined metric by COCO, 
 \hline
 Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-Mask R-CNN & \begin{tabular}[c]{ccc}box AP: 28.278 \\ mask AP: 23.793 \\ training time:0:26:43\end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.815 \\ mask AP: 17.738 \\ training time: 1:14:57\end{tabular} \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ 4000 iter \\ $+$ lr 0.001 $+$ fine-tuning2 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.563 \\ mask AP: 24.676 \\ training time: 1:08:28\end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.024 \\ mask AP: 17.994 \\ training time: 0:28:50\end{tabular} \\
 \hline
 BlendMask & &\\
 \hline
 \end{tabular}
 \end{center}
 \caption{AP and training time ideal models.}
-\label{mytable_deepness_BlendMask}
+\label{mytable_ideal_models}
 \end{table}
+Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si presenta pi\`u accurato rispetto a Mask R-CNN sia nel rilevamento della maschera che del box. Tuttavia il tempo di formazione di BlendMask supera quello di Mask R-CNN. Questo ultimo aspetto non rispecchia quanto definito in \cite{Authors2_BlendMask}, che dichiara BlendMask pi\`u preciso e un 20\% pi\`u veloce rispetto a Mask R-CNN. Imputiamo tale condizione esclusivamente al fatto che per le nostre ablazioni abbiamo utilizzato 1 singola GPU (e non 8 come nel paper).
 
 
-\section{Experiments}
-
-In questa sezione descriviamo gli esperimenti che abbiamo eseguito per testare  e valutare le tecniche oggetto di questo lavoro. Tali esperimenti gli abbiamo eseguiti al termine delle fasi di studio e codifica.
-
-\subsection{Backbone}
+\subsection{Improvements}
+Una volta valutato i risultati dei sub-optimal model, abbiamo svolto degli esperimenti per cercarne di migliorne ulteriormente  la performance, prendendo in considerazione backbone, deepness and freeze layers. Al termine abbiamo anche individuato dei modelli ottimi che riassumono i risultati dei nostri esperimenti.
+\subsubsection{Backbone}
 \label{experiments:second_trial}
-La seconda serie di esperimenti, che abbiamo compiuto, riguarda la definizione della backbone. Tutte le tecniche a stadi, oggetto del confronto, sono dotate del suddetto modulo inferiore, per cui ci \`e risultato semplice uniformare le scelte architetturali in modo da poter compiere una valutazione oggettiva. Le tecniche che abbiamo confrontato sono state Mask R-CNN e BlendMask.\\
-Le configurazioni constanti delle reti sono image size ...,  numero massimo di iterazioni, learning rate ..., step size a ... e fine-tuning esclusivamente agli ultimi 2 livelli.
+
 
 \begin{table}[H]
 \scriptsize
@@ -311,7 +310,7 @@ Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
 \label{mytable_backbone_MaskRCNN}
 \end{table}
 \noindent
-Per BlendMask, oltre a settare le configurazioni costanti, avvalendoci dei risultati presentati in ... abbiamo settato R $=$ 56, M $=$ 14, K $=$ 4, sampling method for bottom bases bilinear pooling, interpolation method for top-level attentions bilinear upsampling and semantic loss. Inoltre abbiamo deciso di testare vari tipi di decoder: ProtoNet and DeepLabv3+.
+
 \begin{table}[H]
 \scriptsize
 \begin{center}
@@ -333,9 +332,8 @@ Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
 \label{mytable_backbone_BlendMask}
 \end{table}
 
-\subsection{Deepness}
-Una terza serie di esperimenti ha riguardato lo studio della profondit\`a delle reti ResNet.\\
-I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S\ref{experiments:second_trial}.
+\subsubsection{Deepness}
+
 \begin{table}[H]
 \scriptsize
 \begin{center}
@@ -353,9 +351,8 @@ Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
 \label{mytable_deepness_BlendMask}
 \end{table}
 
-\subsection{Freeze levels}
-Per la quarta serie di esperimenti ci siamo voluti concentrare sul numero di layers da "scongelare" di ResNet durante il re-training dei pesi.\\
-I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S \ref{experiments:second_trial}.
+\subsubsection{Freeze layers}
+
 \begin{table}[H]
 \scriptsize
 \begin{center}
@@ -378,9 +375,7 @@ Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
 \end{table}
 
 
-\subsection{Own best models}
-Come ultima serie di esperimenti abbiamo cercato di individuare i modelli migliori, per ciascuna le due tecniche di instance segmentation in esame in questa sezione; tenedo conto della possibilit\`a di allenare ciascun modello solo su una singolo macchina e 1 GPU.\\
-I parametri di configurazione non definiti in modo esplicito, sono le medesime di quelle riportate nella sezione \S \ref{experiments:second_trial}.
+\subsubsection{Own best models}
 
 \begin{table}[H]
 \scriptsize
