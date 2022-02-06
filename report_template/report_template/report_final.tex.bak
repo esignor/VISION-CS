@@ -296,13 +296,13 @@ Una volta valutato i risultati dei sub-optimal model, abbiamo svolto degli esper
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Method and architecture & \textit{Cityscapes} AP & \textit{WildDash} AP\\
+Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{cc}Mask R-CNN $+$ ResNet50 \\ $+$ C4 $+$ Base-RCNN-C4\end{tabular} & & \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-50-C4 $+$ \\  4000 iter $+$ \\ lr 0.001 $+$ freeze 2\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.730\\ mask AP: 17.589 \\ train time: 0:23:40\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN $+$ ResNet50 \\ $+$ DC5 $+$ Base-RCNN-DilatedC5\end{tabular} & & \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ $+$ ResNet-50-DC5 $+$ \\  4000 iter $+$ \\ lr 0.001 $+$ freeze 2\end{tabular}& \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN $+$ ResNet50 \\ $+$ FPN $+$ Base-RCNN-FPN\end{tabular} & &\\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-50-FPN $+$ \\  4000 iter $+$ \\ lr 0.001 $+$ freeze 2\end{tabular}& \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular}  \\
 \hline
 \end{tabular}
 \end{center}
