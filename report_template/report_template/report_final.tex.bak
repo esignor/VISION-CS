@@ -273,13 +273,13 @@ In Figure \ref{fig:result_model_ideal} riportiamo alcune prove di inferenza che 
 \hline
 Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ 4000 iter \\ $+$ lr 0.001 $+$ fine-tuning2 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.563 \\ mask AP: 24.676 \\ training time: 1:08:28\end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.024 \\ mask AP: 17.994 \\ training time: 0:28:50\end{tabular} \\
+\begin{tabular}[c]{ccc}\textbf{Mask R-CNN:} \\ ResNet-101-FPN $+$ \\ 4000 iter  $+$ \\ lr 0.001 $+$ freeze 2 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.563 \\ mask AP: 24.676 \\ train time: 1:08:28\end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.024 \\ mask AP: 17.994 \\ train time: 0:28:50\end{tabular} \\
 \hline
-BlendMask & &\\
+\textbf{BlendMask:} & &\\
 \hline
 \end{tabular}
 \end{center}
-\caption{AP and training time ideal models.}
+\caption{Results sub-optimal ideal models.}
 \label{mytable_ideal_models}
 \end{table}
 Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si presenta pi\`u accurato rispetto a Mask R-CNN sia nel rilevamento della maschera che del box. Tuttavia il tempo di formazione di BlendMask supera quello di Mask R-CNN. Questo ultimo aspetto non rispecchia quanto definito in \cite{Authors2_BlendMask}, che dichiara BlendMask pi\`u preciso e un 20\% pi\`u veloce rispetto a Mask R-CNN. Imputiamo tale condizione esclusivamente al fatto che per le nostre ablazioni abbiamo utilizzato 1 singola GPU (e non 8 come nel paper).
