@@ -111,7 +111,7 @@ In Figure \ref{fig:class_definitions_city}, we report the classes and the number
 %In Figura \ref{fig:class_definitions_city}, riportiamo le classi e il numero di occorrenze in \textit{gtFine train} e \textit{leftImg8 train}. Il numero di classi complessive sono 8.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.9\linewidth]{./image/city_class} 
+  \includegraphics[width=0.95\linewidth]{./image/city_class} 
   \caption{\textit{Cityscapes}: definitions of train dataset classes.} %\\ The class considered "dangerous" for a good generalisation of a model is \textit{train}, due to the small number of instances (168).}
   \label{fig:class_definitions_city}
 \noindent
@@ -136,7 +136,7 @@ In Figure \ref{fig:class_definitions_wd}, we report the classes and the number o
 %In Figura \ref{fig:class_definitions_wd}, riportiamo le classi e il numero di occorrenze in \textit{public gt package train}. Il numero di classi complessive sono 13.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.9\linewidth]{./image/wd_class.png} 
+  \includegraphics[width=0.95\linewidth]{./image/wd_class.png} 
   \caption{\textit{WildDash}: definitions of train dataset classes.} %\\ The classes considered "dangerous" for a good generalisation of a model are \textit{caravan} (46), \textit{trailer} (65) and \textit{train} (74).}
   \label{fig:class_definitions_wd}
 \noindent
@@ -150,7 +150,7 @@ These libraries have allowed us to define \textit{ideal models}, found during th
 %Tali librerie ci hanno consentito di definire modelli ideali subottimi, con il fine di migliorarne la precisione durante gli esperimenti. Inoltre anche esplicitare il set valutazione e le metriche necessarie per stima di performance, ci hanno consentito di concretizzare il concetto di confronto.
 
 \subsection{Architecture}
-We decided to use ResNet-101-FPN as the backbone in both Mask R-CNN~\cite{Authors1_maskrcnn} and BlendMask~\cite{Authors2_BlendMask}. In addition, as the bottom module of BlendMask we have instantiated ProtoNet~\cite{protonet}. During the experiments, however, we felt that we should also consider other levels of depth, backbone and decoder. In order to have a more complete view of the architectures under examination.
+We decided to use ResNet-101-FPN as the backbone in both Mask R-CNN~\cite{Authors1_maskrcnn} and BlendMask~\cite{Authors2_BlendMask}. In addition, as the bottom module of BlendMask we have instantiated ProtoNet~\cite{protonet}. During the experiments, however, we felt that we should also consider others backbone and/or decoder. In order to have a more complete view of the architectures under examination.
 %Abbiamo deciso di utilizzare ResNet-101-FPN come backbone sia in Mask R-CNN~\cite{Authors1_maskrcnn} che in BlendMask~\cite{Authors2_BlendMask}. Inoltre come bottom module di BlendMask~\cite{Authors2_BlendMask} abbiamo istanziato ProtoNet~\cite{protonet}. 
 \subsubsection{ResNet 101}
 Both \textit{Detectron2} and \textit{AdelaiDet} offer ResNet~\cite{Authors5_ResNet} as a backbone network, in which it is possible to choose between 50 and 101 layers.  In addition, \textit{Detectron2} also includes ResNeXt~\cite{resxt} 101, a cardinal variant of ResNet 101; which, however, we have excluded from any possible comparison because of the excessive training time, for the means at our disposal.
@@ -270,17 +270,17 @@ Di seguito presentiamo gli eseperimenti pi\`u significativi che ci hanno portato
 \hline
 Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 25.935\\ mask AP: 20.005 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.730\\ mask AP: 17.589\end{tabular} \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-50-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 25.935\\ mask AP: 20.005  \end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.730\\ mask AP: 17.589\end{tabular} \\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP: 25.591\\ mask AP: 20.285 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 17.871\\ mask AP: 16.543\end{tabular} \\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 24.437\\ mask AP: 20.327\end{tabular} & \begin{tabular}[c]{ccc}box AP: 16.865 \\ mask AP: 16.017 \end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 30.888\\ mask AP: 24.562 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.004 \\ mask AP: 18.155\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP:\\ mask AP:\\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
 \hline
 \end{tabular}
 \end{center}
@@ -296,13 +296,13 @@ Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ train time: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ train time: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ train time: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
 \hline
 \end{tabular}
 \end{center}
@@ -320,7 +320,7 @@ Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 Method & \textit{Cityscapes} AP & \textit{WildDash} AP\\
 \hline\hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ 1 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ 1 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\\end{tabular} \\
 \hline
 \begin{tabular}[c]{ccc}BlendMask: \\ ResNet-101-FPN $+$ \\ 1 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
 \hline
