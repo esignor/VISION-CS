@@ -75,5 +75,97 @@ Total inference time: 0:15:38.566231 (1.060527 s / iter per device, on 1 devices
 Total inference pure compute time: 0:09:50 (0.666957 s / iter per device, on 1 devices)
 
 
+-----------------------------------------------------------------------------------
+
+EXPERIMENTS
+
+MASK R-CNN,  WILDDASH, 4000 ITER, 128 BATCH, 0.001 LR, Resnet_50_C4
+
+
+OrderedDict([('bbox', {'AP': 18.730301901422774, 'AP50': 30.474509666457816, 'AP75': 19.165602606938066, 'APs': 2.1295476348755282, 'APm': 14.055166292329249, 'APl': 33.48653500925417, 'AP-ego vehicle': 44.19803869371813, 'AP-person': 25.28694640280068, 'AP-rider': 16.74666342527054, 'AP-car': 35.75846057543314, 'AP-truck': 23.422141204325488, 'AP-bus': 26.92162938352689, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 13.465346534653467, 'AP-motorcycle': 18.708805823313664, 'AP-bicycle': 14.35596026117542, 'AP-pickup': 14.141575461090621, 'AP-van': 10.48835695318801}), ('segm', {'AP': 17.589246018658, 'AP50': 30.17644144897902, 'AP75': 17.61469471545726, 'APs': 1.1750085644049812, 'APm': 9.745046369956826, 'APl': 33.65621088435265, 'AP-ego vehicle': 50.94192097592214, 'AP-person': 20.986147377888305, 'AP-rider': 9.82660299806093, 'AP-car': 33.76984264534853, 'AP-truck': 23.376011193023622, 'AP-bus': 26.853518697246205, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 13.465346534653467, 'AP-motorcycle': 16.20568150565055, 'AP-bicycle': 7.732264879972586, 'AP-pickup': 14.919866540339727, 'AP-van': 10.58299489444787})])
+
+
+Overall training speed: 3998 iterations in 0:23:32 (0.3534 s / it)
+Total training time: 0:23:40 (0:00:07 on hooks)
+
+Total inference time: 0:23:26.820772 (1.589628 s / iter per device, on 1 devices)
+Total inference pure compute time: 0:22:20 (1.514685 s / iter per device, on 1 devices)
+
+MASK R-CNN,  CITYSCAPES, 4000 ITER, 128 BATCH, 0.001 LR, Resnet_50_C4
+
+OrderedDict([('bbox', {'AP': 25.935099453862264, 'AP50': 44.353979531882565, 'AP75': 25.100760837462772, 'APs': 4.414945986321174, 'APm': 26.804149625224756, 'APl': 51.66891681897391, 'AP-person': 26.698678443972675, 'AP-rider': 27.397023636241634, 'AP-car': 45.782474480619015, 'AP-truck': 21.611193856728043, 'AP-bus': 29.496905959189828, 'AP-train': 13.9505057648622, 'AP-motorcycle': 18.26627652790887, 'AP-bicycle': 24.27773696137584}), ('segm', {'AP': 20.005069463732436, 'AP50': 39.33779531687783, 'AP75': 18.235091678371614, 'APs': 1.3898702721522587, 'APm': 16.318409522143984, 'APl': 43.81213851106836, 'AP-person': 18.270114506856757, 'AP-rider': 10.974382697686917, 'AP-car': 37.86636455492556, 'AP-truck': 22.735111250568902, 'AP-bus': 28.9772522098366, 'AP-train': 19.71145685997171, 'AP-motorcycle': 10.719001985130259, 'AP-bicycle': 10.786871644882778})])
+
+Overall training speed: 3998 iterations in 0:48:32 (0.7286 s / it)
+[02/06 12:05:35 d2.engine.hooks]: Total training time: 0:48:42 (0:00:09 on hooks)
+
+Total inference time: 0:10:11.841277 (1.236043 s / iter per device, on 1 devices)
+Total inference pure compute time: 0:08:11 (0.993397 s / iter per device, on 1 devices)
+--------------------------------------------------------------------------------------------------------------------------
+
+MASK R-CNN,  WILDDASH, 4000 ITER, 128 BATCH, 0.001 LR, ResNet_50_DC5
+
+OrderedDict([('bbox', {'AP': 17.8706328967431, 'AP50': 29.517264418297035, 'AP75': 18.3796838678658, 'APs': 2.6087552148642996, 'APm': 13.837972736179207, 'APl': 31.640726245019124, 'AP-ego vehicle': 45.86772233693226, 'AP-person': 23.82414476436443, 'AP-rider': 17.113277886592446, 'AP-car': 34.329572426592364, 'AP-truck': 28.368338036294787, 'AP-bus': 24.0280871304233, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 11.782178217821782, 'AP-motorcycle': 19.805433882701482, 'AP-bicycle': 14.756610757849703, 'AP-pickup': 5.401971468049814, 'AP-van': 7.040890750037904}), ('segm', {'AP': 16.542855111696277, 'AP50': 28.813837485929035, 'AP75': 15.979531736114788, 'APs': 1.0959473006912872, 'APm': 9.272736675026595, 'APl': 32.70925157496045, 'AP-ego vehicle': 51.260960462504215, 'AP-person': 19.773093786382855, 'AP-rider': 9.904894251802881, 'AP-car': 32.30621220795835, 'AP-truck': 27.333666066740985, 'AP-bus': 24.81623904183321, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 13.465346534653467, 'AP-motorcycle': 15.972124700781654, 'AP-bicycle': 7.035299354178402, 'AP-pickup': 5.737712065520934, 'AP-van': 7.451567979694643})])
+
+Overall training speed: 3998 iterations in 0:30:54 (0.4639 s / it)
+Total training time: 0:31:01 (0:00:06 on hooks)
+
+Total inference time: 0:04:32.252419 (0.307630 s / iter per device, on 1 devices
+Total inference pure compute time: 0:03:24 (0.230648 s / iter per device, on 1 devices)
+
+
+
+MASK R-CNN,  WILDDASH, 4000 ITER, 128 BATCH, 0.001 LR, ResNet_50_FPN
+
+OrderedDict([('bbox', {'AP': 16.865291322891704, 'AP50': 27.7455399012021, 'AP75': 17.366169551890334, 'APs': 4.100550727262145, 'APm': 13.608602351847459, 'APl': 28.083559564643636, 'AP-ego vehicle': 46.83374373065214, 'AP-person': 29.868557087327837, 'AP-rider': 19.064292707015483, 'AP-car': 40.09234009325816, 'AP-truck': 27.1597765953627, 'AP-bus': 20.075798945373805, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 0.0, 'AP-motorcycle': 20.267841336998533, 'AP-bicycle': 15.88643670160349, 'AP-pickup': 0.0, 'AP-van': 0.0}), ('segm', {'AP': 16.017454969154258, 'AP50': 27.54305382660347, 'AP75': 15.711366132994304, 'APs': 3.033550465396187, 'APm': 10.843992437242438, 'APl': 28.926171295761154, 'AP-ego vehicle': 51.43042752959629, 'AP-person': 27.63188289126397, 'AP-rider': 12.02635594148964, 'AP-car': 39.63216074164282, 'AP-truck': 27.646204040699278, 'AP-bus': 20.984372941632103, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 0.0, 'AP-motorcycle': 18.512082658369994, 'AP-bicycle': 10.363427854311217, 'AP-pickup': 0.0, 'AP-van': 0.0})])
+
+Overall training speed: 3998 iterations in 0:20:36 (0.3092 s / it)
+Total training time: 0:20:43 (0:00:07 on hooks)
+
+
+Total inference time: 0:02:58.577167 (0.201782 s / iter per device, on 1 devices)
+Total inference pure compute time: 0:01:51 (0.126551 s / iter per device, on 1 devices)
+
+MASK R-CNN,  CITYSCAPES, 4000 ITER, 128 BATCH, 0.001 LR, ResNet_50_FPN
+
+OrderedDict([('bbox', {'AP': 24.436792131092968, 'AP50': 41.4160141357408, 'AP75': 25.198989304304074, 'APs': 6.106837694662811, 'APm': 25.56067385362763, 'APl': 47.71234241858643, 'AP-person': 30.129198031301176, 'AP-rider': 28.967944361809376, 'AP-car': 48.60293043135116, 'AP-truck': 19.352423689448184, 'AP-bus': 23.91659420823779, 'AP-train': 6.511001100110011, 'AP-motorcycle': 16.598128548582913, 'AP-bicycle': 21.41611667790315}), ('segm', {'AP': 20.326719163468418, 'AP50': 37.43003259012772, 'AP75': 18.226398160683438, 'APs': 2.6643960271911227, 'APm': 17.678164277986568, 'APl': 44.26149596864337, 'AP-person': 24.258806473697554, 'AP-rider': 16.085310579558474, 'AP-car': 41.55166784806358, 'AP-truck': 20.185414001062192, 'AP-bus': 24.951068144252172, 'AP-train': 12.383938393839387, 'AP-motorcycle': 11.305493510998033, 'AP-bicycle': 11.892054356275972})])
+
+
+Overall training speed: 3998 iterations in 0:18:58 (0.2848 s / it)
+[02/06 15:36:43 d2.engine.hooks]: Total training time: 0:19:05 (0:00:07 on hooks)
+
+
+Total inference time: 0:03:01.887306 (0.367449 s / iter per device, on 1 devices)
+Total inference pure compute time: 0:01:00 (0.121833 s / iter per device, on 1 devices)
+-------------------------------------------------------------------------
+
+
+MASK R-CNN,  WILDDASH, 4000 ITER, 128 BATCH, 0.001 LR, ResNet_101_C4
+
+OrderedDict([('bbox', {'AP': 20.00369089808443, 'AP50': 31.492225138339652, 'AP75': 20.749982991415063, 'APs': 2.755286331183306, 'APm': 14.914084663838208, 'APl': 34.534230590322416, 'AP-ego vehicle': 54.178569677192456, 'AP-person': 25.998577426796928, 'AP-rider': 20.196933979144923, 'AP-car': 39.02025017150143, 'AP-truck': 27.731449901488997, 'AP-bus': 25.221705618204066, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 0.0, 'AP-motorcycle': 21.497355352967702, 'AP-bicycle': 22.27752696640113, 'AP-pickup': 19.3537228188943, 'AP-van': 4.571889762505663}), ('segm', {'AP': 18.154639693045464, 'AP50': 30.476579771792935, 'AP75': 17.91020026472743, 'APs': 1.5945585702770524, 'APm': 10.62602345303347, 'APl': 34.19090609564269, 'AP-ego vehicle': 58.670263751846164, 'AP-person': 22.077822395286773, 'AP-rider': 10.873415413459137, 'AP-car': 36.63840124247976, 'AP-truck': 27.242875998770984, 'AP-bus': 25.977068925643888, 'AP-caravan': 0.0, 'AP-trailer': 0.0, 'AP-train': 0.0, 'AP-motorcycle': 18.347481441598855, 'AP-bicycle': 11.826048501052652, 'AP-pickup': 19.760609956614474, 'AP-van': 4.5963283828382835})])
+
+
+Overall training speed: 3998 iterations in 0:29:45 (0.4466 s / it)
+[02/06 19:21:47 d2.engine.hooks]: Total training time: 0:29:52 (0:00:06 on hooks)
+
+Total inference time: 0:26:06.751887 (1.770341 s / iter per device, on 1 devices)
+Total inference pure compute time: 0:25:10 (1.706321 s / iter per device, on 1 devices)
+
+
+MASK,  CITYSCAPES, 4000 ITER, 128 BATCH, 0.001 LR, ResNet_101_FPN
+
+OrderedDict([('bbox', {'AP': 30.88754253699473, 'AP50': 50.027385269489386, 'AP75': 32.1356915655728, 'APs': 5.026757419242522, 'APm': 30.335500420253453, 'APl': 58.6167089926661, 'AP-person': 29.0422083285612, 'AP-rider': 30.61935032277549, 'AP-car': 48.122422985906795, 'AP-truck': 25.14333447474421, 'AP-bus': 46.73724003872872, 'AP-train': 20.691419141914192, 'AP-motorcycle': 19.835521693931675, 'AP-bicycle': 26.90884330939553}), ('segm', {'AP': 24.561745000999302, 'AP50': 45.02002923850075, 'AP75': 22.713415731449658, 'APs': 1.522748815591652, 'APm': 19.039618363791103, 'APl': 52.63692918688654, 'AP-person': 21.21429142021898, 'AP-rider': 13.250625715799409, 'AP-car': 40.29321859943792, 'AP-truck': 25.725085103458035, 'AP-bus': 44.18296536032813, 'AP-train': 25.68344334433444, 'AP-motorcycle': 13.178138174821513, 'AP-bicycle': 12.966192289595982})])
+
+
+Overall training speed: 3998 iterations in 0:30:39 (0.4601 s / it)
+[02/06 19:29:59 d2.engine.hooks]: Total training time: 0:30:50 (0:00:11 on hooks)
+
+Total inference time: 0:18:51.003713 (2.284856 s / iter per device, on 1 devices)
+Total inference pure compute time: 0:16:29 (1.998879 s / iter per device, on 1 devices)
+
+
+
+
+
+
 
 
