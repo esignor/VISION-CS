@@ -278,9 +278,9 @@ Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 30.888\\ mask AP: 24.562 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.004 \\ mask AP: 18.155\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP:\\ mask AP: \\ \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP: 29.125\\ mask AP: 24.062\\ \end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.391\\ mask AP: 18.529\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.563 \\ mask AP: 24.676\end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.024\\ mask AP: 17.994\end{tabular}  \\
 \hline
 \end{tabular}
 \end{center}
@@ -340,9 +340,9 @@ Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ ProtoNet  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ ProtoNet  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ DeepLabv3  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\ train time:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ DeepLabv3  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
 \hline
 \end{tabular}
 \end{center}
@@ -384,7 +384,7 @@ Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si pre
 
 
 \section{Conclusion}
-From our experiments we are able to say that one-stage and anchor box-free techniques, suitably modified, perform better than box-based two-stage methods (of which king is Mask R-CNN~\cite{Authors1_maskrcnn}), both in terms of AP precision and GPU time. These positive effects are probably caused by the hybridisation of top-down and bottom-up methods, and the detection of unanchored objects (as is the case for BlendMask~\cite{Authors2_BlendMask}). In addition, recent studies reported in~\cite{Authors6_SOLOv2} and partly shown in Figure \ref{fig:conclusionSOLOv2}, prove that a box-free stage approach combined with matrix NMS, such as SOLOv2~\cite{Authors6_SOLOv2}, is demonstrated to be very competitive against BlendMask~\cite{Authors2_BlendMask}.
+From our experiments we are able to say that one-stage and anchor box-free techniques, suitably modified, perform better than box-based two-stage methods (of which king is Mask R-CNN~\cite{Authors1_maskrcnn}), least in terms of \textit{Average Precision}. These positive effects are probably caused by the hybridisation of top-down and bottom-up methods, and the detection of unanchored objects (as is the case for BlendMask~\cite{Authors2_BlendMask}). In addition, recent studies reported in~\cite{Authors6_SOLOv2} and partly shown in Figure \ref{fig:conclusionSOLOv2}, prove that a box-free stage approach combined with matrix NMS, such as SOLOv2~\cite{Authors6_SOLOv2}, is demonstrated to be very competitive against BlendMask~\cite{Authors2_BlendMask}.
 %Dai nostri esperimenti siamo in grado di dire che le tecniche a uno stadio e box based, opportunamente modificate, funzionano meglio rispetto a metodi ha due stadi (di cui re \`e Mask R-CNN~\cite{Authors1_maskrcnn}),  sia in termini di AP precision che di tempo GPU. Tali effetti positivi sono probabilmente causati dall'ibridazione di metodi top down e bottom up, e dall'rilevamento degli oggetti senza ancoraggio (come accade per BlendMask~\cite{Authors2_BlendMask}).
 %In aggiunta, recenti studi riportati in~\cite{Authors6_SOLOv2} e in parte mostrati in Figure \ref{fig:conclusionSOLOv2}, provano che uno stage approch box-free combinato a matrix NMS, come lo \`e SOLOv2~\cite{Authors6_SOLOv2}, si dimostra molto competitivo nei confronti di BlendMask~\cite{Authors2_BlendMask}.
 \begin{figure}[H]
