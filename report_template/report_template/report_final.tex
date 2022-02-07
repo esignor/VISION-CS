@@ -186,7 +186,7 @@ In \textit{AdelaiDet} there are two types of bottom modules, which receive input
 
 
 \subsection{Hyperparameters configuration}
-For the choice of models hyperparameters, we tried to keep the default ones as defined in the libraries \textit{Detectron2} and \textit{AdelaiDet}, which are the same as those defined in the papers \cite{Authors1_maskrcnn, Authors2_BlendMask}. We only modified those that did not allow us to run on Coolab, namely the number of iterations to 4 000 for Mask R-CNN and 2 000 for BlendMask, and the number of batch sizes per image to 128.
+For the choice of models hyperparameters, we tried to keep the default ones as defined in the libraries \textit{Detectron2} and \textit{AdelaiDet}, which are the same as those defined in the papers \cite{Authors1_maskrcnn, Authors2_BlendMask}. We only modified those that did not allow us to run on Colab, namely the number of iterations to 4 000 for Mask R-CNN and 2 000 for BlendMask, and the number of batch sizes per image to 128.
 %Per la scelta degli iperparametri dei modelli, abbiamo cercato di mantenere quelli di default cos\`i come definiti nelle librerie \textit{Detectron2} and \textit{AdelaiDet}, che sono i medesimi definiti all'interno dei papers \cite{Authors1_maskrcnn, Authors2_BlendMask}. Abbiamo esclusivamente modificato quelli che non ci permettevano l'esecuzione su  Coolab, ovvero il numero di iterazioni a 4 000 per Mask R-CNN e 2 000 per BlendMask e il numero di batch size per immagine a 128.
 \subsection{Loss function}
 The loss we used during the training of Mask R-CNN, defined in \cite{Authors1_maskrcnn}, is as follows:
@@ -268,7 +268,7 @@ Di seguito presentiamo gli eseperimenti pi\`u significativi che ci hanno portato
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Method & \textit{Cityscapes} & \textit{WildDash}\\
+Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
 \begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-50-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 25.935\\ mask AP: 20.005  \end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.730\\ mask AP: 17.589\end{tabular} \\
 \hline
@@ -276,7 +276,7 @@ Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 24.437\\ mask AP: 20.327\end{tabular} & \begin{tabular}[c]{ccc}box AP: 16.865 \\ mask AP: 16.017 \end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 30.888\\ mask AP: 24.562 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.004 \\ mask AP: 18.155\end{tabular} \\
+\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 30.888\\ mask AP: 24.562 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.459 \\ mask AP: 19.331\end{tabular} \\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP: 29.125\\ mask AP: 24.062\\ \end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.391\\ mask AP: 18.529\end{tabular} \\
 \hline
@@ -287,6 +287,8 @@ Method & \textit{Cityscapes} & \textit{WildDash}\\
 \label{mytable_backbone_Mask-RCNN}
 \caption{Experiments on \textit{backbone} Mask R-CNN}
 \end{table}
+Per gli esperimenti sulla backbone di ResNet~\cite{Authors5_ResNet} abbiamo deciso di testare depth and features, mantenendo la network fissa su ResNet. Le depths sono state 50 e 101 e le features C4, DC5 e FPN. Dai risultati riportati in tabella \ref{mytable_backbone_Mask-RCNN} sembra che l'architettura pi\`u performante sia ResNet-101-C4 (\textit{Cityscapes}: 30.888 box and 24.562 mask, \textit{WildDash}: 20.459 box and 19.331 mask). Tuttavia questo va in controtendenza con quanto definito nel paper di Mask R-CNN~\cite{Authors1_maskrcnn}, da cui risulta che l'estrazione delle features al 4 stage \`e meno accurato dell'approccio bottom up and top down di FPN ~\cite{FPN}. Ci siamo spiegati questa incongruenza con i limiti computazioni di Colab, che ci hanno vincolato a lavorare con sole 4 000 iterazioni. Probabilmente sono un numero troppo basso che non  ci hanno permesso di cogliere le reali potenzialit\`a e limiti di ciascuna backbone testata. Prova di ci\`o sta il fatto che uno stesso esperimento, eseguito pi\`u volte, poteva subire una variazione di precisione fino al 2\%. A seguito di quanto appena affermato, abbiamo deciso di considerare come architettura ottimale per Mask R-CNN ResNet-101-FPN.
+
 
 
 \begin{table}[H]
