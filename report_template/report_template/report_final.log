@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  8 FEB 2022 16:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  8 FEB 2022 21:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -427,97 +427,104 @@ Package pdftex.def Info: ./image/wd_class.png  used on input line 139.
 <./image/resnet101.png, id=113, 853.1875pt x 279.0425pt>
 File: ./image/resnet101.png Graphic file (type png)
 <use ./image/resnet101.png>
-Package pdftex.def Info: ./image/resnet101.png  used on input line 162.
+Package pdftex.def Info: ./image/resnet101.png  used on input line 163.
 (pdftex.def)             Requested size: 213.4209pt x 69.79877pt.
 <./image/FPN.png, id=123, 1298.8525pt x 461.725pt>
 File: ./image/FPN.png Graphic file (type png)
 <use ./image/FPN.png>
-Package pdftex.def Info: ./image/FPN.png  used on input line 173.
+Package pdftex.def Info: ./image/FPN.png  used on input line 174.
 (pdftex.def)             Requested size: 189.70947pt x 67.43805pt.
+<./image/protonet.png, id=128, 823.075pt x 377.41pt>
+File: ./image/protonet.png Graphic file (type png)
+<use ./image/protonet.png>
+Package pdftex.def Info: ./image/protonet.png  used on input line 190.
+(pdftex.def)             Requested size: 154.1369pt x 70.67781pt.
 
-Underfull \hbox (badness 1112) in paragraph at lines 182--186
-\OT1/ptm/m/n/10 In \OT1/ptm/m/it/10 Ade-laiDet \OT1/ptm/m/n/10 there are two ty
-pes of bot-tom mod-ules,
- []
+Underfull \vbox (badness 4168) has occurred while \output is active []
 
-[3 <./image/wd_rain.jpg> <./image/wd_desert.jpg> <./image/wd_class.png> <./imag
-e/resnet101.png> <./image/FPN.png (PNG copy)>]
+ [3 <./image/wd_rain.jpg> <./image/wd_desert.jpg> <./image/wd_class.png> <./ima
+ge/resnet101.png> <./image/FPN.png (PNG copy)>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-00.
+10.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [4]
-Overfull \hbox (5.48805pt too wide) in paragraph at lines 301--312
+) [4 <./image/protonet.png (PNG copy)>]
+Overfull \hbox (5.48805pt too wide) in paragraph at lines 315--326
  [] 
  []
 
 [5]
-<./image/ideal_model_mask_city.png, id=200, 1027.84pt x 513.92pt>
+Overfull \hbox (7.37698pt too wide) in paragraph at lines 393--402
+ [] 
+ []
+
+<./image/ideal_model_mask_city.png, id=199, 1027.84pt x 513.92pt>
 File: ./image/ideal_model_mask_city.png Graphic file (type png)
 <use ./image/ideal_model_mask_city.png>
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
-405.
+409.
 (pdftex.def)             Requested size: 106.71045pt x 53.34761pt.
 File: ./image/ideal_model_mask_city.png Graphic file (type png)
 <use ./image/ideal_model_mask_city.png>
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
-405.
+409.
 (pdftex.def)             Requested size: 106.71045pt x 53.34761pt.
-<./image/ideal_model_mask_wd.png, id=201, 963.6pt x 542.025pt>
+<./image/ideal_model_mask_wd.png, id=200, 963.6pt x 542.025pt>
 File: ./image/ideal_model_mask_wd.png Graphic file (type png)
 <use ./image/ideal_model_mask_wd.png>
-Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 40
-6.
+Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 41
+0.
 (pdftex.def)             Requested size: 106.71045pt x 60.01991pt.
 File: ./image/ideal_model_mask_wd.png Graphic file (type png)
 <use ./image/ideal_model_mask_wd.png>
-Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 40
-6.
+Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 41
+0.
 (pdftex.def)             Requested size: 106.71045pt x 60.01991pt.
-<./image/conclusion_SOLOv2.png, id=210, 669.50125pt x 524.96124pt>
+<./image/conclusion_SOLOv2.png, id=209, 669.50125pt x 524.96124pt>
 File: ./image/conclusion_SOLOv2.png Graphic file (type png)
 <use ./image/conclusion_SOLOv2.png>
-Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 421.
+Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 429.
 
 (pdftex.def)             Requested size: 165.99443pt x 130.1586pt.
-<./image/conclusion_deepsnake.png, id=231, 891.33pt x 283.0575pt>
+<./image/conclusion_deepsnake.png, id=214, 891.33pt x 283.0575pt>
 File: ./image/conclusion_deepsnake.png Graphic file (type png)
 <use ./image/conclusion_deepsnake.png>
 Package pdftex.def Info: ./image/conclusion_deepsnake.png  used on input line 4
-31.
+39.
 (pdftex.def)             Requested size: 237.13594pt x 75.30789pt.
 
-Underfull \vbox (badness 3240) has occurred while \output is active []
-
- [6 <./image/ideal_model_mask_city.png (PNG copy)> <./image/ideal_model_mask_wd
-.png (PNG copy)> <./image/conclusion_SOLOv2.png> <./image/conclusion_deepsnake.
-png>]
-Underfull \hbox (badness 1596) in paragraph at lines 447--449
+Underfull \hbox (badness 1596) in paragraph at lines 455--457
 []\OT1/ptm/m/n/10 Tsung-Yi Lin, Michael Maire, Serge J. Be-longie,
  []
 
-
-Underfull \hbox (badness 3965) in paragraph at lines 462--464
+[6 <./image/ideal_model_mask_city.png (PNG copy)> <./image/ideal_model_mask_wd.
+png (PNG copy)> <./image/conclusion_SOLOv2.png> <./image/conclusion_deepsnake.p
+ng>]
+Underfull \hbox (badness 3965) in paragraph at lines 470--472
 \OT1/ptm/m/n/10 Chun-hua Shen. SOLOv2: Dy-namic, Faster and
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 515.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 523.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 515.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 523.
  (./report_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 515.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 515.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 515.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 523.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 523.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 523.
  ) 
 Here is how much of TeX's memory you used:
- 6925 strings out of 482552
- 101967 string characters out of 5948615
- 377398 words of memory out of 5000000
- 21739 multiletter control sequences out of 15000+600000
- 560942 words of font info for 81 fonts, out of 8000000 for 9000
+ 6934 strings out of 482552
+ 102115 string characters out of 5948615
+ 376289 words of memory out of 5000000
+ 21745 multiletter control sequences out of 15000+600000
+ 562487 words of font info for 87 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
- 38i,16n,31p,2381b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,15n,31p,2381b,423s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -526,14 +533,15 @@ type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/urw/times/utmri8a.pfb>
-Output written on report_final.pdf (7 pages, 6571949 bytes).
+y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+urw/times/utmri8a.pfb>
+Output written on report_final.pdf (7 pages, 6618291 bytes).
 PDF statistics:
- 318 PDF objects out of 1000 (max. 8388607)
- 255 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 242 compressed objects within 3 object streams
+ 75 named destinations out of 1000 (max. 500000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
