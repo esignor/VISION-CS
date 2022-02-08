@@ -332,7 +332,7 @@ Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 \begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ freeze at 3-th \end{tabular} & \begin{tabular}[c]{ccc}box AP: 26.297\\ mask AP: 22.179 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.132 \\ mask AP: 18.224\\\end{tabular} \\
 \hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ \textit{ResNet-101-FPN $+$} \\ \textit{freeze at 4-th } \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 24.032}\\ \textit{mask AP: 20.643}\end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 19.824} \\ \textit{mask AP: 18.448}\end{tabular} \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ \textit{ResNet-101-FPN $+$} \\ \textit{freeze at 4-th } \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 25.053}\\ \textit{mask AP: 21.349}\end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 19.824} \\ \textit{mask AP: 18.448}\end{tabular} \\
 \hline
 \end{tabular}
 \end{center}
