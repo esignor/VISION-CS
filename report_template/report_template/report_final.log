@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  7 FEB 2022 18:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  8 FEB 2022 03:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -429,12 +429,12 @@ File: ./image/wd_class.png Graphic file (type png)
 <use ./image/wd_class.png>
 Package pdftex.def Info: ./image/wd_class.png  used on input line 139.
 (pdftex.def)             Requested size: 225.27841pt x 42.23825pt.
-<./image/resnet101.png, id=111, 853.1875pt x 279.0425pt>
+<./image/resnet101.png, id=113, 853.1875pt x 279.0425pt>
 File: ./image/resnet101.png Graphic file (type png)
 <use ./image/resnet101.png>
 Package pdftex.def Info: ./image/resnet101.png  used on input line 162.
-(pdftex.def)             Requested size: 225.27841pt x 73.67766pt.
-<./image/FPN.png, id=121, 1298.8525pt x 461.725pt>
+(pdftex.def)             Requested size: 213.4209pt x 69.79877pt.
+<./image/FPN.png, id=123, 1298.8525pt x 461.725pt>
 File: ./image/FPN.png Graphic file (type png)
 <use ./image/FPN.png>
 Package pdftex.def Info: ./image/FPN.png  used on input line 173.
@@ -453,9 +453,14 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [4]
+Overfull \hbox (2.00174pt too wide) in paragraph at lines 297--308
+ [] 
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<./image/ideal_model_mask_city.png, id=183, 1027.84pt x 513.92pt>
+<./image/ideal_model_mask_city.png, id=185, 1027.84pt x 513.92pt>
 File: ./image/ideal_model_mask_city.png Graphic file (type png)
 <use ./image/ideal_model_mask_city.png>
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
@@ -466,7 +471,7 @@ File: ./image/ideal_model_mask_city.png Graphic file (type png)
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
 378.
 (pdftex.def)             Requested size: 106.71045pt x 53.34761pt.
-<./image/ideal_model_mask_wd.png, id=184, 963.6pt x 542.025pt>
+<./image/ideal_model_mask_wd.png, id=186, 963.6pt x 542.025pt>
 File: ./image/ideal_model_mask_wd.png Graphic file (type png)
 <use ./image/ideal_model_mask_wd.png>
 Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 37
@@ -479,13 +484,13 @@ Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 37
 (pdftex.def)             Requested size: 106.71045pt x 60.01991pt.
  [5 <./image/ideal_model_mask_city.png (PNG copy)> <./image/ideal_model_mask_wd
 .png (PNG copy)>]
-<./image/conclusion_SOLOv2.png, id=208, 669.50125pt x 524.96124pt>
+<./image/conclusion_SOLOv2.png, id=210, 669.50125pt x 524.96124pt>
 File: ./image/conclusion_SOLOv2.png Graphic file (type png)
 <use ./image/conclusion_SOLOv2.png>
 Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 394.
 
 (pdftex.def)             Requested size: 165.99443pt x 130.1586pt.
-<./image/conclusion_deepsnake.png, id=229, 891.33pt x 283.0575pt>
+<./image/conclusion_deepsnake.png, id=231, 891.33pt x 283.0575pt>
 File: ./image/conclusion_deepsnake.png Graphic file (type png)
 <use ./image/conclusion_deepsnake.png>
 Package pdftex.def Info: ./image/conclusion_deepsnake.png  used on input line 4
@@ -538,10 +543,10 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on report_final.pdf (7 pages, 6565021 bytes).
+Output written on report_final.pdf (7 pages, 6565703 bytes).
 PDF statistics:
- 312 PDF objects out of 1000 (max. 8388607)
- 249 compressed objects within 3 object streams
+ 314 PDF objects out of 1000 (max. 8388607)
+ 251 compressed objects within 3 object streams
  76 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

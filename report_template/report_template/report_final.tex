@@ -153,13 +153,13 @@ These libraries have allowed us to define \textit{ideal models}, found during th
 We decided to use ResNet-101-FPN as the backbone in both Mask R-CNN~\cite{Authors1_maskrcnn} and BlendMask~\cite{Authors2_BlendMask}. In addition, as the bottom module of BlendMask we have instantiated ProtoNet~\cite{protonet}. During the experiments, however, we felt that we should also consider others backbone and/or decoder. In order to have a more complete view of the architectures under examination.
 %Abbiamo deciso di utilizzare ResNet-101-FPN come backbone sia in Mask R-CNN~\cite{Authors1_maskrcnn} che in BlendMask~\cite{Authors2_BlendMask}. Inoltre come bottom module di BlendMask~\cite{Authors2_BlendMask} abbiamo istanziato ProtoNet~\cite{protonet}. 
 \subsubsection{ResNet 101}
-Both \textit{Detectron2} and \textit{AdelaiDet} offer ResNet~\cite{Authors5_ResNet} as a backbone network, in which it is possible to choose between 50 and 101 layers.  In addition, \textit{Detectron2} also includes ResNeXt~\cite{resxt} 101, a cardinal variant of ResNet 101; which, however, we have excluded from any possible comparison because of the excessive training time, for the means at our disposal.
+Both \textit{Detectron2} and \textit{AdelaiDet} offer ResNet~\cite{Authors5_ResNet} as a backbone network, in which it is possible to choose between 50 and 101 layers.  In addition, \textit{Detectron2} also includes ResNeXt~\cite{resxt} 101, a cardinal variant of ResNet 101; which we have excluded from any possible comparison a priori to the benefit of the relationship resources at our disposal - forecasting accuracy - computation effort. This because ResNeXt, as can be seen ~\cite{Authors1_maskrcnn, resxt}, has a longer inference and training time than ResNet 101.
 We considered ResNet 101, Figure \ref{fig:resnet101}, sufficient for our purposes, defined as a network that also converges very well from the reference paper~\cite{Authors5_ResNet}.
 %Sia \textit{Detectron2} che \textit{AdelaiDet} offrono come rete backbone ResNet~\cite{Authors5_ResNet}, in cui \`e possibile scegliere tra 50 e 101 layers. Inoltre \textit{Detectron2} include anche ResNeXt~\cite{resxt} 101, variante con cardinalit\`a di ResNet 101; che tuttavia abbiamo escluso da ogni possibile confronto a causa dell' eccessivo tempo di training, per i mezzi  a nostra disposizione, non giustificabile dal solo aumento di accuracy della maschera.
 %Abbiamo ritenuto ResNet 101, Figure \ref{fig:resnet101} sufficiente ai nostri scopi, definita come una rete che converge molto bene anche dal paper di riferimento~\cite{Authors5_ResNet}.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.95\linewidth]{./image/resnet101.png} 
+  \includegraphics[width=0.90\linewidth]{./image/resnet101.png} 
   \caption{The structure of the ResNet 101. \textit{Source: ~\cite{resnet101_img}, pag. 6.}\\
   The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation.}%In figura viene prsentata Resnet 101, una Residual Neural Network (CNN$+$deepness) with 101 layers. Essa usa le skip connections, ovvero gli archi sopra ciascun blocco, per risolvere i prolemi legati alla computazione del gradiente.}
   \label{fig:resnet101}
@@ -280,7 +280,7 @@ Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP: 29.125\\ mask AP: 24.062\\ \end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.391\\ mask AP: 18.529\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.563 \\ mask AP: 24.676\end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.024\\ mask AP: 17.994\end{tabular}  \\
+\begin{tabular}[c]{cc}\textbf{Mask R-CNN:} \\ \textbf{ResNet-101-FPN} \end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 28.563} \\ \textbf{mask AP: 24.676}\end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 19.024}\\ \textbf{mask AP: 17.994}\end{tabular}  \\
 \hline
 \end{tabular}
 \end{center}
@@ -296,13 +296,13 @@ Per gli esperimenti sulla backbone di ResNet~\cite{Authors5_ResNet} abbiamo deci
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Method & \textit{Cityscapes} & \textit{WildDash}\\
+Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 30.129 \\ mask AP: 25.325\end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.225 \\ mask AP: 19.810\end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP:30.922\\ mask AP: 25.922 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.347 \\ mask AP: 20.162\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP: 32.196\\ mask AP: 27.212\end{tabular} & \begin{tabular}[c]{ccc}box AP: 21.047\\ mask AP:  21.222\end{tabular} \\
 \hline
 \end{tabular}
 \end{center}
