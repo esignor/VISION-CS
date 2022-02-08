@@ -153,13 +153,13 @@ These libraries have allowed us to define \textit{ideal models}, found during th
 We decided to use ResNet-101-FPN as the backbone in both Mask R-CNN~\cite{Authors1_maskrcnn} and BlendMask~\cite{Authors2_BlendMask}. In addition, as the bottom module of BlendMask we have instantiated ProtoNet~\cite{protonet}. During the experiments, however, we felt that we should also consider others backbone and/or decoder. In order to have a more complete view of the architectures under examination.
 %Abbiamo deciso di utilizzare ResNet-101-FPN come backbone sia in Mask R-CNN~\cite{Authors1_maskrcnn} che in BlendMask~\cite{Authors2_BlendMask}. Inoltre come bottom module di BlendMask~\cite{Authors2_BlendMask} abbiamo istanziato ProtoNet~\cite{protonet}. 
 \subsubsection{ResNet 101}
-Both \textit{Detectron2} and \textit{AdelaiDet} offer ResNet~\cite{Authors5_ResNet} as a backbone network, in which it is possible to choose between 50 and 101 layers.  In addition, \textit{Detectron2} also includes ResNeXt~\cite{resxt} 101, a cardinal variant of ResNet 101; which, however, we have excluded from any possible comparison because of the excessive training time, for the means at our disposal.
+Both \textit{Detectron2} and \textit{AdelaiDet} offer ResNet~\cite{Authors5_ResNet} as a backbone network, in which it is possible to choose between 50 and 101 layers.  In addition, \textit{Detectron2} also includes ResNeXt~\cite{resxt} 101, a cardinal variant of ResNet 101; which we have excluded from any possible comparison a priori to the benefit of the relationship resources at our disposal - forecasting accuracy - computation effort. This because ResNeXt, as can be seen ~\cite{Authors1_maskrcnn, resxt}, has a longer inference and training time than ResNet 101.
 We considered ResNet 101, Figure \ref{fig:resnet101}, sufficient for our purposes, defined as a network that also converges very well from the reference paper~\cite{Authors5_ResNet}.
 %Sia \textit{Detectron2} che \textit{AdelaiDet} offrono come rete backbone ResNet~\cite{Authors5_ResNet}, in cui \`e possibile scegliere tra 50 e 101 layers. Inoltre \textit{Detectron2} include anche ResNeXt~\cite{resxt} 101, variante con cardinalit\`a di ResNet 101; che tuttavia abbiamo escluso da ogni possibile confronto a causa dell' eccessivo tempo di training, per i mezzi  a nostra disposizione, non giustificabile dal solo aumento di accuracy della maschera.
 %Abbiamo ritenuto ResNet 101, Figure \ref{fig:resnet101} sufficiente ai nostri scopi, definita come una rete che converge molto bene anche dal paper di riferimento~\cite{Authors5_ResNet}.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.95\linewidth]{./image/resnet101.png} 
+  \includegraphics[width=0.90\linewidth]{./image/resnet101.png} 
   \caption{The structure of the ResNet 101. \textit{Source: ~\cite{resnet101_img}, pag. 6.}\\
   The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation.}%In figura viene prsentata Resnet 101, una Residual Neural Network (CNN$+$deepness) with 101 layers. Essa usa le skip connections, ovvero gli archi sopra ciascun blocco, per risolvere i prolemi legati alla computazione del gradiente.}
   \label{fig:resnet101}
@@ -256,12 +256,15 @@ For our evaluations we decided to consider the AP as is defined metric by COCO, 
 
 \section{Experiments}
 \label{sec:experiments}
-Di seguito presentiamo gli eseperimenti pi\`u significativi che ci hanno portato a definire gli \textit{ideal models}.
+%Di seguito presentiamo gli eseperimenti pi\`u significativi che ci hanno portato a definire gli \textit{ideal models}.
+In the following we present the most significant experiments that led us to define the \textit{ideal models}.
 
 
 \subsection{Backbone}
 \label{experiments:second_trial}
-
+For the experiments on the backbone ResNet we decided to test depths and features.
+The depths were 50 and 101, the features depended on the method being tested.
+%Per gli esperimenti sulla backbone di ResNet~\cite{Authors5_ResNet} abbiamo deciso di testare depth and features. Le depths sono state 50 e 101, le features sono dipese dal metodo oggetto dell'esperimento.
 
 \begin{table}[H]
 \scriptsize
@@ -276,18 +279,19 @@ Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 24.437\\ mask AP: 20.327\end{tabular} & \begin{tabular}[c]{ccc}box AP: 16.865 \\ mask AP: 16.017 \end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-C4 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 30.888\\ mask AP: 24.562 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.459 \\ mask AP: 19.331\end{tabular} \\
+\begin{tabular}[c]{cc}\textit{Mask R-CNN:} \\ \textit{ResNet-101-C4} \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 30.888}\\ \textit{mask AP: 24.562} \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 20.459} \\ \textit{mask AP: 19.331}\end{tabular} \\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP: 29.125\\ mask AP: 24.062\\ \end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.391\\ mask AP: 18.529\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.563 \\ mask AP: 24.676\end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.024\\ mask AP: 17.994\end{tabular}  \\
+\begin{tabular}[c]{cc}\textbf{Mask R-CNN:} \\ \textbf{ResNet-101-FPN} \end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 28.563} \\ \textbf{mask AP: 24.676}\end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 19.024}\\ \textbf{mask AP: 17.994}\end{tabular}  \\
 \hline
 \end{tabular}
 \end{center}
-\label{mytable_backbone_Mask-RCNN}
 \caption{Experiments on \textit{backbone} Mask R-CNN}
+\label{tab1}
 \end{table}
-Per gli esperimenti sulla backbone di ResNet~\cite{Authors5_ResNet} abbiamo deciso di testare depth and features, mantenendo la network fissa su ResNet. Le depths sono state 50 e 101 e le features C4, DC5 e FPN. Dai risultati riportati in tabella \ref{mytable_backbone_Mask-RCNN} sembra che l'architettura pi\`u performante sia ResNet-101-C4 (\textit{Cityscapes}: 30.888 box and 24.562 mask, \textit{WildDash}: 20.459 box and 19.331 mask). Tuttavia questo va in controtendenza con quanto definito nel paper di Mask R-CNN~\cite{Authors1_maskrcnn}, da cui risulta che l'estrazione delle features al 4 stage \`e meno accurato dell'approccio bottom up and top down di FPN ~\cite{FPN}. Ci siamo spiegati questa incongruenza con i limiti computazioni di Colab, che ci hanno vincolato a lavorare con sole 4 000 iterazioni. Probabilmente sono un numero troppo basso che non  ci hanno permesso di cogliere le reali potenzialit\`a e limiti di ciascuna backbone testata. Prova di ci\`o sta il fatto che uno stesso esperimento, eseguito pi\`u volte, poteva subire una variazione di precisione fino al 2\%. A seguito di quanto appena affermato, abbiamo deciso di considerare come architettura ottimale per Mask R-CNN ResNet-101-FPN.
+The features of Mask R-CNN that we decided to test were C4, DC5 and FPN. From the results shown in the Table \ref{tab1}, it appears that the best performing architecture is the \textit{ResNet-101-C4} architecture. However, this runs counter to what is defined in Mask's paper R-CNN~\cite{Authors1_maskrcnn}, which shows that 4-stage features extraction is less accurate than the bottom up and top down approach of FPN~\cite{FPN}. We explained this inconsistency by the computational limitations of Colab, which constrained us to work with only 4 000 iterations. Probably, they are too small a number which did not allow us to grasp the real potential and limitations of each featurs tested.  Proof of this, is the fact that the same experiment, performed several times, could undergo a variation in accuracy of up to 2\%. As a result of the above, we have decided to consider ResNet-101-FPN as the best performing architecture for Mask R-CNN.
+%Le features di Mask R-CNN che abbiamo deciso di testare sono state C4, DC5 e FPN. Dai risultati riportati in tabella \ref{tab1} sembra che l'architettura pi\`u performante sia \textit{ResNet-101-C4}. Tuttavia questo va in controtendenza con quanto definito nel paper di Mask R-CNN~\cite{Authors1_maskrcnn}, da cui risulta che l'estrazione delle features al 4 stage \`e meno accurato dell'approccio bottom up and top down di FPN ~\cite{FPN}. Ci siamo spiegati questa incongruenza con i limiti computazioni di Colab, che ci hanno vincolato a lavorare con sole 4 000 iterazioni. Probabilmente sono un numero troppo basso che non  ci hanno permesso di cogliere le reali potenzialit\`a e limiti di ciascuna featurs testata. Prova di ci\`o sta il fatto che uno stesso esperimento, eseguito pi\`u volte, poteva subire una variazione di precisione fino al 2\%. A seguito di quanto appena affermato, abbiamo deciso di considerare come architettura pi\`u performante di Mask R-CNN \textit{ResNet-101-FPN}.
 
 
 
@@ -296,53 +300,76 @@ Per gli esperimenti sulla backbone di ResNet~\cite{Authors5_ResNet} abbiamo deci
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Method & \textit{Cityscapes} & \textit{WildDash}\\
+Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{cc}BlendMask: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 30.129 \\ mask AP: 25.325\end{tabular} & \begin{tabular}[c]{ccc}box AP: 20.225 \\ mask AP: 19.810\end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}\textbf{BlendMask:} \\ \textbf{ResNet-101-FPN} \end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP:30.922}\\ \textbf{mask AP: 25.922} \end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 20.347} \\ \textbf{mask AP: 20.162}\end{tabular} \\
 \hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ dcni \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{cc}\textit{BlendMask:} \\ \textit{ResNet-101-FPN $+$ dcni} \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 32.196}\\ \textit{mask AP: 27.212}\end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 21.047}\\ \textit{mask AP:  21.222}\end{tabular} \\
 \hline
 \end{tabular}
 \end{center}
-\label{mytable_backbone_Blendmask}
 \caption{Experiments on \textit{backbone} BlendMask.}
+\label{tab2}
 \end{table}
+For BlendMask, the features we have considered have always been extracted with FPN; however, we thought it interesting to also test a ResNet backbone with interval 3 convolution (dcni). As can be seen from the results, which we have reported in Table 2, an increase in depth is also accompanied by an increase in accuracy. In addition, the application of deformation achieves even better results. In this case, the low number of iterations allowed us to obtain sufficiently clear results, probably due to the fact that the features we tested was always FPN.  Although the best results were obtained for ResNet-101-FPN $+$ dcni, we still decided to continue the BlendMask experiments with ResNet-101-FTN, for uniformity of comparison with Mask R-CNN.
+%Per BlendMask, le features che abbiamo considerato sono sempre state estratte con FPN; abbiamo per\`o ritenuto interessante testare anche una backbone ResNet con convoluzione a intervallo 3 (dcni). Come si pu\`o vedere dai risultati, che abbiamo riportato in tabella \ref{tab2}, a un aumento della profondit\`a si accompagna anche una maggiore precisione. Inoltre l'applicazione della deformazione ottiene risultati ancora migliori. In questo caso il numero basso di iterazioni ci ha permesso comunque di ottenere dei risultati sufficientemente chiari, dovuto probabilmente al fatto che la feature che abbiamo testato \`e sempre stata FPN. Anche se i risultati migliori li abbiamo ottenuti per ResNet-101-FPN $+$ dcni abbiamo comunque deciso di continuare gli esperimenti successivi di BlendMask con \textit{ResNet-101-FTN}, per uniformit\`a di confronto con Mask R-CNN.
+
 
 
 \subsection{Freeze layers}
+Per gli esperimenti sul numero di layer freezati abbiamo deciso di sperimentare cosa accade se freeziamo conv1, conv2 e conv3 (freeze 3-th) e conv1, conv2, conv3 e conv4 (freeze 4-th). I risultati ottenuti gli abbiamo confrontati anche con l'architettura ottenuta dagli eperimenti precedenti (freeze at 2-th). Abbiamo deciso di omettere il caso freeze at 1-th, a causa della ridotta dimensionalit\`a dei nostri dataset e del numero di iterazioni, che farebbero venire meno i vantaggi dalla rete preaddestrata.
 
 \begin{table}[H]
 \scriptsize
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Method & \textit{Cityscapes} & \textit{WildDash}\\
+Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ 1 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \\\end{tabular} \\
+\begin{tabular}[c]{ccc}\textbf{Mask R-CNN:} \\ \textbf{ResNet-101-FPN} \end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 28.563}\\ \textbf{mask AP: 24.676}\end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 19.024} \\ \textbf{mask AP: 17.994}\\\end{tabular} \\
 \hline
-\begin{tabular}[c]{ccc}BlendMask: \\ ResNet-101-FPN $+$ \\ 1 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ freeze at 3-th \end{tabular} & \begin{tabular}[c]{ccc}box AP: 26.297\\ mask AP: 22.179 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.132 \\ mask AP: 18.224\\\end{tabular} \\
 \hline
-\begin{tabular}[c]{ccc}Mask R-CNN: \\ ResNet-101-FPN $+$ \\ 4 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP: \end{tabular} \\
-\hline
-\begin{tabular}[c]{ccc}BlendMask: \\ ResNet-101-FPN $+$ \\ 4 freeze layer \end{tabular} & \begin{tabular}[c]{ccc}box AP:\\ mask AP: \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} \\
+\begin{tabular}[c]{ccc}Mask R-CNN: \\ \textit{ResNet-101-FPN $+$} \\ \textit{freeze at 4-th } \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 24.032}\\ \textit{mask AP: 20.643}\end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 19.824} \\ \textit{mask AP: 18.448}\end{tabular} \\
 \hline
 \end{tabular}
 \end{center}
-\caption{Experiments on \textit{freeze layers}.}
-\label{mytable_freeze_BlendMask}
+\caption{Experiments on \textit{freeze layers} Mask R-CNN.}
+\label{tab3}
 \end{table}
 
-\subsection{Decoder}
 \begin{table}[H]
 \scriptsize
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Method & \textit{Cityscapes} & \textit{WildDash}\\
+Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ ProtoNet  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
+\begin{tabular}[c]{ccc}\textbf{BlendMask:} \\ \textbf{ResNet-101-FPN}\end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 30.922}\\ \textbf{mask AP: 25.922}\end{tabular} & \begin{tabular}[c]{ccc}\textbf{box AP: 20.347} \\ \textbf{mask AP: 20.162}\end{tabular} \\
+\hline
+\begin{tabular}[c]{ccc}BlendMask: \\ ResNet-101-FPN $+$ \\ freeze at 3-th  \end{tabular} & \begin{tabular}[c]{ccc}box AP: 26.111\\ mask AP: 21.764 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 13.898 \\ mask AP: 13.441\end{tabular} \\
+\hline
+\begin{tabular}[c]{ccc}\textit{BlendMask:} \\ \textit{ResNet-101-FPN $+$} \\ \textit{freeze at 4-th} \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 31.379}\\ \textit{mask AP: 26.936} \end{tabular} & \begin{tabular}[c]{ccc}\textit{box AP: 21.597} \\ \textit{mask AP: 20.537}\end{tabular} \\
+\hline
+\end{tabular}
+\end{center}
+\caption{Experiments on \textit{freeze layers} BlendMask.}
+\label{tab4}
+\end{table}
+Dalla Tabella \ref{tab4} appare come BlendMask con freeze at 4-th sembra essere l'architettura pi\`u performante, invece questo non \`e cosi evidente per \textit{Mask R-CNN}, Tabella \ref{tab3}, soprattutto per \textit{Cityscapes}. Queste incongruenze, ancora una volta, le abbiamo connesse al basso numero di iterazioni, soprattutto nel caso di Mask R-CNN, ove le valutazioni delle diverse architetture danno risultati abbastanza simili. Di conseguenza intuiamo che c'\`e un comportamento che sembra essere pi\`u promettente, freeze 4-th, che pu\`o dipendere dalla dimensione importante di conv4; tuttavia non siamo riusciti a ottenere risultati indiscutibili a prova di questo fenomeno.
+
+\subsection{Decoder}
+Per gli esperimenti sul decoder abbiamo confrontato l'architettura ottenuta dai precedenti esperimenti di BlendMask (con ProtoNet~\cite{protonet}) in rapporto a DeepLabv3~\cite{deeplab}.
+\begin{table}[H]
+\scriptsize
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Architecture & \textit{Cityscapes} & \textit{WildDash}\\
+\hline\hline
+\begin{tabular}[c]{cc}BlendMask: \\ ResNet-101-FPN $+$ \\ ProtoNet  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
 \hline
 \begin{tabular}[c]{cc}BlendMask R-CNN: \\ ResNet-101-FPN $+$ \\ DeepLabv3  \end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular} & \begin{tabular}[c]{ccc}box AP: \\ mask AP:\end{tabular}  \\
 \hline
@@ -354,7 +381,7 @@ Method & \textit{Cityscapes} & \textit{WildDash}\\
 
 
 \subsection{Ideal models}
-In conclusione ai nostri esperimenti abbiamo selezionato i seguenti \textit{ideal models} di Mask R-CNN e BlendMask per il task di \textit{Urban Street View} oggetto del nostro lavoro:
+Al termine dei nostri esperimenti abbiamo selezionato i seguenti \textit{ideal models} di Mask R-CNN e BlendMask, che risolvono il task di \textit{Urban Street View} oggetto del nostro lavoro:
 
 \begin{table}[H]
 \scriptsize
@@ -381,12 +408,12 @@ In Figure \ref{fig:result_model_ideal} riportiamo alcune prove di inferenza che 
   \label{fig:result_model_ideal}
 \noindent
 \end{figure}
-Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si presenta pi\`u accurato rispetto a Mask R-CNN sia nel rilevamento della maschera che del box. Tuttavia il tempo di formazione di BlendMask supera quello di Mask R-CNN. Questo ultimo aspetto non rispecchia quanto definito in \cite{Authors2_BlendMask}, che dichiara BlendMask pi\`u preciso e un 20\% pi\`u veloce rispetto a Mask R-CNN. Imputiamo tale condizione esclusivamente al fatto che per le nostre ablazioni abbiamo utilizzato 1 singola GPU (e non 8 come nel paper).
+Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si presenta pi\`u accurato rispetto a Mask R-CNN sia in precisione che in tempo di training e inferenza. Tuttavia i vantaggi ottenuti dal nostro \textit{ideal model} sono sensibilmente inferiori di quanto espresso in \cite{Authors2_BlendMask}: \textit{training time $-...\% $ insted of 20\%; inference time $-\frac{}{}$ instead of $\frac{1}{5}$; mask AP $+..$ instead of $1.4\%$}. Imputiamo tale aspetto esclusivamente al fatto che per le nostre ablazioni abbiamo utilizzato 1 singola GPU (e non 8 come nel paper).
 
 
 
 \section{Conclusion}
-From our experiments we are able to say that one-stage and anchor box-free techniques, suitably modified, perform better than box-based two-stage methods (of which king is Mask R-CNN~\cite{Authors1_maskrcnn}), least in terms of \textit{Average Precision}. These positive effects are probably caused by the hybridisation of top-down and bottom-up methods, and the detection of unanchored objects (as is the case for BlendMask~\cite{Authors2_BlendMask}). In addition, recent studies reported in~\cite{Authors6_SOLOv2} and partly shown in Figure \ref{fig:conclusionSOLOv2}, prove that a box-free stage approach combined with matrix NMS, such as SOLOv2~\cite{Authors6_SOLOv2}, is demonstrated to be very competitive against BlendMask~\cite{Authors2_BlendMask}.
+From our experiments we are able to say that one-stage and anchor box-free techniques, suitably modified, perform better than box-based two-stage methods (of which king is Mask R-CNN~\cite{Authors1_maskrcnn}), least in terms of \textit{Average Precision} and time. These positive effects are probably caused by the hybridisation of top-down and bottom-up methods, and the detection of unanchored objects (as is the case for BlendMask~\cite{Authors2_BlendMask}). In addition, recent studies reported in~\cite{Authors6_SOLOv2} and partly shown in Figure \ref{fig:conclusionSOLOv2}, prove that a box-free stage approach combined with matrix NMS, such as SOLOv2~\cite{Authors6_SOLOv2}, is demonstrated to be very competitive against BlendMask~\cite{Authors2_BlendMask}.
 %Dai nostri esperimenti siamo in grado di dire che le tecniche a uno stadio e box based, opportunamente modificate, funzionano meglio rispetto a metodi ha due stadi (di cui re \`e Mask R-CNN~\cite{Authors1_maskrcnn}),  sia in termini di AP precision che di tempo GPU. Tali effetti positivi sono probabilmente causati dall'ibridazione di metodi top down e bottom up, e dall'rilevamento degli oggetti senza ancoraggio (come accade per BlendMask~\cite{Authors2_BlendMask}).
 %In aggiunta, recenti studi riportati in~\cite{Authors6_SOLOv2} e in parte mostrati in Figure \ref{fig:conclusionSOLOv2}, provano che uno stage approch box-free combinato a matrix NMS, come lo \`e SOLOv2~\cite{Authors6_SOLOv2}, si dimostra molto competitivo nei confronti di BlendMask~\cite{Authors2_BlendMask}.
 \begin{figure}[H]
