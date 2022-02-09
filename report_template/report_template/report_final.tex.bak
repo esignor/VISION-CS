@@ -66,7 +66,7 @@ The architecture of the network, Figure \ref{fig:mask_rcnn}, consists of a CNN (
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.69\linewidth]{./image/maskrcnn.png}
-  \caption{Mask R-CNN architecture. \textit{Source:~\cite{fig1}, pag. 3.}\\ The convolutional \textit{backbones} (in the lower part of the figure) proposed in the paper are C4, C5 and FPN~\cite{FPN}. For \textit{heads} (in the upper part of the figure) the backbone must include the 5-th stage of ResNet~\cite{Authors5_ResNet}, "res5".}%Le convolutional backbones proposte nel paper sono  C4, C5 e FPN. Per le head la backbone deve includere il 5-th stage of
+  \caption{Mask R-CNN architecture. \textit{Source:~\cite{fig1}, pag. 3.} The convolutional \textit{backbones} (in the lower part of the figure) proposed in the paper are C4, C5 and FPN~\cite{FPN}. For \textit{heads} (in the upper part of the figure) the backbone must include the 5-th stage of ResNet~\cite{Authors5_ResNet}, "res5".}%Le convolutional backbones proposte nel paper sono  C4, C5 e FPN. Per le head la backbone deve includere il 5-th stage of
 %ResNet ("res5").}
   \label{fig:mask_rcnn}
 \noindent
@@ -76,7 +76,7 @@ The architecture of the network, Figure \ref{fig:mask_rcnn}, consists of a CNN (
 \begin{figure}[H]
 \centering
   \includegraphics[width=1\linewidth]{./image/blendmask.png}
-  \caption{BlendMask architecture. \textit{Source:~\cite{Authors2_BlendMask}, pag. 3.} \\ The \textit{bottom module} (to left) uses C4/C5 or FPN~\cite{FPN} and produces the bases. In the \textit{top layer} (to right) a single convolution layer is added above the towers and this allows attention masks to be produced. The \textit{blender module} (lower part of the figure), for each instance combining bases linearly with the learned attention maps.}
+  \caption{BlendMask architecture. \textit{Source:~\cite{Authors2_BlendMask}, pag. 3.} The \textit{bottom module} (to left) uses C4/C5 or FPN~\cite{FPN} and produces the bases. In the \textit{top layer} (to right) a single convolution layer is added above the towers and this allows attention masks to be produced. The \textit{blender module} (lower part of the figure), for each instance combining bases linearly with the learned attention maps.}
   %Il modulo inferiore (a destra) usa funzionalit\`a backbone o FPN,  a seconda assume funzioni "C" o "P" come input, e produce le basi. Nel modolo superiore (a sinistra) al di sopra delle torri viene aggiunto un singolo strato di convoluzione, e questo permette di produrre maschere di attenzione, insieme a ciascuna previsione del riquadro di delimitazione. Il modulo di blender (parte bassa della figura), per ogni istanza ritaglia le basi con il suo riquadro di delimitazione, combinadole linearmente con le mappe di attenzione apprese.}
   \label{fig:blendmask}
 \noindent
@@ -161,7 +161,7 @@ We considered ResNet 101, Figure \ref{fig:resnet101}, sufficient for our purpose
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.90\linewidth]{./image/resnet101.png} 
-  \caption{The structure of the ResNet 101. \textit{Source: ~\cite{resnet101_img}, pag. 6.}\\
+  \caption{The structure of the ResNet 101. \textit{Source: ~\cite{resnet101_img}, pag. 6.}
   The figure shows Resnet 101. It uses skip connections, i.e. arcs over each block, to solve the problems associated with gradient computation.}%In figura viene prsentata Resnet 101, una Residual Neural Network (CNN$+$deepness) with 101 layers. Essa usa le skip connections, ovvero gli archi sopra ciascun blocco, per risolvere i prolemi legati alla computazione del gradiente.}
   \label{fig:resnet101}
 \noindent
@@ -172,7 +172,7 @@ For complete the backbone, ResNet~\cite{Authors5_ResNet} it is not enough. Is ne
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.8\linewidth]{./image/FPN.png} 
-  \caption{FPN for object segment proposals. \textit{Source:~\cite{FPN}, pag. 8.}\\
+  \caption{FPN for object segment proposals. \textit{Source:~\cite{FPN}, pag. 8.}
 Each level of the pyramid tries to detect all instances present in an image. A features map/bases is produced for each of these layers, and each will produce a mask. These latter will be combined into a single final mask.}%Ogni livello della piramide cerca di rilevare tutte le istanze presenti in un'immagine. Per ognuno di questi livelli viene prodotta una features map/basi, e ciascuna produrr\`a una maschera. Quest'ultime verranno combinate in un unica maschera finale.}
   \label{fig:FPN}
 \noindent
@@ -188,7 +188,7 @@ We have decided to remain in line with this choice for our model.
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.65\linewidth]{./image/protonet.png} 
-  \caption{Protonet architecture. \textit{Source:~\cite{protonet}, pag. 4.}\\
+  \caption{Protonet architecture. \textit{Source:~\cite{protonet}, pag. 4.}
 The labels denote feature size and channels for an image size of 550 $\times$ 550. Arrows indicate 3 $\times$ 3 conv layers, except for the final conv which is 1 $\times$ 1. The increase in size is an upsample followed by a conv. As can be seen, the last layer has as many channels as k prototypes.}
   \label{fig:protonet}
 \noindent
@@ -291,7 +291,7 @@ Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-50-FPN \end{tabular} & \begin{tabular}[c]{ccc}box AP: 24.437\\ mask AP: 20.327\end{tabular} & \begin{tabular}[c]{ccc}box AP: 16.865 \\ mask AP: 16.017 \end{tabular}  \\
 \hline
-\begin{tabular}[c]{cc}\textit{Mask R-CNN:} \\ \text{ResNet-101-C4} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 30.888}\\ \text{mask AP: 24.562} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 20.459} \\ \text{mask AP: 19.331}\end{tabular} \\
+\begin{tabular}[c]{cc}\text{Mask R-CNN:} \\ \text{ResNet-101-C4} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 30.888}\\ \text{mask AP: 24.562} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 20.459} \\ \text{mask AP: 19.331}\end{tabular} \\
 \hline
 \begin{tabular}[c]{cc}Mask R-CNN: \\ ResNet-101-DC5\end{tabular}& \begin{tabular}[c]{ccc}box AP: 29.125\\ mask AP: 24.062\\ \end{tabular} & \begin{tabular}[c]{ccc}box AP: 19.391\\ mask AP: 18.529\end{tabular} \\
 \hline
@@ -372,7 +372,7 @@ Architecture & \textit{Cityscapes} & \textit{WildDash}\\
 \hline
 \begin{tabular}[c]{ccc}BlendMask: \\ ResNet-101-FPN $+$ \\ freeze at 3-th  \end{tabular} & \begin{tabular}[c]{ccc}box AP: 28.596\\ mask AP: 23.649 \end{tabular} & \begin{tabular}[c]{ccc}box AP: 18.993 \\ mask AP: 17.802\end{tabular} \\
 \hline
-\begin{tabular}[c]{ccc}\textit{BlendMask:} \\ \text{ResNet-101-FPN $+$} \\ \text{freeze at 4-th} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 31.379}\\ \text{mask AP: 26.936} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 21.597} \\ \text{mask AP: 20.537}\end{tabular} \\
+\begin{tabular}[c]{ccc}\text{BlendMask:} \\ \text{ResNet-101-FPN $+$} \\ \text{freeze at 4-th} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 31.379}\\ \text{mask AP: 26.936} \end{tabular} & \begin{tabular}[c]{ccc}\text{box AP: 21.597} \\ \text{mask AP: 20.537}\end{tabular} \\
 \hline
 \end{tabular}
 \end{center}
@@ -427,7 +427,7 @@ From ours experiments we are able to say that one-stage and anchor box-free tech
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.7\linewidth]{./image/conclusion_SOLOv2.png}
-  \caption{Comparison between SOLOv2 and other stage approches. \textit{Source:~\cite{Authors6_SOLOv2}, pag. 2.} \\ Mask R-CNN is box base two-stage approch, the others are box-free or anchor box-free one-stage approch.} %From top to bottom: SOLOv2\cite{Authors6_SOLOv2} and SOLO\cite{solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask~\cite{tensormask} is dense sliding-window one-stage approch; YOLACT~\cite{yolact} is one-stage approch predecessor of \textit{BlendMask}~\cite{Authors2_BlendMask}; PolarMask~\cite{polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask~\cite{Authors2_BlendMask} anchor box-free one-stage approch.}
+  \caption{Comparison between SOLOv2 and other stage approches. \textit{Source:~\cite{Authors6_SOLOv2}, pag. 2.} Mask R-CNN is box base two-stage approch, the others are box-free or anchor box-free one-stage approch.} %From top to bottom: SOLOv2\cite{Authors6_SOLOv2} and SOLO\cite{solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask~\cite{tensormask} is dense sliding-window one-stage approch; YOLACT~\cite{yolact} is one-stage approch predecessor of \textit{BlendMask}~\cite{Authors2_BlendMask}; PolarMask~\cite{polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask~\cite{Authors2_BlendMask} anchor box-free one-stage approch.}
   \label{fig:conclusionSOLOv2}
 \noindent
 \end{figure}
