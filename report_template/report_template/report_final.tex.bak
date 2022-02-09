@@ -394,26 +394,25 @@ At the end of our experiments we selected the following \textit{ideal models}, M
 \hline
 Method & \textit{Cityscapes} & \textit{WildDash}\\
 \hline\hline
-\begin{tabular}[c]{ll}Mask R-CNN: \end{tabular} & \begin{tabular}[c]{cccc}box AP: 28.563 \\ mask AP: 24.676 \\ train-time: 1:08:28 \\infer-time: 0:05:13\end{tabular} & \begin{tabular}[c]{cccc}box AP: 19.024 \\ mask AP: 17.994 \\ train-time: 0:28:50 \\ infer-time: 0:03:36\end{tabular} \\
+\begin{tabular}[c]{ll}Mask R-CNN: \end{tabular} & \begin{tabular}[c]{cccc}box AP: 28.563 \\ mask AP: 24.676 \\ train-time: 1:08:28 \\infer-time: 0:05:13\end{tabular} & \begin{tabular}[c]{cccc}box AP: 19.024 \\ mask AP: 17.994 \\ train-time: 1:13:20 \\ infer-time: 0:08:03\end{tabular} \\
 \hline
-\begin{tabular}[l]{cc}BlendMask: \end{tabular} & \begin{tabular}[l]{cccccccc}box AP: 30.922 \\($+$2.36 AP )\\ mask AP: 25.922 \\($+$1.25 AP, $+$1.4 AP~\cite{Authors2_BlendMask}) \\ train-time: 0:43:01 \\($-$30\%, $-$20\%~\cite{Authors2_BlendMask}) \\infer-time: 0:12:05 \\($+$131\%, $-$80\%~\cite{Authors2_BlendMask}))\end{tabular} & \begin{tabular}[l]{cccccccc}box AP: 20.347 \\($+$1.32 AP)\\ mask AP: 20.162 \\($+$2.17 AP, $+$1.4 AP~\cite{Authors2_BlendMask})\\ train- time: 0:47:19 \\($+$64\%, $-$20\%~\cite{Authors2_BlendMask})\\ infer-time: 0:15:45 \\($+$338\%, $-$80\%~\cite{Authors2_BlendMask}))\end{tabular} \\
+\begin{tabular}[l]{cc}BlendMask: \end{tabular} & \begin{tabular}[l]{cccccccc}box AP: 30.922 \\($+$2.36 AP )\\ mask AP: 25.922 \\($+$1.25 AP, $+$1.4 AP~\cite{Authors2_BlendMask}) \\ train-time: 0:43:01 \\($-$37\%, $-$20\%~\cite{Authors2_BlendMask}) \\infer-time: 0:12:05 \\($+$131\%, $-$80\%~\cite{Authors2_BlendMask}))\end{tabular} & \begin{tabular}[l]{cccccccc}box AP: 20.347 \\($+$1.32 AP)\\ mask AP: 20.162 \\($+$2.17 AP, $+$1.4 AP~\cite{Authors2_BlendMask})\\ train- time: 0:47:19 \\($-$36\%, $-$20\%~\cite{Authors2_BlendMask})\\ infer-time: 0:15:45 \\($+$96\%, $-$80\%~\cite{Authors2_BlendMask}))\end{tabular} \\
 \hline
 \end{tabular}
 \end{center}
+
 \caption{Results \textit{ideal models}: the architecture is ResNet-101-FPN with freeze at 2-th. In brackets are the improvements of \textit{BlendMask ideal model} compared to \textit{Mask R-CNN ideal model}, and follow the improvements in the reference paper~\cite{Authors2_BlendMask}, when exist.}
 \label{mytable_ideal_models}
 \end{table}
-216 sec
-945 sec
 \begin{figure}[H]
 \centering
- \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_city.png} 
-   \includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}  	\includegraphics[width=0.45\linewidth]{./image/ideal_model_mask_wd.png}   
-  \caption{\textit{Models ideal results}: mask image (to left) and blend image (to right). First row is \textit{Cityscapes} dataset and second row is \textit{WildDash} dataset.}
+ \includegraphics[width=0.45\linewidth]{./image/city_mask.png} \includegraphics[width=0.45\linewidth]{./image/city_blend.jpg} 
+   \includegraphics[width=0.45\linewidth]{./image/wd_mask.png}  	\includegraphics[width=0.45\linewidth]{./image/wd_blend.jpg}   
+  \caption{\textit{Models ideal results}: mask image (to left) and blend image (to right). First row is \textit{Cityscapes} dataset and second row is \textit{WildDash} dataset. BlendMask suffers more from the low number of iterations and the small size of the datasets, than Mask R-CNN. This can result in a slightly lower instance recognition score.}
   \label{fig:result_model_ideal}
 \noindent
 \end{figure}
-As confirmed also by the Table \ref{mytable_ideal_models}, BlendMask is more accurate than Mask R-CNN both in precision and in training and inference time. However, the benefits obtained by our \textit{ideal model} are significantly lower than those expressed in \cite{Authors2_BlendMask} We attribute this to the fact that we used 1 single GPU and only 2 000 iterations for our ablations.
+As confirmed also by the Table \ref{mytable_ideal_models}, BlendMask is more accurate than Mask R-CNN both in precision and in training. However, the benefits obtained by our \textit{ideal model} are significantly lower than those expressed in \cite{Authors2_BlendMask} We attribute this to the fact that we used 1 single GPU and only 2 000 iterations for our ablations.
 In Figure \ref{fig:result_model_ideal} we report some inference tests we obtained from our \textit{ideal models}.
 
 %Come confermato anche dalla tabella \ref{mytable_ideal_models}, BlendMask si presenta pi\`u accurato rispetto a Mask R-CNN sia in precisione che in tempo di training e inferenza. Tuttavia i vantaggi ottenuti dal nostro \textit{ideal model} sono sensibilmente inferiori di quanto espresso in \cite{Authors2_BlendMask}. Imputiamo tale aspetto al fatto che per le nostre ablazioni abbiamo utilizzato 1 singola GPU e solo 4 000 iterazioni.
@@ -428,7 +427,7 @@ From our experiments we are able to say that one-stage and anchor box-free techn
 \begin{figure}[H]
 \centering
   \includegraphics[width=0.7\linewidth]{./image/conclusion_SOLOv2.png}
-  \caption{Comparison between SOLOv2 and other stage approches. \textit{Source:~\cite{Authors6_SOLOv2}, pag. 2.}}% %From top to bottom: SOLOv2\cite{Authors6_SOLOv2} and SOLO\cite{solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask~\cite{tensormask} is dense sliding-window one-stage approch; YOLACT~\cite{yolact} is one-stage approch predecessor of \textit{BlendMask}~\cite{Authors2_BlendMask}; PolarMask~\cite{polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask~\cite{Authors2_BlendMask} anchor box-free one-stage approch.}
+  \caption{Comparison between SOLOv2 and other stage approches. \textit{Source:~\cite{Authors6_SOLOv2}, pag. 2.} \\ Mask R-CNN is box base two-stage approch, the others are box-free/anchor box-free one-stage approch.} %From top to bottom: SOLOv2\cite{Authors6_SOLOv2} and SOLO\cite{solo} are box-free one-stage approch; Mask R-CNN is box-based two-stage approch; TensorMask~\cite{tensormask} is dense sliding-window one-stage approch; YOLACT~\cite{yolact} is one-stage approch predecessor of \textit{BlendMask}~\cite{Authors2_BlendMask}; PolarMask~\cite{polarmask} anchor box-free, single shot instance segmentation one-stage approch; BlendMask~\cite{Authors2_BlendMask} anchor box-free one-stage approch.}
   \label{fig:conclusionSOLOv2}
 \noindent
 \end{figure}
