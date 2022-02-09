@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  8 FEB 2022 21:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.5.4)  9 FEB 2022 02:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,72 +455,72 @@ Overfull \hbox (5.48805pt too wide) in paragraph at lines 315--326
  []
 
 [5]
-Overfull \hbox (7.37698pt too wide) in paragraph at lines 393--402
+Overfull \hbox (19.82373pt too wide) in paragraph at lines 393--402
  [] 
  []
 
-<./image/ideal_model_mask_city.png, id=199, 1027.84pt x 513.92pt>
+<./image/ideal_model_mask_city.png, id=207, 1027.84pt x 513.92pt>
 File: ./image/ideal_model_mask_city.png Graphic file (type png)
 <use ./image/ideal_model_mask_city.png>
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
-409.
+410.
 (pdftex.def)             Requested size: 106.71045pt x 53.34761pt.
 File: ./image/ideal_model_mask_city.png Graphic file (type png)
 <use ./image/ideal_model_mask_city.png>
 Package pdftex.def Info: ./image/ideal_model_mask_city.png  used on input line 
-409.
+410.
 (pdftex.def)             Requested size: 106.71045pt x 53.34761pt.
-<./image/ideal_model_mask_wd.png, id=200, 963.6pt x 542.025pt>
+<./image/ideal_model_mask_wd.png, id=208, 963.6pt x 542.025pt>
 File: ./image/ideal_model_mask_wd.png Graphic file (type png)
 <use ./image/ideal_model_mask_wd.png>
 Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 41
-0.
+1.
 (pdftex.def)             Requested size: 106.71045pt x 60.01991pt.
 File: ./image/ideal_model_mask_wd.png Graphic file (type png)
 <use ./image/ideal_model_mask_wd.png>
 Package pdftex.def Info: ./image/ideal_model_mask_wd.png  used on input line 41
-0.
+1.
 (pdftex.def)             Requested size: 106.71045pt x 60.01991pt.
-<./image/conclusion_SOLOv2.png, id=209, 669.50125pt x 524.96124pt>
+<./image/conclusion_SOLOv2.png, id=217, 669.50125pt x 524.96124pt>
 File: ./image/conclusion_SOLOv2.png Graphic file (type png)
 <use ./image/conclusion_SOLOv2.png>
-Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 429.
+Package pdftex.def Info: ./image/conclusion_SOLOv2.png  used on input line 430.
 
 (pdftex.def)             Requested size: 165.99443pt x 130.1586pt.
-<./image/conclusion_deepsnake.png, id=214, 891.33pt x 283.0575pt>
+<./image/conclusion_deepsnake.png, id=222, 891.33pt x 283.0575pt>
 File: ./image/conclusion_deepsnake.png Graphic file (type png)
 <use ./image/conclusion_deepsnake.png>
 Package pdftex.def Info: ./image/conclusion_deepsnake.png  used on input line 4
-39.
+40.
 (pdftex.def)             Requested size: 237.13594pt x 75.30789pt.
-
-Underfull \hbox (badness 1596) in paragraph at lines 455--457
-[]\OT1/ptm/m/n/10 Tsung-Yi Lin, Michael Maire, Serge J. Be-longie,
- []
-
 [6 <./image/ideal_model_mask_city.png (PNG copy)> <./image/ideal_model_mask_wd.
 png (PNG copy)> <./image/conclusion_SOLOv2.png> <./image/conclusion_deepsnake.p
 ng>]
-Underfull \hbox (badness 3965) in paragraph at lines 470--472
+Underfull \hbox (badness 1596) in paragraph at lines 456--458
+[]\OT1/ptm/m/n/10 Tsung-Yi Lin, Michael Maire, Serge J. Be-longie,
+ []
+
+
+Underfull \hbox (badness 3965) in paragraph at lines 471--473
 \OT1/ptm/m/n/10 Chun-hua Shen. SOLOv2: Dy-namic, Faster and
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 523.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 524.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 523.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 524.
  (./report_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 523.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 523.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 524.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 524.
 
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 523.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 524.
  ) 
 Here is how much of TeX's memory you used:
  6934 strings out of 482552
  102115 string characters out of 5948615
- 376289 words of memory out of 5000000
+ 376476 words of memory out of 5000000
  21745 multiletter control sequences out of 15000+600000
  562487 words of font info for 87 fonts, out of 8000000 for 9000
  372 hyphenation exceptions out of 8191
@@ -538,10 +538,10 @@ y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
 exlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-di
 st/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on report_final.pdf (7 pages, 6618291 bytes).
+Output written on report_final.pdf (7 pages, 6618756 bytes).
 PDF statistics:
- 301 PDF objects out of 1000 (max. 8388607)
- 242 compressed objects within 3 object streams
+ 309 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
  75 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 
