@@ -75,7 +75,7 @@ The architecture of the network, Figure \ref{fig:mask_rcnn}, consists of a CNN (
 %\indent BlendMask~\cite{Authors2_BlendMask} deriva dai limiti di Mask R-CNN~\cite{Authors1_maskrcnn}. Gli autori del paper definiscono come Mask R-CNN~\cite{Authors1_maskrcnn} vincoli fortemente la velocit\`a e la qualit\`a di generazione delle maschere alle heads, facendo cos\`i fatica a trattare scenari complicati e ponendo un limite alla risoluzione delle maschere. Inoltre Mask R-CNN~\cite{Authors1_maskrcnn} si presenta come un framework poco flessibile per reti multi-task. Hanno cos\`i cercato di cobinare strategie di ricerca dall'alto verso il basso e dal basso verso l'alto in FCOS~\cite{fcos}, one stage approch, che sembra in grado di superare le controparti a due stadi in termini di precisione. L'architettura di BlendMask~\cite{Authors2_BlendMask}, Figure \ref{fig:blendmask}, si compone di un detector network e di una mask branch. Quest'ultima \`e partizionata in 3 parti: il modulo inferiore che si occupa di prevedere le scores map, chiamate basi; the top layer composto da un singolo strato di convoluzione e da torri, tante quante sono le input features, con il compito di predirre attention instance; e un modulo blender che unisce scores con attenzioni.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=1\linewidth]{./image/blendmask.png}
+  \includegraphics[width=1\linewidth]{./image/blendmask}
   \caption{BlendMask architecture. \textit{Source:~\cite{Authors2_BlendMask}, pag. 3.} The \textit{bottom module} (to left) uses C4/C5 or FPN~\cite{FPN} and produces the bases. In the \textit{top layer} (to right) a single convolution layer is added above the towers and this allows attention masks to be produced. The \textit{blender module} (lower part of the figure), for each instance, combining bases linearly with the learned attention maps.}
   %Il modulo inferiore (a destra) usa funzionalit\`a backbone o FPN,  a seconda assume funzioni "C" o "P" come input, e produce le basi. Nel modolo superiore (a sinistra) al di sopra delle torri viene aggiunto un singolo strato di convoluzione, e questo permette di produrre maschere di attenzione, insieme a ciascuna previsione del riquadro di delimitazione. Il modulo di blender (parte bassa della figura), per ogni istanza ritaglia le basi con il suo riquadro di delimitazione, combinadole linearmente con le mappe di attenzione apprese.}
   \label{fig:blendmask}
@@ -136,7 +136,7 @@ In Figure \ref{fig:class_definitions_wd} we report the classes and the number of
 %In Figura \ref{fig:class_definitions_wd}, riportiamo le classi e il numero di occorrenze in \textit{public gt package train}. Il numero di classi complessive sono 13.
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.95\linewidth]{./image/wd_class.png} 
+  \includegraphics[width=0.95\linewidth]{./image/wd_class} 
   \caption{\textit{WildDash}: definitions of train dataset classes.} %\\ The classes considered "dangerous" for a good generalisation of a model are \textit{caravan} (46), \textit{trailer} (65) and \textit{train} (74).}
   \label{fig:class_definitions_wd}
 \noindent
