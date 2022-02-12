@@ -199,7 +199,7 @@ The labels denote feature size and channels for an image size of 550 $\times$ 55
 \subsection{Hyperparameters configuration}
 For the choice of models hyperparameters we tried to keep the default ones as defined in the libraries \textit{Detectron2} and \textit{AdelaiDet} which are the same as those defined in the papers \cite{Authors1_maskrcnn, Authors2_BlendMask}. We only modified those that did not allow us to run on Colab, namely the number of iterations to 4000 for Mask R-CNN and 2000 for BlendMask and the number of batch sizes per image to 128.
 %Per la scelta degli iperparametri dei modelli, abbiamo cercato di mantenere quelli di default cos\`i come definiti nelle librerie \textit{Detectron2} and \textit{AdelaiDet}, che sono i medesimi definiti all'interno dei papers \cite{Authors1_maskrcnn, Authors2_BlendMask}. Abbiamo esclusivamente modificato quelli che non ci permettevano l'esecuzione su  Coolab, ovvero il numero di iterazioni a 4 000 per Mask R-CNN e 2 000 per BlendMask e il numero di batch size per immagine a 128.
-\subsection{Loss function}
+\subsection{Loss functions}
 The loss we used during the training of Mask R-CNN, defined in \cite{Authors1_maskrcnn}, is as follows:
 %La loss che abbiamo utilizzato durante il training di Mask R-CNN, definita in \cite{Authors1_maskrcnn}, \`e la seguente:
 \begin{equation}
@@ -386,7 +386,7 @@ From Table \ref{tab4} it appears that BlendMask frozen at 4th seems to be the mo
 
 \subsection{Ideal models}
 %Al termine dei nostri esperimenti abbiamo selezionato i seguenti \textit{ideal models}, Mask R-CNN e BlendMask, per risolvere il task di \textit{Urban Street View}:
-At the end of our experiments we selected the following \textit{ideal models} to solve the \textit{Urban Street View} task:
+At the end of our experiments we selected the following \textit{ideal models} to solve the \textit{Urban Street Scenes} task:
 
 \begin{table}[H]
 \scriptsize
